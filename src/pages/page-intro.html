@@ -1,0 +1,71 @@
+<!--
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    Intro (page)
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../components/component-page.html">
+
+
+<dom-module id="page-intro">
+<template>
+
+    <style>
+    :host {
+        display: block;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+    }
+
+    .background {  }
+    .foreground { transform: translate(0, -40px); }
+
+    img { width: 100%; }
+    </style>
+
+
+<!--  Content
+---------------------------------------------------------------------------------------------------------------->
+    <component-page grid="vertical" layout="center-center" min-height="1">
+
+        <section flex="none" grid="vertical" layout="center-center">
+            <div width=".5" mobile-width=".9" tablet-width=".75">
+                <h1 text="1" mobile-text="headline" align="center" margin-y="1">Sulphur Fuel Injection</h1>
+                <h2 hidden>Diesel Fuel Pumps, Diesel Fuel Injectors, Diesel Rebuilds and more!</h2>
+
+                <p margin-b="3" mobile-margin-b="1">
+                    In business since 1952, we at SFI provide our
+                    customers with quality service using the latest and most effective equipment.
+                    Our technicians are highly qualified and factory trained in all the latest
+                    technology to provide you with the reliable service you deserve and expect.
+                </p>
+            </div>
+        </section>
+
+        <section flex="5" grid="vertical" layout="start-center">
+            <div width=".33" mobile-width=".75" tablet-width=".5">
+                <img class="background" src="../images/animation-intro-bg.svg" alt="Mountains and Hills Flat Design" />
+                <img class="foreground" src="../images/animation-intro-fg.svg" alt="Diesel Truck Flat Design" />
+            </div>
+        </section>
+
+        <fx-skew flex="1" bg="yellow" color="black" type="primary">
+            <span text="1" style="uppercase">You're dedicated to serving your customers.</span>
+        </fx-skew>
+
+    </component-page>
+
+<!--  Content
+---------------------------------------------------------------------------------------------------------------->
+</template>
+
+    <script>
+
+        Polymer({
+          is: "page-intro"
+
+        });
+
+    </script>
+
+</dom-module>

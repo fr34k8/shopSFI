@@ -1,0 +1,132 @@
+<!--
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    _FOOTER (component)
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
+
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/social-media-icons/social-media-icons.html">
+<link rel="import" href="../../bower_components/iron-label/iron-label.html">
+<link rel="import" href="../../bower_components/steel-properties/steel-classes.html">
+<link rel="import" href="../../bower_components/fx-skew/fx-skew.html">
+
+<link rel="import" href="../../images/icons/logo-icons.html">
+<link rel="import" href="../../images/icons/business-icons.html">
+<!-- <link rel="import" href="component-popout.html"> -->
+
+<dom-module id="component-footer">
+
+    <style>
+    :host {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+        footer { position: relative; z-index: 1; }
+        h4 { color: #fff; font-weight: 100; margin: 0 0 .5rem; text-transform: uppercase;     }
+        a { color: rgb(247, 255, 40); opacity: .42; transition: opacity .22s ease-in-out;     }
+        a:hover { color: rgb(247, 255, 40); opacity: 1; transition: opacity .22s ease-in-out; }
+
+        iron-label a               { color: white; opacity: .5; transition: opacity .22s ease-in-out; font-size: 14px; }
+        iron-label iron-icon       { color: white; opacity: 1; transition: opacity .22s ease-in-out; width: 20px; }
+        iron-label:hover iron-icon { color: rgb(247, 255, 40); opacity: 1; transition: all .22s ease-in-out; width: 20px; }
+        iron-label:hover *         { opacity: 1; transition: opacity .22s ease-in-out; }
+
+        social-media-icons         { line-height: 0; opacity: .5; margin: 0 1rem 0 0; transition: opacity .22s ease-in-out; border: 1px solid rgb(247, 255, 40); padding: 4px; border-radius: 5px; }
+        social-media-icons:hover   { cursor: pointer; opacity: 1; transition: opacity .22s ease-in-out; }
+
+        .footer-bottom             { background: rgba(0,0,0, .07); }
+        .footer-bottom *           { opacity: .12; transition: opacity .22s ease-in-out; }
+        .footer-bottom:hover *     { opacity: .22; transition: opacity .22s ease-in-out; }
+
+        .wrapper { margin: 0 auto; }
+
+        main { margin: 0 auto; }
+    </style>
+
+    <style is="custom-style">
+        .logo {
+            --iron-icon-fill-color: rgba(0,0,0, 1);
+            --iron-icon-height: 64px;
+            --iron-icon-width: 64px;
+          }
+    </style>
+
+    <template>
+        <fx-skew class="bg-gray"></fx-skew>
+
+        <footer class="grid-vertical wrap-no bg-gray">
+
+            <!-- Footer Top -->
+            <section class="wrapper grid-horizontal mobile-grid-vertical layout-between-between mobile-layout-center-start width-75 mobile-width-90 tablet-width-90 padding-b-3 text-normal">
+
+
+                <div grid="vertical" layout="start-stretch" flex="1" mobile-margin-b="2">
+                    <h4>Learn More</h4>
+
+                    <a href="#Services">Services</a>
+                    <a href="#Company">Company</a>
+                    <a href="#Testimonials">Testimonials</a>
+                    <a href="#Contact">Contact</a>
+                </div>
+
+                <div grid="vertical" layout="start-stretch" flex="1" mobile-margin-b="2">
+                    <h4>Legal</h4>
+
+                    <a href="#Policy">Privacy Policy</a>
+                    <a href="#Terms">Terms & Conditions</a>
+                </div>
+
+                <div grid="vertical" flex="1" tablet-flex="2" mobile-margin-b="2" layout="start-stretch">
+                    <h4>Connect</h4>
+
+                    <div grid="vertical" layout="start-start" margin-b="1">
+                        <iron-label>
+                            <iron-icon icon="business:phone" margin-r=".5"></iron-icon>
+                            <a href="#">1(337)626-0004</a>
+                        </iron-label>
+
+                        <iron-label>
+                            <iron-icon icon="business:mail" margin-r=".5"></iron-icon>
+                            <a href="#">sales@sulphurfuelinjection.com</a>
+                        </iron-label>
+
+                        <iron-label>
+                            <iron-icon icon="business:place" margin-r=".5"></iron-icon>
+                            <a href="#">121 Industrial Dr, Sulphur, LA 70663</a>
+                        </iron-label>
+
+                        <iron-label>
+                            <iron-icon icon="business:access-time" margin-r=".5"></iron-icon>
+                            <a href="#">Monday - Friday | 8am - 5pm</a>
+                        </iron-label>
+                    </div>
+
+                    <div grid="horizontal">
+                        <social-media-icons icon="facebook" color="yellow"></social-media-icons>
+                        <social-media-icons icon="youtube"  color="yellow"></social-media-icons>
+                        <social-media-icons icon="twitter"  color="yellow"></social-media-icons>
+                        <social-media-icons icon="linkedin" color="yellow"></social-media-icons>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- Footer Bottom -->
+            <section flex="auto" grid="horizontal" layout="center-center" class="footer-bottom">
+                    <iron-icon icon="logo-icons:logo" class="logo" margin-r=".5"></iron-icon>
+                    <span color="black">Copyright © 2016</span>
+            </section>
+        </footer>
+    </template>
+
+
+<script>
+    Polymer({
+
+        is: 'component-footer'
+
+    });
+</script>
+
+</dom-module>

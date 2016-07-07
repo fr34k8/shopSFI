@@ -1,0 +1,88 @@
+<!--
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    HERO (header)
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
+<link rel="import" href="../../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../../bower_components/iron-media-query/iron-media-query.html">
+<link rel="import" href="../../../bower_components/steel-properties/steel-classes.html">
+<link rel="import" href="../../../bower_components/fx-arrows/fx-arrows.html">
+
+<link rel="import" href="../../images/logo-icons.html">
+<link rel="import" href="../component-page.html">
+
+
+
+
+
+
+<dom-module id="header-toolbar">
+<template>
+
+    <style>
+    :host {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .logo { color: yellow; width: 64px; height: 64px; opacity: .78; }
+
+    </style>
+
+
+<!--  Media Queries
+---------------------------------------------------------------------------------------------------------------->
+<iron-media-query query="(min-width: 0) and (max-width: 768px)" query-matches="{{mobile}}"></iron-media-query>
+<iron-media-query query="(min-width: 769px) and (max-width: 1024px)" query-matches="{{tablet}}"></iron-media-query>
+<iron-media-query query="(min-width: 1025px)" query-matches="{{desktop}}"></iron-media-query>
+
+
+<!--  Content
+---------------------------------------------------------------------------------------------------------------->
+    <div self="center" hidden$="{{!mobile}}">
+        <content select=".toolbar-drawer"></content>
+    </div>
+
+    <div self="center" grid="horizontal" layout="center-center" hidden$="{{mobile}}">
+        <a href="/">
+            <iron-icon icon="logo-icons:logo" class="logo"></iron-icon>
+        </a>
+
+        <span margin-l="1" color="white">1(337)626-0004</span>
+    </div>
+
+    <div self="end">
+        <content select=".toolbar-links"></content>
+    </div>
+
+</template>
+
+<!--  Content
+---------------------------------------------------------------------------------------------------------------->
+
+
+
+    <script>
+
+        Polymer({
+          is: 'header-toolbar',
+
+          properties: {
+
+            selected: {
+              type: String,
+              value: 'Home'
+            },
+
+            items: {
+              type: Array,
+              value: function() {
+                return ['Services', 'Company', 'Testimonials', 'Contact'];
+              }
+            }
+          }
+        });
+
+    </script>
+
+</dom-module>

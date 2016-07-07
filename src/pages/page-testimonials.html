@@ -1,0 +1,181 @@
+<!--
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    TESTIMONIALS (page)
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../components/component-page.html">
+
+
+<dom-module id="page-testimonials">
+<template>
+
+    <style>
+    :host {
+        display: block;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+    }
+
+    component-page {  }
+
+    iron-swipeable-pages { z-index: 1; }
+    iron-swipeable-pages > * {
+        padding: 2rem;
+        -webkit-user-select: none;  /* Chrome all / Safari all */
+        -moz-user-select: none;     /* Firefox all */
+        -ms-user-select: none;      /* IE 10+ */
+        user-select: none;          /* Likely future */
+        cursor: default;
+    }
+    .page { height: 100%; }
+
+    img {
+        border-radius: 100%;
+        -webkit-backface-visibility: hidden;
+        outline: transparent solid 1px;
+        border: 12px solid rgba(0, 0, 0, .25);
+    }
+
+    h3 { color: rgba(246, 255, 140, 1); font-size: 2rem; font-weight: 300; text-transform: uppercase; padding: 1rem 0 0; }
+    h4 { color: rgba(246, 255, 140, .5); font-size: 15px; font-weight: 300; text-transform: uppercase; opacity: .48; position: relative; }
+    h4::after { content: ""; display: block; width: 200%; height: 3px; background: rgba(0, 0, 0, .25); position: absolute; top: calc(100% + 10px); left: -50%; }
+    p { color: #fff; position: relative; z-index: 1; font-size: 1rem; font-weight: 100; margin: 1rem 78px; padding: 1rem 0; }
+
+    .next-click,
+    .prev-click {
+        color: rgba(255, 255, 255, .25);
+        position: absolute;
+        top: calc(50% - 40px);
+        z-index: 10;
+    }
+
+    .prev-click { left: 0; }
+    .next-click { right: 0; }
+
+
+
+@media (min-width: 769px) {
+    img { border: 22px solid rgba(0, 0, 0, .25) }
+    h4::after { height: 2px; }
+    p {  }
+    .next-click,
+    .prev-click {
+        color: rgba(255, 255, 255, .25);
+        position: absolute;
+        top: calc(50% - 70px);
+        z-index: 10;
+    }
+    .prev-click { left: 50px; }
+    .next-click { right: 50px; }
+}
+
+    </style>
+
+
+    <!--  Content
+    ---------------------------------------------------------------------------------------------------------------->
+        <component-page grid="vertical" layout="start-center" min-height="1">
+
+            <!-- Arrows -->
+            <paper-icon-button class="prev-click" mobile-size="72" tablet-size="112" desktop-size="150" icon="hardware:keyboard-arrow-left" on-click="_PrevClick"></paper-icon-button>
+            <paper-icon-button class="next-click" mobile-size="72" tablet-size="112" desktop-size="150" icon="hardware:keyboard-arrow-right" on-click="_NextClick"></paper-icon-button>
+
+
+            <!-- Testimonial -->
+            <iron-swipeable-pages id="swipe" selected="{{selectedTestimonial}}" flex="1" width="100" show-arrow>
+                <div class="page" grid="vertical" layout="center-center">
+                    <img src="https://pbs.twimg.com/profile_images/692107180598669313/YSB36QhO.jpg" size="300" mobile-size="150">
+                    <h3>Bart Winzer</h3>
+                    <h4>Beaumont, Texas</h4>
+                    <p mobile-width=".8" tablet-width=".75" desktop-width=".5" desktop-max-width="600px">This company is top notch, on task, and gets the job done! Clearly outstanding, honest, and reliable in work and service--AND a reasonable price! The estimate bid was on the money exactly.</p>
+                </div>
+
+                <div class="page" grid="vertical" layout="center-center">
+                    <img src="https://lh6.googleusercontent.com/-ObWMzXg4-ek/AAAAAAAAAAI/AAAAAAAAAI4/TmuXzwb7-MY/photo.jpg" size="300" mobile-size="150">
+                    <h3>Davina Kuritz</h3>
+                    <h4>Beaumont, Texas</h4>
+                    <p mobile-width=".8" tablet-width=".75" desktop-width=".5" desktop-max-width="600px">This company is top notch, on task, and gets the job done! Clearly outstanding, honest, and reliable in work and service--AND a reasonable price! The estimate bid was on the money exactly.</p>
+                </div>
+
+                <div class="page" grid="vertical" layout="center-center">
+                    <img src="http://oneezy.com/www/images/justin.jpg" size="300" mobile-size="150">
+                    <h3>Justin O'Neill</h3>
+                    <h4>Beaumont, Texas</h4>
+                    <p mobile-width=".8" tablet-width=".75" desktop-width=".5" desktop-max-width="600px">This company is top notch, on task, and gets the job done! Clearly outstanding, honest, and reliable in work and service--AND a reasonable price! The estimate bid was on the money exactly.</p>
+                </div>
+            </iron-swipeable-pages>
+
+
+            <fx-skew bg="white"></fx-skew>
+        </component-page>
+    <!--  Content
+    ---------------------------------------------------------------------------------------------------------------->
+
+
+</template>
+
+
+
+    <script>
+
+        Polymer({
+          is: "page-testimonials",
+
+          properties: {
+              selectedTestimonial: {
+                  type: Number,
+                  value: 0
+              },
+          },
+
+          _PrevClick: function() {
+            var pages = this.$.swipe.querySelectorAll('.page');
+            var max = (pages && pages.length - 1) || 0;
+            this.selectedTestimonial = this.selectedTestimonial === 0 ? max : (this.selectedTestimonial - 1);
+          },
+
+          _NextClick: function() {
+            var pages = this.$.swipe.querySelectorAll('.page');
+            var max = (pages && pages.length - 1) || 0;
+            this.selectedTestimonial = this.selectedTestimonial === max ? 0 : (this.selectedTestimonial + 1);
+          }
+
+
+        });
+
+    </script>
+
+<!-- <paper-tabs selected="{{selected}}" attr-for-selected="name" hidden$="{{mobile}}">
+  <template is="dom-repeat" items="{{items}}">
+
+    <paper-tab name="{{item}}">
+        <a href="#{{item}}">{{item}}</a>
+    </paper-tab>
+
+  </template>
+</paper-tabs>
+<script>
+
+    Polymer({
+
+        is: 'component-header',
+
+        properties: {
+            selected: {
+                type: String,
+                value: 'Item One'
+            },
+
+            items: {
+            type: Array,
+                value: function() {
+                    return ['Services', 'Company', 'Testimonials', 'Contact'];
+                }
+            }
+        }
+    });
+
+</script> -->
+
+</dom-module>

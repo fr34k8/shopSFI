@@ -1,8 +1,8 @@
 {
-  "name": "SHOP",
+  "name": "sfi",
   "version": "1.0",
   "authors": [
-    "The Polymer Authors"
+    "Justin O'Neill"
   ],
   "private": true,
   "dependencies": {
@@ -13,13 +13,19 @@
     "iron-form": "polymerelements/iron-form#^1.0.0",
     "iron-icon": "polymerelements/iron-icon#^1.0.0",
     "iron-iconset-svg": "polymerelements/iron-iconset-svg#^1.0.0",
+    "iron-label": "PolymerElements/iron-label#^1.0.2",
     "iron-localstorage": "polymerelements/iron-localstorage#^1.0.0",
     "iron-media-query": "polymerelements/iron-media-query#^1.0.0",
     "iron-overlay-behavior": "polymerelements/iron-overlay-behavior#^1.0.0",
     "iron-pages": "polymerelements/iron-pages#^1.0.0",
     "iron-selector": "polymerelements/iron-selector#^1.0.0",
     "paper-icon-button": "polymerelements/paper-icon-button#^1.0.0",
-    "paper-spinner": "polymerelements/paper-spinner#^1.0.0"
+    "paper-spinner": "polymerelements/paper-spinner#^1.0.0",
+    "iron-swipeable-pages": "^1.2.5",
+    "social-post-icons": "^0.2.0",
+    "social-media-icons": "^1.0.3",
+    "steel-properties": "^0.0.8",
+    "fx-skew": "^0.0.5"
   },
   "devDependencies": {
     "web-component-tester": "^4.0.0"

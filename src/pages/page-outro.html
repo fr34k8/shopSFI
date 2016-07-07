@@ -1,0 +1,65 @@
+<!--
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    Outro (page)
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../components/component-page.html">
+
+
+<dom-module id="page-outro">
+<template>
+
+    <style>
+    :host {
+        display: block;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        background: #fff;
+    }
+
+        component-page { text-shadow: 1px 1px 0 #000; }
+        span { white-space: normal; }
+
+        .background {
+            background-image: url('../images/bg-outro.png');
+            background-size: cover;
+            background-position: 50% 100%;
+            background-attachment: fixed; }
+
+        .foreground {  }
+
+    </style>
+
+    <!-- Media Queries -->
+    <iron-media-query query="(min-width: 0) and (max-width: 768px)" query-matches="{{mobile}}"></iron-media-query>
+    <iron-media-query query="(min-width: 769px) and (max-width: 1024px)" query-matches="{{tablet}}"></iron-media-query>
+    <iron-media-query query="(min-width: 1025px)" query-matches="{{desktop}}"></iron-media-query>
+
+
+<!--  Content
+---------------------------------------------------------------------------------------------------------------->
+    <component-page grid="vertical" layout="center-center" min-height="1" class="background">
+
+        <!-- <img class="background" src="theme/bg-map.svg" alt="United States Map Flat Design" /> -->
+        <span class="text-big drop-shadow" padding="1" color="white">We know a thing'r two about Diesel.</span>
+
+
+    </component-page>
+<!--  Content
+---------------------------------------------------------------------------------------------------------------->
+
+</template>
+
+
+
+<script>
+
+    Polymer({
+      is: "page-outro"
+
+    });
+
+</script>
+
+</dom-module>
