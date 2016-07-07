@@ -24,7 +24,6 @@
     "iron-swipeable-pages": "^1.2.5",
     "social-post-icons": "^0.2.0",
     "social-media-icons": "^1.0.3",
-    "steel-properties": "^0.0.8",
     "fx-skew": "^0.0.5"
   },
   "devDependencies": {
