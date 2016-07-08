@@ -78,7 +78,7 @@ HEADER COMPONENT
 -------------------------------------------------------------------------------------------->
 <!-- <link rel="import" href="../../styles/app.html">
 <link rel="import" href="../../styles/shared-styles.html"> -->
-<link rel="import" href="../../bower_components/steel-properties/steel-classes.html">
+<link rel="import" href="../../bower_components/steel-properties/steel-properties.html">
 
 
 <!--
@@ -227,6 +227,8 @@ HEADER COMPONENT
 <!-- :  :  :  :  :  :  :  :  :  :  :  :  :  :  :  :  :   -->
 
 
+        <app-drawer-layout force-narrow>
+
             <!-- DRAWER -->
             <!-- DRAWER -->
             <!-- DRAWER -->
@@ -247,57 +249,59 @@ HEADER COMPONENT
 
 <!-- :  :  :  :  :  :  :  :  :  :  :  :  :  :  :  :  :   -->
 
-            <app-header
-                flex="1"
-                grid="vertical"
-                layout="center-center"
-                id="appHeader"
-                class="main-header"
-                condenses
-                reveals
-                effects="resize-snapped-title waterfall blend-background parallax-background">
 
-                <!-- TOOLBAR -->
-                <!-- TOOLBAR -->
-                <!-- TOOLBAR -->
-                <app-toolbar class="top-toolbar">
+            <app-header-layout>
+                <app-header
+                    id="appHeader"
+                    class="main-header"
+                    condenses
+                    reveals
+                    effects="resize-snapped-title waterfall blend-background parallax-background">
 
-                    <header-toolbar grid="horizontal" layout="between" condensed-title>
-                        <paper-icon-button class="toolbar-drawer" icon="menu" drawer-toggle></paper-icon-button>
+                    <!-- TOOLBAR -->
+                    <!-- TOOLBAR -->
+                    <!-- TOOLBAR -->
+                    <app-toolbar class="top-toolbar">
 
-                        <paper-tabs class="toolbar-links" selected="{{selected}}" attr-for-selected="name" hidden$="{{mobile}}">
-                          <template is="dom-repeat" items="{{items}}">
+                        <header-toolbar grid="horizontal" layout="between" condensed-title>
+                            <paper-icon-button class="toolbar-drawer" icon="menu" drawer-toggle></paper-icon-button>
 
-                            <paper-tab name="{{item}}">
-                                <a href="#{{item}}">{{item}}</a>
-                            </paper-tab>
+                            <paper-tabs class="toolbar-links" selected="{{selected}}" attr-for-selected="name" hidden$="{{mobile}}">
+                              <template is="dom-repeat" items="{{items}}">
 
-                          </template>
-                        </paper-tabs>
-                    </header-toolbar>
-                </app-toolbar>
+                                <paper-tab name="{{item}}">
+                                    <a href="#{{item}}">{{item}}</a>
+                                </paper-tab>
 
-                <!-- Footer FAB -->
-                <section class="fab">
-                    <div>
-                        <a href="tel:3376260004">
-                            <paper-fab icon="communication:call" color="black" class="phone"></paper-fab>
-                        </a>
+                              </template>
+                            </paper-tabs>
+                        </header-toolbar>
+                    </app-toolbar>
 
-                        <a href="https://www.google.com/maps/place/Sulphur+Fuel+Injection/@30.2360406,-93.3144457,17z/data=!3m1!4b1!4m15!1m9!4m8!1m0!1m6!1m2!1s0x863b8ee90c5001cd:0x84cdcf8337373941!2sSulphur+Fuel+Injection,+121+Industrial+Dr,+Sulphur,+LA+70663!2m2!1d-93.312257!2d30.236036!3m4!1s0x863b8ee90c5001cd:0x84cdcf8337373941!8m2!3d30.236036!4d-93.312257" target="_blank">
-                            <paper-fab icon="maps:place" color="black" class="directions"></paper-fab>
-                        </a>
-                    </div>
-                </section>
+                    <!-- Footer FAB -->
+                    <section class="fab">
+                        <div>
+                            <a href="tel:3376260004">
+                                <paper-fab icon="communication:call" color="black" class="phone"></paper-fab>
+                            </a>
 
-                <!-- HERO -->
-                <!-- HERO -->
-                <!-- HERO -->
-                <app-toolbar class="hero" title>
-                    <header-hero></header-hero>
-                </app-toolbar>
+                            <a href="https://www.google.com/maps/place/Sulphur+Fuel+Injection/@30.2360406,-93.3144457,17z/data=!3m1!4b1!4m15!1m9!4m8!1m0!1m6!1m2!1s0x863b8ee90c5001cd:0x84cdcf8337373941!2sSulphur+Fuel+Injection,+121+Industrial+Dr,+Sulphur,+LA+70663!2m2!1d-93.312257!2d30.236036!3m4!1s0x863b8ee90c5001cd:0x84cdcf8337373941!8m2!3d30.236036!4d-93.312257" target="_blank">
+                                <paper-fab icon="maps:place" color="black" class="directions"></paper-fab>
+                            </a>
+                        </div>
+                    </section>
 
-            </app-header>
+                    <!-- HERO -->
+                    <!-- HERO -->
+                    <!-- HERO -->
+                    <app-toolbar class="hero" title>
+                        <header-hero></header-hero>
+                    </app-toolbar>
+
+                </app-header>
+
+            </app-header-layout>
+        </app-drawer-layout>
 
 
       </template>

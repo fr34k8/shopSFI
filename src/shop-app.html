@@ -36,7 +36,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         min-height: 100vh;
         --app-primary-color: #202020;
         --app-secondary-color: #757575;
-        --app-accent-color: #172C50;
+        --app-accent-color: rgb(247, 255, 40);
         --paper-button-ink-color: var(--app-accent-color);
         --paper-icon-button-ink-color: var(--app-accent-color);
         --paper-spinner-color: var(--app-accent-color);
@@ -64,7 +64,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         display: inline-block;
         pointer-events: auto;
     }
-      .logo a img { width: 100px; }
+      .logo a img { width: 80px; }
       .left-bar-item { width: 40px; }
       .menu-btn { display: none; }
       .cart-btn-container { position: relative; width: 40px; }
@@ -98,6 +98,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       shop-cart-modal { z-index: 2; }
       app-drawer { z-index: 3; }
       iron-pages { max-width: 1440px; margin: 0 auto; }
+      component-footer { margin-top: 140px; }
       footer { position: absolute; bottom: 0; left: 0; right: 0; text-align: center; margin: 20px; line-height: 24px; }
       footer > a { color: var(--app-secondary-color); text-decoration: none; }
       footer > a:hover { text-decoration: underline; }
@@ -233,7 +234,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <!-- Business Footer
     ------------------------------------------------------------->
-    <component-footer id="Footer"></component-footer>
+    <component-footer id="Footer" class="bg-gray"></component-footer>
 
     <!-- a11y announcer -->
     <div class="announcer" aria-live="assertive">[[_a11yLabel]]</div>
