@@ -20,11 +20,12 @@
         display: block;
         width: 100%;
         box-sizing: border-box;
+        text-decoration: none;
     }
 
         footer { position: relative; z-index: 1; }
         h4 { color: #fff; font-weight: 100; margin: 0 0 .5rem; text-transform: uppercase;     }
-        a { color: rgb(247, 255, 40); opacity: .42; transition: opacity .22s ease-in-out;     }
+        a { color: rgb(247, 255, 40); opacity: .42; transition: opacity .22s ease-in-out; text-decoration: none;   }
         a:hover { color: rgb(247, 255, 40); opacity: 1; transition: opacity .22s ease-in-out; }
 
         iron-label a               { color: white; opacity: .5; transition: opacity .22s ease-in-out; font-size: 14px; }
@@ -55,13 +56,13 @@
     <template>
         <fx-skew class="bg-gray"></fx-skew>
 
-        <footer class="grid-vertical wrap-no bg-gray">
+        <footer class="flex-vertical nowrap bg-gray">
 
             <!-- Footer Top -->
-            <section class="wrapper grid-horizontal mobile-grid-vertical layout-between-between mobile-layout-center-start width-75 mobile-width-90 tablet-width-90 padding-b-3 text-normal">
+            <section class="wrapper flex-horizontal mobile-flex-vertical between-between mobile-center-start width-75 mobile-width-90 tablet-width-90 padding-b-3 text-normal">
 
 
-                <div class="grid-vertical layout-start-stretch flex-1 mobile-margin-b-2">
+                <div class="flex-vertical start-stretch flex-1 mobile-margin-b-2">
                     <h4>Learn More</h4>
 
                     <a href="#Services">Services</a>
@@ -70,17 +71,17 @@
                     <a href="#Contact">Contact</a>
                 </div>
 
-                <div class="grid-vertical layout-start-stretch flex-1 mobile-margin-b-2">
+                <div class="flex-vertical start-stretch flex-1 mobile-margin-b-2">
                     <h4>Legal</h4>
 
                     <a href="#Policy">Privacy Policy</a>
                     <a href="#Terms">Terms & Conditions</a>
                 </div>
 
-                <div class="grid-vertical layout-start-stretch flex-1 tablet-flex-2 mobile-margin-b-2">
+                <div class="flex-vertical start-stretch flex-1 tablet-flex-2 mobile-margin-b-2">
                     <h4>Connect</h4>
 
-                    <div class="grid-vertical layout-start-start margin-b-1">
+                    <div class="flex-vertical start-start margin-b-1">
                         <iron-label>
                             <iron-icon icon="business:phone" class="margin-r-5"></iron-icon>
                             <a href="#">1(337)626-0004</a>
@@ -102,18 +103,18 @@
                         </iron-label>
                     </div>
 
-                    <div class="grid-horizontal">
-                        <social-media-icons icon="facebook" class="yellow"></social-media-icons>
-                        <social-media-icons icon="youtube"  class="yellow"></social-media-icons>
-                        <social-media-icons icon="twitter"  class="yellow"></social-media-icons>
-                        <social-media-icons icon="linkedin" class="yellow"></social-media-icons>
+                    <div class="flex-horizontal">
+                        <social-media-icons icon="facebook" color="yellow"></social-media-icons>
+                        <social-media-icons icon="youtube"  color="yellow"></social-media-icons>
+                        <social-media-icons icon="twitter"  color="yellow"></social-media-icons>
+                        <social-media-icons icon="linkedin" color="yellow"></social-media-icons>
                     </div>
                 </div>
             </section>
 
 
             <!-- Footer Bottom -->
-            <section class="flex-auto grid-horizontal layout-center-center footer-bottom">
+            <section class="flex-auto flex-horizontal center-center footer-bottom">
                     <iron-icon icon="logo-icons:logo" class="logo margin-r-5"></iron-icon>
                     <span class="black">Copyright © 2016</span>
             </section>

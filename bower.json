@@ -25,7 +25,8 @@
     "social-post-icons": "^0.2.0",
     "social-media-icons": "^1.0.3",
     "fx-skew": "^0.0.5",
-    "steel-properties": "^0.0.91"
+    "steel-properties": "^0.0.92",
+    "fx-arrows": "^0.0.6"
   },
   "devDependencies": {
     "web-component-tester": "^4.0.0"
