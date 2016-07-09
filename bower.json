@@ -26,7 +26,9 @@
     "social-media-icons": "^1.0.3",
     "fx-skew": "^0.0.5",
     "steel-properties": "^0.0.92",
-    "fx-arrows": "^0.0.6"
+    "fx-arrows": "^0.0.6",
+    "iron-scroll-spy": "*",
+    "paper-tabs": "PolymerElements/paper-tabs#^1.6.2"
   },
   "devDependencies": {
     "web-component-tester": "^4.0.0"

@@ -10,7 +10,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="../bower_components/steel-properties/steel-classes.html">
 <link rel="import" href="../bower_components/app-layout/app-header/app-header.html">
-<link rel="import" href="../bower_components/app-layout/app-scroll-effects/effects/waterfall.html">
+<link rel="import" href="../bower_components/app-layout/app-scroll-effects/app-scroll-effects.html">
 <link rel="import" href="../bower_components/app-layout/app-toolbar/app-toolbar.html">
 <link rel="import" href="../bower_components/app-layout/helpers/helpers.html">
 <link rel="import" href="../bower_components/app-route/app-location.html">
@@ -58,13 +58,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       paper-icon-button { color: var(--app-primary-color); }
       a { text-decoration: none; }
 
-      .logo { line-height: 0 !important; }
+      .logo { line-height: 0 !important; margin-left: 20px; }
       .logo * { line-height: 0 !important; }
       .logo a { color: var(--app-primary-color); display: inline-block; pointer-events: auto; }
       .logo a img { width: 80px; }
-      .left-bar-item { width: 40px; }
+      .left-bar { width: 40px; }
       .menu-btn { display: none; }
-      .cart-btn-container { position: relative; width: 40px; }
+      .cart-btn-container { position: relative; width: 40px; margin-left: 20px; }
       .announcer { position: fixed; height: 0; overflow: hidden; }
 
       :host(:not([page=detail])) .back-btn {
@@ -134,18 +134,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <!-- APP HEADER -->
     <!-- APP HEADER -->
     <!-- APP HEADER -->
-    <app-header role="navigation" id="header" effects="waterfall" condenses reveals>
+    <app-header role="navigation" id="header" effects="waterfall" condenses reveals fixed>
     <!-- <app-header role="navigation" id="header" effects="resize-snapped-title waterfall blend-background parallax-background" class="main-header" condenses reveals> -->
 
 
       <!-- TOOLBAR -->
       <!-- TOOLBAR -->
       <!-- TOOLBAR -->
-      <app-toolbar class="flex-horizontal start-between">
+      <app-toolbar class="flex-horizontal">
 
-        <!-- Left
-        ------------------------------------>
-        <div class="left-bar-item">
+        <!-- Leftbar Buttons
+        --------------------------------------------------->
+        <div class="left-bar">
           <!-- menu button -->
           <paper-icon-button class="menu-btn" icon="menu" on-tap="_toggleDrawer" aria-label="Categories"></paper-icon-button>
 
@@ -156,16 +156,24 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         </div>
 
         <!-- Logo
-        ------------------------------------>
-        <div class="logo mobile-text-center" title>
+        --------------------------------------------------->
+        <div class="logo mobile-flex-1 mobile-text-center">
             <a href="/" aria-label="SFI">
                 <img src="../images/logo.svg" alt="Sulphur Fuel Injection" />
             </a>
         </div>
 
+        <!-- Phone Number
+        --------------------------------------------------->
+        <div class="phone-number mobile-none">
+            <a href="tel:3376260004" aria-label="Phone Number">
+                <span class="margin-l-1 white">1(337)626-0004</span>
+            </a>
+        </div>
+
         <!-- Tabs (lazy loaded)
-        ------------------------------------>
-        <div id="tabContainer" primary$="[[_shouldShowTabs]]" hidden$="[[!_shouldShowTabs]]">
+        --------------------------------------------------->
+        <div id="tabContainer" class="flex-1 flex-horizontal layout-end" primary$="[[_shouldShowTabs]]" hidden$="[[!_shouldShowTabs]]">
           <template is="dom-if" if="[[_shouldRenderTabs]]">
 
             <shop-tabs selected="[[categoryName]]" attr-for-selected="name">
@@ -180,7 +188,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         </div>
 
         <!-- Cart
-        ------------------------------------>
+        --------------------------------------------------->
         <div class="cart-btn-container">
           <!-- cart button -->
           <a href="/cart" tabindex="-1">
