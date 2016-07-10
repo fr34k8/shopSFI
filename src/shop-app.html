@@ -23,6 +23,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <!-- Since 'home' is the default route, eagerly load it. -->
 <link rel="import" href="page-home.html">
 <link rel="import" href="templates/component-footer.html">
+
 <dom-module id="shop-app">
 
   <template>
@@ -34,9 +35,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         position: relative;
         /*padding-top: 130px;*/
         min-height: 100vh;
-        --app-primary-color: #202020;
-        --app-secondary-color: #757575;
+        --app-primary-color: rgba(32,32,32, 1);
+        --app-primary-color-fade: rgba(32,32,32, .78);
+        --app-secondary-color: rgba(117,117,117, 1);
         --app-accent-color: rgb(247, 255, 40);
+        --app-accent-secondary-color: rgba(165,159,119,.7);
         --paper-button-ink-color: var(--app-accent-color);
         --paper-icon-button-ink-color: var(--app-accent-color);
         --paper-spinner-color: var(--app-accent-color);
@@ -55,16 +58,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         };
       }
 
-      paper-icon-button { color: var(--app-primary-color); }
+      paper-icon-button { color: var(--app-accent-secondary-color); opacity: .5; transition: opacity .22s ease-in-out; }
+      paper-icon-button:hover { opacity: 1; transition: opacity .22s ease-in-out; }
       a { text-decoration: none; }
 
-      .logo { line-height: 0 !important; margin-left: 20px; }
+      .logo { line-height: 0 !important; }
       .logo * { line-height: 0 !important; }
       .logo a { color: var(--app-primary-color); display: inline-block; pointer-events: auto; }
       .logo a img { width: 80px; }
       .left-bar { width: 40px; }
       .menu-btn { display: none; }
-      .cart-btn-container { position: relative; width: 40px; margin-left: 20px; }
+      .cart-btn-container { position: relative; width: 40px; margin-left: auto; }
       .announcer { position: fixed; height: 0; overflow: hidden; }
 
       :host(:not([page=detail])) .back-btn {
@@ -85,9 +89,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       component-tab { margin: 0 10px; }
       component-tab a { outline: none; height: 100%; padding: 0 5px; font-size: 13px; font-weight: 500; text-decoration: none; color: #fff; }
 
-      .cart-badge { position: absolute; top: -2px; right: 0; width: 20px; height: 20px; background-color: var(--app-accent-color); border-radius: 50%; color: white; font-size: 12px; font-weight: 500; pointer-events: none;
-          @apply(--layout-vertical);
-          @apply(--layout-center-center); }
+      .cart-badge { position: absolute; top: -2px; right: 0; width: 20px; height: 20px; border-radius: 50%; font-size: 12px; font-weight: 500; pointer-events: none; transition: color .22s ease-in-out;
+
+                    background-color: var(--app-accent-color);
+                    color: var(--app-primary-color-fade);
+                    @apply(--layout-vertical);
+                    @apply(--layout-center-center); }
+
+      .cart-btn-container:hover .cart-badge { transition: color .22s ease-in-out; color: var(--app-primary-color); }
 
       .drawer-list { margin: 0 20px; }
       .drawer-list a { display: block; padding: 0 16px; line-height: 40px; text-decoration: none; color: var(--app-secondary-color); }
@@ -157,7 +166,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         <!-- Logo
         --------------------------------------------------->
-        <div class="logo mobile-flex-1 mobile-text-center">
+        <div class="logo tablet-margin-l-1 desktop-margin-l-1 mobile-flex-1 mobile-text-center">
             <a href="/" aria-label="SFI">
                 <img src="../images/logo.svg" alt="Sulphur Fuel Injection" />
             </a>
@@ -173,7 +182,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         <!-- Tabs (lazy loaded)
         --------------------------------------------------->
-        <div id="tabContainer" class="flex-1 flex-horizontal layout-end" primary$="[[_shouldShowTabs]]" hidden$="[[!_shouldShowTabs]]">
+        <div id="tabContainer" class="flex-1 flex-horizontal layout-end tablet-margin-r-1 desktop-margin-r-1" primary$="[[_shouldShowTabs]]" hidden$="[[!_shouldShowTabs]]">
           <template is="dom-if" if="[[_shouldRenderTabs]]">
 
             <component-tabs selected="[[categoryName]]" attr-for-selected="name">
