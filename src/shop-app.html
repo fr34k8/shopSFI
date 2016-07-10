@@ -19,7 +19,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/iron-media-query/iron-media-query.html">
 <link rel="import" href="../bower_components/iron-pages/iron-pages.html">
 <link rel="import" href="../bower_components/iron-selector/iron-selector.html">
-<link rel="import" href="shop-category-data.html">
+<link rel="import" href="data-category.html">
 <!-- Since 'home' is the default route, eagerly load it. -->
 <link rel="import" href="shop-home.html">
 <link rel="import" href="components/component-footer.html">
@@ -93,7 +93,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       .drawer-list a { display: block; padding: 0 16px; line-height: 40px; text-decoration: none; color: var(--app-secondary-color); }
       .drawer-list a.iron-selected { color: black; font-weight: bold; }
 
-      shop-cart-modal { z-index: 2; }
+      cart-modal { z-index: 2; }
       app-drawer { z-index: 3; }
       iron-pages { max-width: 1440px; margin: 0 auto; }
       component-footer { margin-top: 140px; }
@@ -111,7 +111,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     </style>
 
-    <shop-analytics key="UA-39334307-16"></shop-analytics>
+    <google-analytics key="UA-39334307-16"></google-analytics>
 
     <!-- app-location and app-route elements provide the state of the URL for the app. -->
     <app-location route="{{route}}"></app-location>
@@ -123,11 +123,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <iron-media-query query="max-width: 767px" query-matches="{{smallScreen}}"></iron-media-query>
 
-    <!-- shop-category-data provides the list of categories. -->
-    <shop-category-data categories="{{categories}}"></shop-category-data>
+    <!-- data-category provides the list of categories. -->
+    <data-category categories="{{categories}}"></data-category>
 
-    <!-- shop-cart-data maintains the state of the user's shopping cart (in localstorage) and calculates the total amount. -->
-    <shop-cart-data id="cart" cart="{{cart}}" num-items="{{numItems}}" total="{{total}}"></shop-cart-data>
+    <!-- data-cart maintains the state of the user's shopping cart (in localstorage) and calculates the total amount. -->
+    <data-cart id="cart" cart="{{cart}}" num-items="{{numItems}}" total="{{total}}"></data-cart>
 
 
 
@@ -429,7 +429,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       _onAddCartItem: function(event) {
         if (!this._cartModal) {
-          this._cartModal = document.createElement('shop-cart-modal');
+          this._cartModal = document.createElement('cart-modal');
           Polymer.dom(this.root).appendChild(this._cartModal);
         }
         this.$.cart.addItem(event.detail);

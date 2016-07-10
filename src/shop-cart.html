@@ -10,14 +10,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="shop-button.html">
-<link rel="import" href="shop-common-styles.html">
-<link rel="import" href="shop-form-styles.html">
+<link rel="import" href="styles-main.html">
+<link rel="import" href="styles-form.html">
 
 <dom-module id="shop-cart">
 
   <template>
 
-    <style include="shop-common-styles shop-button shop-form-styles">
+    <style include="styles-main shop-button styles-form">
 
       .list {
         margin: 40px 0;
@@ -54,7 +54,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         </header>
         <div class="list">
           <template is="dom-repeat" items="[[cart]]" as="entry">
-            <shop-cart-item entry="[[entry]]"></shop-cart-item>
+            <cart-item entry="[[entry]]"></cart-item>
           </template>
         </div>
         <div class="checkout-box">

@@ -11,11 +11,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="../bower_components/iron-localstorage/iron-localstorage.html">
 
-<dom-module id="shop-cart-data">
+<dom-module id="data-cart">
 
   <template>
     <iron-localstorage
-        name="shop-cart-data"
+        name="data-cart"
         value="{{cart}}"
         on-iron-localstorage-load-empty="_initializeCart"></iron-localstorage>
   </template>
@@ -24,7 +24,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     Polymer({
 
-      is: 'shop-cart-data',
+      is: 'data-cart',
 
       properties: {
 

@@ -11,8 +11,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="../bower_components/app-route/app-route.html">
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
-<link rel="import" href="shop-category-data.html">
-<link rel="import" href="shop-common-styles.html">
+<link rel="import" href="data-category.html">
+<link rel="import" href="styles-main.html">
 <link rel="import" href="shop-image.html">
 <link rel="import" href="shop-list-item.html">
 
@@ -20,7 +20,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   <template>
 
-    <style include="shop-common-styles">
+    <style include="styles-main">
 
       .hero-image {
         position: relative;
@@ -79,13 +79,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         data="{{routeData}}"></app-route>
 
     <!--
-      shop-category-data provides the category data for a given category name.
+      data-category provides the category data for a given category name.
     -->
-    <shop-category-data
+    <data-category
         id="categoryData"
         category-name="[[routeData.category]]"
         category="{{category}}"
-        failure="{{failure}}"></shop-category-data>
+        failure="{{failure}}"></data-category>
 
     <shop-image
         alt="[[category.title]]"
