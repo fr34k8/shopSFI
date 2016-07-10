@@ -6,6 +6,6 @@
     "src/shop-detail.html",
     "src/shop-cart.html",
     "src/shop-checkout.html",
-    "src/lazy-resources.html"
+    "src/app-resources.html"
   ]
 }
