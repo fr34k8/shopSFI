@@ -21,7 +21,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/iron-selector/iron-selector.html">
 <link rel="import" href="data-category.html">
 <!-- Since 'home' is the default route, eagerly load it. -->
-<link rel="import" href="shop-home.html">
+<link rel="import" href="page-home.html">
 <link rel="import" href="components/component-footer.html">
 <dom-module id="shop-app">
 
@@ -75,15 +75,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       #tabContainer { position: relative; height: 66px; }
 
-      shop-tabs, shop-tab { height: 64px; color: white; text-transform: uppercase;
-        --shop-tab-overlay: {
+      component-tabs, component-tab { height: 64px; color: white; text-transform: uppercase;
+        --component-tab-overlay: {
           border-bottom: 4px solid var(--app-accent-color);
         };
       }
 
-      shop-tabs { height: 100%; }
-      shop-tab { margin: 0 10px; }
-      shop-tab a { outline: none; height: 100%; padding: 0 5px; font-size: 13px; font-weight: 500; text-decoration: none; color: #fff; }
+      component-tabs { height: 100%; }
+      component-tab { margin: 0 10px; }
+      component-tab a { outline: none; height: 100%; padding: 0 5px; font-size: 13px; font-weight: 500; text-decoration: none; color: #fff; }
 
       .cart-badge { position: absolute; top: -2px; right: 0; width: 20px; height: 20px; background-color: var(--app-accent-color); border-radius: 50%; color: white; font-size: 12px; font-weight: 500; pointer-events: none;
           @apply(--layout-vertical);
@@ -176,13 +176,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <div id="tabContainer" class="flex-1 flex-horizontal layout-end" primary$="[[_shouldShowTabs]]" hidden$="[[!_shouldShowTabs]]">
           <template is="dom-if" if="[[_shouldRenderTabs]]">
 
-            <shop-tabs selected="[[categoryName]]" attr-for-selected="name">
+            <component-tabs selected="[[categoryName]]" attr-for-selected="name">
               <template is="dom-repeat" items="[[categories]]" as="category" initial-count="4">
-                <shop-tab name="[[category.name]]">
+                <component-tab name="[[category.name]]">
                   <a href="/list/[[category.name]]" class="flex-vertical center-center">[[category.title]]</a>
-                </shop-tab>
+                </component-tab>
               </template>
-            </shop-tabs>
+            </component-tabs>
 
           </template>
         </div>
@@ -262,7 +262,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <iron-pages role="main" selected="[[page]]" attr-for-selected="name" selected-attribute="visible">
       <!-- home view -->
-      <shop-home name="home" categories="[[categories]]"></shop-home>
+      <page-home name="home" categories="[[categories]]"></page-home>
       <!-- list view of items in a category -->
       <shop-list name="list" route="[[subroute]]" offline="[[offline]]"></shop-list>
       <!-- detail view of one item -->
@@ -403,7 +403,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         // or if the network status changed.
         if (this.offline || (!this.offline && oldOffline === true)) {
           if (!this._networkSnackbar) {
-            this._networkSnackbar = document.createElement('shop-snackbar');
+            this._networkSnackbar = document.createElement('component-snackbar');
             Polymer.dom(this.root).appendChild(this._networkSnackbar);
           }
           Polymer.dom(this._networkSnackbar).innerHTML = this.offline ?

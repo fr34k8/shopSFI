@@ -9,7 +9,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 
 <link rel="import" href="../bower_components/polymer/polymer.html">
-<link rel="import" href="shop-button.html">
+<link rel="import" href="component-button.html">
 <link rel="import" href="styles-main.html">
 <link rel="import" href="styles-form.html">
 
@@ -17,7 +17,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   <template>
 
-    <style include="styles-main shop-button styles-form">
+    <style include="styles-main component-button styles-form">
 
       .list {
         margin: 40px 0;
@@ -59,9 +59,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         </div>
         <div class="checkout-box">
           Total: <span class="subtotal">[[_formatTotal(total)]]</span>
-          <shop-button responsive>
+          <component-button responsive>
             <a href="/checkout">Checkout</a>
-          </shop-button>
+          </component-button>
         </div>
       </div>
     </div>

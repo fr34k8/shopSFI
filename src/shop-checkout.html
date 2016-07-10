@@ -11,17 +11,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="../bower_components/app-route/app-route.html">
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
-<link rel="import" href="shop-button.html">
+<link rel="import" href="component-button.html">
 <link rel="import" href="styles-main.html">
 <link rel="import" href="styles-form.html">
-<link rel="import" href="shop-input.html">
-<link rel="import" href="shop-select.html">
-<link rel="import" href="shop-checkbox.html">
+<link rel="import" href="component-input.html">
+<link rel="import" href="component-select.html">
+<link rel="import" href="component-checkbox.html">
 
 <dom-module id="shop-checkout">
 
   <template>
-    <style include="styles-main shop-button styles-form shop-input shop-select shop-checkbox">
+    <style include="styles-main component-button styles-form component-input component-select component-checkbox">
 
       .main-frame {
         transition: opacity 0.5s;
@@ -31,11 +31,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         opacity: 0.1;
       }
 
-      shop-input, shop-select {
+      component-input, component-select {
         font-size: 16px;
       }
 
-      shop-select {
+      component-select {
         margin-bottom: 20px;
       }
 
@@ -86,7 +86,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         margin-left: 8px;
       }
 
-      .shop-select-label {
+      .component-select-label {
         line-height: 20px;
       }
 
@@ -138,7 +138,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               <section>
                 <h2 id="accountInfoHeading">Account Information</h2>
                 <div class="row input-row">
-                  <shop-input>
+                  <component-input>
                     <input type="email" id="accountEmail" name="accountEmail"
                         placeholder="Email" autofocus required
                         aria-labelledby="accountEmailLabel accountInfoHeading">
@@ -146,10 +146,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                       <label id="accountEmailLabel">Email</label>
                       <shop-underline></shop-underline>
                     </shop-md-decorator>
-                  </shop-input>
+                  </component-input>
                 </div>
                 <div class="row input-row">
-                  <shop-input>
+                  <component-input>
                     <input type="tel" id="accountPhone" name="accountPhone" pattern="\d{10,}"
                         placeholder="Phone Number" required
                         aria-labelledby="accountPhoneLabel accountInfoHeading">
@@ -157,11 +157,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                       <label id="accountPhoneLabel">Phone Number</label>
                       <shop-underline></shop-underline>
                     </shop-md-decorator>
-                  </shop-input>
+                  </component-input>
                 </div>
                 <h2 id="shipAddressHeading">Shipping Address</h2>
                 <div class="row input-row">
-                  <shop-input>
+                  <component-input>
                     <input type="text" id="shipAddress" name="shipAddress" pattern=".{5,}"
                         placeholder="Address" required
                         aria-labelledby="shipAddressLabel shipAddressHeading">
@@ -169,10 +169,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                       <label id="shipAddressLabel">Address</label>
                       <shop-underline></shop-underline>
                     </shop-md-decorator>
-                  </shop-input>
+                  </component-input>
                 </div>
                 <div class="row input-row">
-                  <shop-input>
+                  <component-input>
                     <input type="text" id="shipCity" name="shipCity" pattern=".{2,}"
                         placeholder="City" required
                         aria-labelledby="shipCityLabel shipAddressHeading">
@@ -180,10 +180,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                       <label id="shipCityLabel">City</label>
                       <shop-underline></shop-underline>
                     </shop-md-decorator>
-                  </shop-input>
+                  </component-input>
                 </div>
                 <div class="row input-row">
-                  <shop-input>
+                  <component-input>
                     <input type="text" id="shipState" name="shipState" pattern=".{2,}"
                         placeholder="State/Province" required
                         aria-labelledby="shipStateLabel shipAddressHeading">
@@ -191,8 +191,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                       <label id="shipStateLabel">State/Province</label>
                       <shop-underline></shop-underline>
                     </shop-md-decorator>
-                  </shop-input>
-                  <shop-input>
+                  </component-input>
+                  <component-input>
                     <input type="text" id="shipZip" name="shipZip" pattern=".{4,}"
                         placeholder="Zip/Postal Code" required
                         aria-labelledby="shipZipLabel shipAddressHeading">
@@ -200,11 +200,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                       <label id="shipZipLabel">Zip/Postal Code</label>
                       <shop-underline></shop-underline>
                     </shop-md-decorator>
-                  </shop-input>
+                  </component-input>
                 </div>
                 <div class="column">
-                  <label id="shipCountryLabel" class="shop-select-label">Country</label>
-                  <shop-select>
+                  <label id="shipCountryLabel" class="component-select-label">Country</label>
+                  <component-select>
                     <select id="shipCountry" name="shipCountry" required
                         aria-labelledby="shipCountryLabel shipAddressHeading">
                       <option value="US" selected>United States</option>
@@ -213,20 +213,20 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     <shop-md-decorator aria-hidden="true">
                       <shop-underline></shop-underline>
                     </shop-md-decorator>
-                  </shop-select>
+                  </component-select>
                 </div>
                 <h2 id="billAddressHeading">Billing Address</h2>
                 <div class="billing-address-picker">
-                  <shop-checkbox>
+                  <component-checkbox>
                     <input type="checkbox" id="setBilling" name="setBilling"
                         checked$="[[hasBillingAddress]]" on-change="_toggleBillingAddress">
                     <shop-md-decorator></shop-md-decorator aria-hidden="true">
-                  </shop-checkbox>
+                  </component-checkbox>
                   <label for="setBilling">Use different billing address</label>
                 </div>
                 <div hidden$="[[!hasBillingAddress]]">
                   <div class="row input-row">
-                    <shop-input>
+                    <component-input>
                       <input type="text" id="billAddress" name="billAddress" pattern=".{5,}"
                           placeholder="Address" required$="[[hasBillingAddress]]"
                           autocomplete="billing street-address"
@@ -235,10 +235,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                         <label id="billAddressLabel">Address</label>
                         <shop-underline></shop-underline>
                       </shop-md-decorator>
-                    </shop-input>
+                    </component-input>
                   </div>
                   <div class="row input-row">
-                    <shop-input>
+                    <component-input>
                       <input type="text" id="billCity" name="billCity" pattern=".{2,}"
                           placeholder="City" required$="[[hasBillingAddress]]"
                           autocomplete="billing address-level2"
@@ -247,10 +247,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                         <label id="billCityLabel">City</label>
                         <shop-underline></shop-underline>
                       </shop-md-decorator>
-                    </shop-input>
+                    </component-input>
                   </div>
                   <div class="row input-row">
-                    <shop-input>
+                    <component-input>
                       <input type="text" id="billState" name="billState" pattern=".{2,}"
                           placeholder="State/Province" required$="[[hasBillingAddress]]"
                           autocomplete="billing address-level1"
@@ -259,8 +259,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                         <label id="billStateLabel">State/Province</label>
                         <shop-underline></shop-underline>
                       </shop-md-decorator>
-                    </shop-input>
-                    <shop-input>
+                    </component-input>
+                    <component-input>
                       <input type="text" id="billZip" name="billZip" pattern=".{4,}"
                           placeholder="Zip/Postal Code" required$="[[hasBillingAddress]]"
                           autocomplete="billing postal-code"
@@ -269,11 +269,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                         <label id="billZipLabel">Zip/Postal Code</label>
                         <shop-underline></shop-underline>
                       </shop-md-decorator>
-                    </shop-input>
+                    </component-input>
                   </div>
                   <div class="column">
-                    <label id="billCountryLabel" class="shop-select-label">Country</label>
-                    <shop-select>
+                    <label id="billCountryLabel" class="component-select-label">Country</label>
+                    <component-select>
                       <select id="billCountry" name="billCountry" required$="[[hasBillingAddress]]"
                           autocomplete="billing country"
                           aria-labelledby="billCountryLabel billAddressHeading">
@@ -283,7 +283,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                       <shop-md-decorator aria-hidden="true">
                         <shop-underline></shop-underline>
                       </shop-md-decorator>
-                    </shop-select>
+                    </component-select>
                   </div>
                 </div>
               </section>
@@ -291,7 +291,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               <section>
                 <h2>Payment Method</h2>
                 <div class="row input-row">
-                  <shop-input>
+                  <component-input>
                     <input type="text" id="ccName" name="ccName" pattern=".{3,}"
                         placeholder="Cardholder Name" required
                         autocomplete="cc-name">
@@ -299,10 +299,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                       <label for="ccName">Cardholder Name</label>
                       <shop-underline></shop-underline>
                     </shop-md-decorator>
-                  </shop-input>
+                  </component-input>
                 </div>
                 <div class="row input-row">
-                  <shop-input>
+                  <component-input>
                     <input type="tel" id="ccNumber" name="ccNumber" pattern="[\d\s]{15,}"
                         placeholder="Card Number" required
                         autocomplete="cc-number">
@@ -310,12 +310,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                       <label for="ccNumber">Card Number</label>
                       <shop-underline></shop-underline>
                     </shop-md-decorator>
-                  </shop-input>
+                  </component-input>
                 </div>
                 <div class="row input-row">
                   <div class="column">
                     <label for="ccExpMonth">Expiry</label>
-                    <shop-select>
+                    <component-select>
                       <select id="ccExpMonth" name="ccExpMonth" required
                            autocomplete="cc-exp-month" aria-label="Expiry month">
                         <option value="01" selected>Jan</option>
@@ -334,9 +334,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                       <shop-md-decorator aria-hidden="true">
                         <shop-underline></shop-underline>
                       </shop-md-decorator>
-                    </shop-select>
+                    </component-select>
                   </div>
-                  <shop-select>
+                  <component-select>
                     <select id="ccExpYear" name="ccExpYear" required
                         autocomplete="cc-exp-year" aria-label="Expiry year">
                       <option value="2016" selected>2016</option>
@@ -354,8 +354,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     <shop-md-decorator aria-hidden="true">
                       <shop-underline></shop-underline>
                     </shop-md-decorator>
-                  </shop-select>
-                  <shop-input>
+                  </component-select>
+                  <component-input>
                     <input type="tel" id="ccCVV" name="ccCVV" pattern="\d{3,4}"
                         placeholder="CVV" required
                         autocomplete="cc-csc">
@@ -363,7 +363,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                       <label for="ccCVV">CVV</label>
                       <shop-underline></shop-underline>
                     </shop-md-decorator>
-                  </shop-input>
+                  </component-input>
                 </div>
                 <h2>Order Summary</h2>
                 <template is="dom-repeat" items="[[cart]]" as="entry">
@@ -376,9 +376,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                   <div class="flex">Total</div>
                   <div>[[_formatPrice(total)]]</div>
                 </div>
-                <shop-button responsive id="submitBox">
+                <component-button responsive id="submitBox">
                   <input type="button" on-click="_submit" value="Place Order">
-                </shop-button>
+                </component-button>
               </section>
             </div>
           </form>
@@ -388,18 +388,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <header state="success">
           <h1>Thank you</h1>
           <p>[[response.successMessage]]</p>
-          <shop-button responsive>
+          <component-button responsive>
             <a href="/">Finish</a>
-          </shop-button>
+          </component-button>
         </header>
 
         <!-- Error message UI -->
         <header state="error">
           <h1>We couldn&acute;t process your order</h1>
           <p id="errorMessage">[[response.errorMessage]]</p>
-          <shop-button responsive>
+          <component-button responsive>
             <a href="/checkout">Try again</a>
-          </shop-button>
+          </component-button>
         </header>
 
       </iron-pages>

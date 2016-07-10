@@ -12,17 +12,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/app-route/app-route.html">
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../bower_components/steel-properties/steel-classes.html">
-<link rel="import" href="shop-button.html">
+<link rel="import" href="component-button.html">
 <link rel="import" href="data-category.html">
 <link rel="import" href="styles-main.html">
-<link rel="import" href="shop-image.html">
-<link rel="import" href="shop-select.html">
+<link rel="import" href="component-image.html">
+<link rel="import" href="component-select.html">
 
 <dom-module id="shop-detail">
 
   <template>
 
-    <style include="styles-main shop-button shop-select">
+    <style include="styles-main component-button component-select">
 
       :host {
         display: block;
@@ -33,17 +33,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         @apply(--layout-center-justified);
       }
 
-      shop-image {
+      component-image {
         position: relative;
         margin: 64px 32px;
         width: 50%;
         max-width: 600px;
-        --shop-image-img: {
+        --component-image-img: {
           @apply(--layout-fit);
         };
       }
 
-      shop-image::before {
+      component-image::before {
         content: "";
         display: block;
         padding-top: 100%;
@@ -92,7 +92,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         border-top: 1px solid #ccc;
       }
 
-      shop-select > select {
+      component-select > select {
         font-size: 16px;
         padding: 16px 24px 16px 70px;
       }
@@ -104,7 +104,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           @apply(--layout-center);
         }
 
-        shop-image {
+        component-image {
           margin: 0;
           width: 80%;
         }
@@ -150,12 +150,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         failure="{{failure}}"></data-category>
 
     <div id="content" hidden$="[[failure]]">
-      <shop-image alt="[[item.title]]" src="[[item.largeImage]]"></shop-image>
+      <component-image alt="[[item.title]]" src="[[item.largeImage]]"></component-image>
       <div class="detail" has-content$="[[_isDefined(item)]]">
         <h1>[[item.title]]</h1>
         <div class="price">[[_formatPrice(item.price)]]</div>
         <div class="pickers">
-          <shop-select>
+          <component-select>
             <label id="sizeLabel" prefix>Size</label>
             <select id="sizeSelect" aria-labelledby="sizeLabel">
               <option value="XS">XS</option>
@@ -167,8 +167,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <shop-md-decorator aria-hidden="true">
               <shop-underline></shop-underline>
             </shop-md-decorator>
-          </shop-select>
-          <shop-select>
+          </component-select>
+          <component-select>
             <label id="quantityLabel" prefix>Quantity</label>
             <select id="quantitySelect" aria-labelledby="quantityLabel">
               <option value="1" selected>1</option>
@@ -180,26 +180,26 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <shop-md-decorator aria-hidden="true">
               <shop-underline></shop-underline>
             </shop-md-decorator>
-          </shop-select>
+          </component-select>
         </div>
         <div class="description">
           <h4>Description</h4>
           <p id="desc"></p>
         </div>
-        <shop-button responsive>
+        <component-button responsive>
           <button on-tap="_addToCart" aria-label="Add this item to cart">Add to Cart</button>
-        </shop-button>
+        </component-button>
       </div>
     </div>
 
     <!--
-      shop-network-warning shows a warning message when the items can't be rendered due
+      component-offline shows a warning message when the items can't be rendered due
       to network conditions.
     -->
-    <shop-network-warning
+    <component-offline
         hidden$="[[!failure]]"
         offline="[[offline]]"
-        on-try-reconnect="_tryReconnect"></shop-network-warning>
+        on-try-reconnect="_tryReconnect"></component-offline>
 
   </template>
 
