@@ -37,7 +37,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         min-height: 100vh;
         --app-primary-color: rgba(32,32,32, 1);
         --app-primary-color-fade: rgba(32,32,32, .78);
-        --app-secondary-color: rgba(117,117,117, 1);
+        --app-secondary-color: rgba(70,70,70, 1);
+        --app-tertiary-color: rgba(117,117,117, 1);
         --app-accent-color: rgb(247, 255, 40);
         --app-accent-secondary-color: rgba(165,159,119,.7);
         --paper-button-ink-color: var(--app-accent-color);
@@ -49,7 +50,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       app-header {
         @apply(--layout-fixed-top);
-        z-index: 1;
+        z-index: 2;
         background-color: rgba(0, 0, 0, 0.78);
         --app-header-shadow: {
           box-shadow: inset 0px 5px 6px -3px rgba(0, 0, 0, 0.2);
@@ -105,10 +106,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       cart-modal { z-index: 2; }
       app-drawer { z-index: 3; }
       iron-pages { max-width: 100%; margin: 0 auto; }
-      component-footer { margin-top: 140px; }
       footer { position: absolute; bottom: 0; left: 0; right: 0; text-align: center; margin: 20px; line-height: 24px; }
       footer > a { color: var(--app-secondary-color); text-decoration: none; }
       footer > a:hover { text-decoration: underline; }
+
+      shop-detail { padding: 100px 0 0; }
+      shop-cart { padding: 100px 0 0; }
+      shop-checkout { padding: 100px 0 0; }
+
+      component-footer { margin-top: 140px; }
+      :host([page=home]) component-footer { margin-top: 0; }
+
+
 
 
 
