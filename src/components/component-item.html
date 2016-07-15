@@ -8,8 +8,8 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 
-<link rel="import" href="../bower_components/polymer/polymer.html">
-<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
 
 <dom-module id="component-item">
 
@@ -32,6 +32,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         content: "";
         display: block;
         padding-top: 100%;
+      }
+
+      component-image {
+        --component-image-img: {
+          top: 50%;
+          margin: -25% auto;
+        };
       }
 
       .title {

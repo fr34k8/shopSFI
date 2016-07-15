@@ -25,6 +25,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       .hero-image {
         position: relative;
         height: 320px;
+        max-width: 100%;
         overflow: hidden;
         margin-bottom: 32px;
       }
@@ -36,7 +37,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           bottom: 0;
           left: -9999px;
           right: -9999px;
-          max-width: none;
+          width: 100vw;
+          height: 100vh;
+          max-width: 100%;
+          max-height: auto;
         };
       }
 
