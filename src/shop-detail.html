@@ -156,13 +156,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <div class="price">[[_formatPrice(item.price)]]</div>
         <div class="pickers">
           <component-select>
-            <label id="sizeLabel" prefix>Size</label>
+            <label id="sizeLabel" prefix>Type</label>
             <select id="sizeSelect" aria-labelledby="sizeLabel">
-              <option value="XS">XS</option>
-              <option value="S">S</option>
-              <option value="M" selected>M</option>
-              <option value="L">L</option>
-              <option value="XL">XL</option>
+              <option value="NEW" selected>NEW</option>
+              <option value="REBUILT">REBUILT</option>
             </select>
             <shop-md-decorator aria-hidden="true">
               <shop-underline></shop-underline>
@@ -176,6 +173,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               <option value="3">3</option>
               <option value="4">4</option>
               <option value="5">5</option>
+              <option value="6">6</option>
             </select>
             <shop-md-decorator aria-hidden="true">
               <shop-underline></shop-underline>
@@ -242,7 +240,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
             // Reset the select menus.
             this.$.quantitySelect.value = '1';
-            this.$.sizeSelect.value = 'M';
+            this.$.sizeSelect.value = 'NEW';
 
             this.fire('change-section', {
               category: item.category,

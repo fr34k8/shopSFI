@@ -34,13 +34,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         padding-top: 100%;
       }
 
-      component-image {
-        --component-image-img: {
-          top: 50%;
-          margin: -25% auto;
-        };
-      }
-
       .title {
         color: var(--app-primary-color);
         font-weight: bold;
@@ -50,12 +43,27 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         color: var(--app-secondary-color);
       }
 
-      @media (max-width: 767px) {
+      @media (min-width: 0) and (max-width: 768px) {
         :host {
           margin: 0 12px;
         }
+
+        component-image {
+          --component-image-img: {
+            top: 0;
+            margin: 0 auto;
+          };
+        }
       }
 
+      @media (min-width: 769px) {
+        component-image {
+          --component-image-img: {
+            top: 50%;
+            margin: -25% auto;
+          };
+        }
+      }
     </style>
 
     <component-image src="[[item.image]]" alt="[[item.title]]"></component-image>
