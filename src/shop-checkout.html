@@ -130,8 +130,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             </div>
 
             <header class="subsection" visible$="[[_hasItems]]">
-              <h1>Checkout</h1>
-              <span>Shop is a demo app - form data will not be sent</span>
+              <h1>Get Quote</h1>
+              <span>Fill in your details and give us a call!</span>
             </header>
 
             <div class="subsection grid" visible$="[[_hasItems]]">
@@ -377,7 +377,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                   <div>[[_formatPrice(total)]]</div>
                 </div>
                 <component-button responsive id="submitBox">
-                  <input type="button" on-click="_submit" value="Place Order">
+                  <input type="button" on-click="_submit" value="Submit Quote">
                 </component-button>
               </section>
             </div>
@@ -505,7 +505,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             this.$.checkoutForm.fire('iron-form-response', {
               response: {
                 success: 1,
-                successMessage: 'Demo checkout process complete.'
+                successMessage: 'Submit quote process complete.'
               }
             }, { bubbles: false });
           }, 1000);
@@ -661,7 +661,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         // Reset the UI states
         this._reset();
         // Notify the page's title
-        this.fire('change-section', { title: 'Checkout' });
+        this.fire('change-section', { title: 'Quote' });
       }
 
     });
