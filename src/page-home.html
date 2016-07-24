@@ -11,7 +11,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="../bower_components/fx-skew/fx-skew.html">
 <link rel="import" href="../bower_components/fx-arrows/fx-arrows.html">
-<!-- <link rel="import" href="fonts/fonts.html"> -->
 <link rel="import" href="components/component-button.html">
 <link rel="import" href="components/component-image.html">
 
@@ -21,13 +20,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <style include="component-button">
 
-        h1 { font-family: 'LaPejina-ffp', sans-serif; font-size: 72px;  font-weight: normal;  }
-        h2 { font-family: 'Roboto', 'Noto', sans-serif; font-size: 24px; color: white; font-weight: 400; position: relative; border-top: 2px solid white; border-bottom: 2px solid white; padding: 0 3rem; }
+        [hidden] { display: none; }
+
+        h1 { font-family: 'LaPejina-ffp', sans-serif;  font-weight: normal;  }
+        h2 { font-family: 'Roboto', 'Noto', sans-serif; color: white; font-weight: 400; position: relative; border-top: 2px solid white; border-bottom: 2px solid white; }
         a { text-decoration: none; }
 
-        .product { outline: none; }
-        .product > component-image::after { display: block; content: ''; position: absolute; transition-property: opacity; transition-duration: 0s; transition-delay: 90ms; pointer-events: none; opacity: 0; top: 5px; left: 5px; right: 5px; bottom: 5px; outline: #2196F3 auto 5px; outline: -moz-mac-focusring auto 5px; outline: -webkit-focus-ring-color auto 5px; }
-        .product:focus > component-image::after { opacity: 1; }
+        .product-img { outline: none; }
+        .product-img > component-image::after { display: block; content: ''; position: absolute; transition-property: opacity; transition-duration: 0s; transition-delay: 90ms; pointer-events: none; opacity: 0; top: 5px; left: 5px; right: 5px; bottom: 5px; outline: #2196F3 auto 5px; outline: -moz-mac-focusring auto 5px; outline: -webkit-focus-ring-color auto 5px; }
+        .product-img:focus > component-image::after { opacity: 1; }
         .item { display: block; position: relative; text-decoration: none; text-align: center; }
 
         component-image { position: relative; max-width: 100%; display: block;
@@ -45,8 +46,35 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     component-image::after { display: block; content: ''; position: absolute; transition-property: opacity; transition-duration: 0s; transition-delay: 90ms; pointer-events: none; opacity: 0; top: 5px; left: 5px; right: 5px; bottom: 5px; outline: #2196F3 auto 5px; outline: -moz-mac-focusring auto 5px; outline: -webkit-focus-ring-color auto 5px; }
 
     .item {  }
-    .item .product { display: block; background: rgba(0,0,0, .78); margin: 0 1rem; width: 150px; height: 150px; border-radius: 100%; border: 4px solid white; }
-    .item .product component-image { display: block; max-width: 90%; overflow: visible; }
+    .item .product-link {  }
+    .item .product-link h3 { font-size: 18px; transition: color .22s ease-in-out; text-shadow: 1px 1px 0 #000; }
+
+    .item .product-img { position: relative; display: block; margin: 2rem 1.2rem; width: 185px; height: 185px; border-radius: 100%; box-sizing: border-box; padding: 16px; transition: transform .22s ease-in-out;
+        background: rgba(0,0,0, .64);
+        border: 6px solid rgba(0,0,0, 1); }
+
+    .item .product-img:before,
+    .item .product-img:after { box-sizing: border-box; content: ""; display: block; position: absolute; border-radius: 100%; transition: all .22s ease-in-out;
+        border:    12px solid transparent;
+        top:      -12px;
+        left:     -12px;
+        right:    -12px;
+        bottom:   -12px;
+    }
+
+    .item .product-img:before                     { opacity: .25; border-top: 12px solid var(--app-color-white);     border-left: 12px solid var(--app-color-white);  }
+    .item .product-img:after                      { opacity:  .5; border-bottom: 12px solid var(--app-color-white);  border-right: 12px solid var(--app-color-white); }
+
+    .item .product-img component-image            { display: block; max-width: 100%; overflow: visible; -webkit-filter: grayscale(1); filter: grayscale(1); transition: all .22s ease-in-out; }
+
+    /* Hover States */
+    .item:hover .product-link h3                  { color: #ffd8e0; }
+    .item:hover .product-img component-image      { opacity: 1; -webkit-filter: grayscale(0); filter: grayscale(0); transform: scale(1.07, 1.07) translate(0, -7px); }
+    .item:hover .product-img                      {  }
+    .item:hover .product-img:before               { transform: rotate(180deg); border-color: var(--app-accent-color); opacity: .5; background: rgba(256,0,0, .11); }
+    .item:hover .product-img:after                { transform: rotate(180deg); opacity: .25; }
+
+
 
     .logo {  }
     .logo img { width: 350px; }
@@ -55,31 +83,40 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     h3 { color: white; text-transform: uppercase; }
 
 
-
+    /* Mobile */
     @media (min-width: 0) and (max-width: 768px) {
         component-image {  }
+
+        h1 { font-size: 42px; }
+        h2 { font-size: 18px; padding: 0 1rem; }
 
         .item {  }
 
     }
 
 
-
+    /* Tablet */
     @media (min-width: 769px) {
         component-image {  }
 
-        h1 {  }
-        h2 {  }
+        h1 { font-size: 72px; }
+        h2 { font-size: 24px; padding: 0 3rem; }
 
     }
 
     </style>
 
+    <!-- Media Queries -->
+    <iron-media-query query="(min-width: 0) and (max-width: 768px)" query-matches="{{mobile}}"></iron-media-query>
+    <iron-media-query query="(min-width: 769px) and (max-width: 1024px)" query-matches="{{tablet}}"></iron-media-query>
+    <iron-media-query query="(min-width: 1025px)" query-matches="{{desktop}}"></iron-media-query>
+
+
     <main class="flex-vertical center-center height-100 min-height-100"> <!-- height100 !important! (IE11 Fix) -->
 
         <!-- TOP -->
-        <section class="flex-vertical end-center flex-2">
-            <a href="/" class="logo">
+        <section class="flex-vertical end-center mobile-center-center flex-2">
+            <a href="/" class="logo" hidden$="{{mobile}}">
                 <img src="../images/logo.svg" alt="Sulphur Fuel Injector" />
             </a>
             <h1>Common Rail</h1>
@@ -91,16 +128,48 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <template is="dom-repeat" items="[[categories]]" strip-whitespace>
 
                 <div class="item">
-                    <a class="product" href$="/list/[[item.name]]">
+                    <a class="product-img" href$="/list/[[item.name]]">
                         <component-image src="[[item.image]]" alt="[[item.headline]]" placeholder-img="[[item.placeholder]]"></component-image>
                     </a>
-                    <a href$="/list/[[item.name]]">
+                    <a class="product-link" href$="/list/[[item.name]]">
                         <h3>[[item.headline]]</h3>
                     </a>
                 </div>
 
             </template>
         </section>
+
+        <!-- MOBILE -->
+        <!-- MOBILE -->
+        <!-- MOBILE -->
+        <section class="flex-vertical center-center flex-1" hidden$="{{!mobile}}">
+            <!-- Swipe Pages -->
+            <paper-icon-button class="prev-click" size="64" icon="hardware:keyboard-arrow-left" on-click="_PrevClick" hidden$="{{!mobile}}"></paper-icon-button>
+            <paper-icon-button class="next-click" size="64" icon="hardware:keyboard-arrow-right" on-click="_NextClick" hidden$="{{!mobile}}"></paper-icon-button>
+
+            <!-- Swipe Pages -->
+            <iron-swipeable-pages show-arrow id="swipe" selected="{{selectedService}}" flex="auto" width="100" hidden$="{{!mobile}}">
+                <template is="dom-repeat" items="[[categories]]" strip-whitespace>
+
+                    <div class="item flex-vertical center-center">
+                        <a class="product-img" href$="/list/[[item.name]]">
+                            <component-image src="[[item.image]]" alt="[[item.headline]]" placeholder-img="[[item.placeholder]]"></component-image>
+                        </a>
+                        <a class="product-link" href$="/list/[[item.name]]">
+                            <h3>[[item.headline]]</h3>
+                        </a>
+                    </div>
+
+                </template>
+            </iron-swipeable-pages>
+        </section>
+        <!-- MOBILE -->
+        <!-- MOBILE -->
+        <!-- MOBILE -->
+
+
+
+    <!-- :  :  :  :  :  :  :  :  :  :  :  :  :  :  :  :  :   -->
 
         <!-- BOTTOM -->
         <section class="flex-vertical height-100px">
