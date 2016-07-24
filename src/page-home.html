@@ -11,6 +11,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="../bower_components/fx-skew/fx-skew.html">
 <link rel="import" href="../bower_components/fx-arrows/fx-arrows.html">
+<link rel="import" href="../fonts/fonts.html">
 <link rel="import" href="components/component-button.html">
 <link rel="import" href="components/component-image.html">
 
@@ -51,7 +52,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       component-image::after { display: block; content: ''; position: absolute; transition-property: opacity; transition-duration: 0s; transition-delay: 90ms; pointer-events: none; opacity: 0; top: 5px; left: 5px; right: 5px; bottom: 5px; outline: #2196F3 auto 5px; outline: -moz-mac-focusring auto 5px; outline: -webkit-focus-ring-color auto 5px; }
 
       .item .banner { display: block; width: 100%; }
-      .item .banner h2 { text-transform: uppercase; color: white; display: block; font-weight: 900; text-align: center; text-shadow: 0px 0px 30px rgba(0, 0, 0, 1); }
+      .item .banner h2 { font-family: 'LaPejina-ffp'; text-transform: uppercase; color: white; display: block; font-weight: 900; text-align: center; text-shadow: 0px 0px 30px rgba(0, 0, 0, 1); }
       .item .banner component-button { background: var(--app-accent-color); color: white; }
 
       .item .banner fx-arrows { display: none; }
@@ -76,7 +77,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       @media (min-width: 769px) {
         component-image { height: 100vh; max-width: 100%; }
-        
+
         .item .banner { position: absolute; top: 35%; }
         .item .banner h2 { font-size: 72px; margin: 1rem 0; }
         .item:nth-of-type(3) > component-button > a,

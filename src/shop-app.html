@@ -19,6 +19,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/iron-media-query/iron-media-query.html">
 <link rel="import" href="../bower_components/iron-pages/iron-pages.html">
 <link rel="import" href="../bower_components/iron-selector/iron-selector.html">
+<link rel="import" href="../fonts/fonts.html">
 <link rel="import" href="data-category.html">
 <!-- Since 'home' is the default route, eagerly load it. -->
 <link rel="import" href="page-home.html">
@@ -32,7 +33,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       :host {
         display: block;
         position: relative;
-        /*padding-top: 130px;*/
         min-height: 100vh;
         --app-primary-color: #212121;
         --app-primary-color-fade: rgba(32,32,32, .78);
@@ -54,13 +54,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         @apply(--layout-fixed-top);
         z-index: 2;
         box-shadow: inset 0px -4px 0px 0px rgba(256,256,256, .5);
-        background: url("../images/bg-metal.jpg") 0 0 repeat;
+        background: rgba(0,0,0, .78);
 
         --app-header-shadow: {
           box-shadow: inset 0px 5px 6px -3px rgba(0, 0, 0, .78);
           height: 10px;
           bottom: -10px;
         };
+      }
+
+      app-toolbar {
+
       }
 
       paper-icon-button { color: var(--app-primary-color); opacity: .5; transition: opacity .22s ease-in-out; }
@@ -86,9 +90,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       component-tabs, component-tab { height: 64px; color: var(--app-primary-color); text-transform: uppercase;
         --component-tab-overlay: {
-          background: -moz-linear-gradient(left,  rgba(255,255,255,0) 0%, rgba(255,255,255, .78) 50%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
-          background: -webkit-linear-gradient(left,  rgba(255,255,255,0) 0%,rgba(255,255,255, .78) 50%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
-          background: linear-gradient(to right,  rgba(255,255,255,0) 0%,rgba(255,255,255, .78) 50%,rgba(255,255,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+          background: -moz-linear-gradient(left,  rgba(255,255,255,0) 0%, rgba(255,255,255, .25) 50%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
+          background: -webkit-linear-gradient(left,  rgba(255,255,255,0) 0%,rgba(255,255,255, .25) 50%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
+          background: linear-gradient(to right,  rgba(255,255,255,0) 0%,rgba(255,255,255, .25) 50%,rgba(255,255,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 
           border-bottom: 4px solid var(--app-accent-color);
         };
@@ -96,7 +100,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       component-tabs { height: 100%; }
       component-tab { margin: 0; }
-      component-tab a { outline: none; height: 100%; padding: 0 20px; font-size: 13px; font-weight: 500; text-decoration: none; color: var(--app-primary-color); text-shadow: -1px -1px 0 rgba(256,256,256,.62); }
+      component-tab a { outline: none; height: 100%; padding: 0 20px; font-size: 13px; font-weight: 500; text-decoration: none; color: var(--app-color-white); }
 
       .cart-badge { position: absolute; top: -2px; right: 0; width: 20px; height: 20px; border-radius: 50%; font-size: 12px; font-weight: 900; pointer-events: none; transition: color .22s ease-in-out;
 
