@@ -63,9 +63,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         };
       }
 
-      app-toolbar {
-
-      }
+      app-toolbar {  }
 
       paper-icon-button { color: var(--app-color-white); opacity: .5; transition: opacity .22s ease-in-out; }
       paper-icon-button:hover { opacity: 1; transition: opacity .22s ease-in-out; }
@@ -102,19 +100,27 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       component-tab { margin: 0; }
       component-tab a { outline: none; height: 100%; padding: 0 20px; font-size: 13px; font-weight: 500; text-decoration: none; color: var(--app-color-white); }
 
-      .cart-badge { position: absolute; top: -2px; right: 0; width: 20px; height: 20px; border-radius: 50%; font-size: 12px; font-weight: 900; pointer-events: none; transition: color .22s ease-in-out;
+      .cart-badge {
+            position: absolute; top: -2px; right: 0; width: 20px; height: 20px; border-radius: 50%; font-size: 12px; font-weight: 900; pointer-events: none; transition: color .22s ease-in-out;
+            background-color: var(--app-accent-color);
+            color: var(--app-color-white);
+            @apply(--layout-vertical);
+            @apply(--layout-center-center);
+      }
 
-                    background-color: var(--app-accent-color);
-                    color: var(--app-color-white);
-                    @apply(--layout-vertical);
-                    @apply(--layout-center-center); }
+      app-drawer { z-index: 3;
+        /*--app-drawer-scrim-background: rgba(88, 0, 0, .65);*/
 
-      .drawer-list { margin: 0 20px; }
-      .drawer-list a { display: block; padding: 0 16px; line-height: 40px; text-decoration: none; color: var(--app-secondary-color); }
-      .drawer-list a.iron-selected { color: black; font-weight: bold; }
+        --app-drawer-content-container: {
+          background-color: var(--app-primary-color);
+        }
+      }
+
+      .drawer-list { margin: 0 20px; background: var(--app-primary-color); }
+      .drawer-list a { display: block; padding: 0 16px; line-height: 40px; text-decoration: none; color: var(--app-color-white); border-top: 1px solid transparent; border-bottom: 1px solid transparent; }
+      .drawer-list a.iron-selected { background: rgba(256,256,256, .72); color: var(--app-primary-color); font-weight: bold; border-top: 1px solid white; border-bottom: 1px solid white; }
 
       cart-modal { z-index: 2; }
-      app-drawer { z-index: 3; }
       iron-pages { max-width: 100%; margin: 0 auto; }
       footer { position: absolute; bottom: 0; left: 0; right: 0; text-align: center; margin: 20px; line-height: 24px; }
       footer > a { color: var(--app-secondary-color); text-decoration: none; }
