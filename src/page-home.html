@@ -20,92 +20,229 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <template>
 
     <style include="component-button">
-      .image-link { outline: none; }
 
-      /*
-      .image-link > component-image::after { display: block; content: ''; position: absolute; transition-property: opacity; transition-duration: 0s; transition-delay: 90ms; pointer-events: none; opacity: 0; top: 5px; left: 5px; right: 5px; bottom: 5px; outline: #2196F3 auto 5px; outline: -moz-mac-focusring auto 5px; outline: -webkit-focus-ring-color auto 5px; }
-      .image-link:focus > component-image::after { opacity: 1; } */
+        h1 { font-family: 'LaPejina-ffp', sans-serif; font-size: 72px;  font-weight: normal;  }
+        h2 { font-family: 'Roboto', 'Noto', sans-serif; font-size: 24px; color: white; font-weight: 400; position: relative; border-top: 2px solid white; border-bottom: 2px solid white; padding: 0 3rem; }
+        a { text-decoration: none; }
 
-      .item { display: block; position: relative; text-decoration: none; text-align: center; }
+        .product { outline: none; }
+        .product > component-image::after { display: block; content: ''; position: absolute; transition-property: opacity; transition-duration: 0s; transition-delay: 90ms; pointer-events: none; opacity: 0; top: 5px; left: 5px; right: 5px; bottom: 5px; outline: #2196F3 auto 5px; outline: -moz-mac-focusring auto 5px; outline: -webkit-focus-ring-color auto 5px; }
+        .product:focus > component-image::after { opacity: 1; }
+        .item { display: block; position: relative; text-decoration: none; text-align: center; }
 
-      component-image { position: relative; height: 100vh; max-width: 100%; overflow: hidden;
-        --component-image-img: {
-          position: absolute;
-          top: 0;
-          bottom: 0;
-          left: -9999px;
-          right: -9999px;
-          max-width: 100%;
-          max-height: 100%;
-          height: 100vh;
-          width: 100vw;
-        };
-      }
-
-      component-image:nth-of-type(1) { height: 111vh;
-          --component-image-img: {
-            height: 111vh;
-          };
-      }
+        component-image { position: relative; max-width: 100%; display: block;
+            --component-image-img: {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: -9999px;
+            right: -9999px;
+            max-width: 100%;
+            };
+        }
 
 
-      component-image::after { display: block; content: ''; position: absolute; transition-property: opacity; transition-duration: 0s; transition-delay: 90ms; pointer-events: none; opacity: 0; top: 5px; left: 5px; right: 5px; bottom: 5px; outline: #2196F3 auto 5px; outline: -moz-mac-focusring auto 5px; outline: -webkit-focus-ring-color auto 5px; }
+    component-image::after { display: block; content: ''; position: absolute; transition-property: opacity; transition-duration: 0s; transition-delay: 90ms; pointer-events: none; opacity: 0; top: 5px; left: 5px; right: 5px; bottom: 5px; outline: #2196F3 auto 5px; outline: -moz-mac-focusring auto 5px; outline: -webkit-focus-ring-color auto 5px; }
 
-      .item .banner { display: inline-block; overflow: hidden; }
-      .item .banner h2 {  }
-      .item .banner component-button { background: var(--app-accent-color); color: white; }
+    .item {  }
+    .item .product { display: block; background: rgba(0,0,0, .78); margin: 0 1rem; width: 150px; height: 150px; border-radius: 100%; border: 4px solid white; }
+    .item .product component-image { display: block; max-width: 90%; overflow: visible; }
 
-      .item .banner fx-arrows { display: none; }
-      .item:first-child .banner fx-arrows { display: block; margin: 10rem auto; }
+    .logo {  }
+    .logo img { width: 350px; }
 
-      .item fx-skew { background: #fff; z-index: 1; min-height: 25vh; }
-      .item:nth-of-type(4) fx-skew { background: var(--app-secondary-color); z-index: 1; min-height: auto; }
+    component-image {  }
+    h3 { color: white; text-transform: uppercase; }
 
-      @media (min-width: 0) and (max-width: 768px) {
-        component-image { height: 100vh; max-width: 100%; }
 
-        .item .banner { position: absolute; top: 25%; left: 50%; }
-        .item .banner h2 { font-size: 30px; margin: 24px 0; }
 
-      }
+    @media (min-width: 0) and (max-width: 768px) {
+        component-image {  }
 
-      @media (min-width: 769px) {
-        component-image { height: 100vh; max-width: 100%; }
+        .item {  }
 
-        .item .banner { position: absolute; top: 35%; left: 50%; }
-        .item .banner h2 { font-size: 72px; margin: 1rem 0; }
+    }
 
-      }
+
+
+    @media (min-width: 769px) {
+        component-image {  }
+
+        h1 {  }
+        h2 {  }
+
+    }
 
     </style>
 
-    <template is="dom-repeat" items="[[categories]]" strip-whitespace>
-      <div class="item">
+    <main class="flex-vertical center-center height-100 min-height-100"> <!-- height100 !important! (IE11 Fix) -->
+
+        <!-- TOP -->
+        <section class="flex-vertical end-center flex-2">
+            <a href="/" class="logo">
+                <img src="../images/logo.svg" alt="Sulphur Fuel Injector" />
+            </a>
+            <h1>Common Rail</h1>
+            <h2>Fuel Injector Testing</h2>
+        </section>
+
+        <!-- MIDDLE -->
+        <section class="flex-horizontal end-center flex-1" hidden$="{{mobile}}">
+            <template is="dom-repeat" items="[[categories]]" strip-whitespace>
+
+                <div class="item">
+                    <a class="product" href$="/list/[[item.name]]">
+                        <component-image src="[[item.image]]" alt="[[item.headline]]" placeholder-img="[[item.placeholder]]"></component-image>
+                    </a>
+                    <a href$="/list/[[item.name]]">
+                        <h3>[[item.headline]]</h3>
+                    </a>
+                </div>
+
+            </template>
+        </section>
+
+        <!-- BOTTOM -->
+        <section class="flex-vertical height-100px">
+            <fx-arrows color="white"></fx-arrows>
+        </section>
+    </main>
+<!--  Content
+---------------------------------------------------------------------------------------------------------------->
+    <!--
+    <component-page grid="vertical" layout="center-center"> -->
+
+        <!-- TOP -->
         <!--
-        <a class="image-link" href$="/list/[[item.name]]">
-            <component-image src="[[item.image]]" alt="[[item.headline]]" placeholder-img="[[item.placeholder]]"></component-image>
-        </a> -->
-        <component-image src="[[item.image]]" alt="[[item.headline]]" placeholder-img="[[item.placeholder]]"></component-image>
+        <section flex="1" grid="vertical" layout="end-center" class="top">
+            <a href="/" class="logo">
+                <img src="../../images/logo-sulphur-big-circle.svg" alt="Sulphur Fuel Injector" />
+            </a>
+            <span class="text-big drop-shadow">You're going places.</span>
+        </section> -->
 
-        <div class="banner">
-            <h2>[[item.headline]] <br />
-                <strong>[[item.title]]</strong>
-            </h2>
 
-            <component-button>
-              <a aria-label$="[[item.headline]] Shop Now" href$="/list/[[item.name]]">View All</a>
-            </component-button>
+        <!-- MIDDLE -->
+        <!--
+        <section flex="none" grid="vertical" layout="around-center" class="middle drop-shadow" padding="1">
+            <img src="../../images/icon-block.svg" alt="Map Markers" class="map-markers drop-shadow" />
+            <span class="text-small drop-shadow">We'll help you get there.</span>
+        </section> -->
 
-            <fx-arrows color="white">
-                <p>[[item.description]]</p>
-            </fx-arrows>
-        </div>
 
-        <fx-skew></fx-skew>
-      </div>
-    </template>
+        <!-- BOTTOM -->
+        <!--
+        <section flex="none" mobile-flex="1" grid="vertical" layout="center-center" width="1" class="bottom relative"> -->
 
-  </template>
+            <!-- MOBILE -->
+            <!-- MOBILE -->
+            <!-- MOBILE -->
+
+            <!-- Swipe Pages -->
+            <!--
+            <paper-icon-button class="prev-click" size="64" icon="hardware:keyboard-arrow-left" on-click="_PrevClick" hidden$="{{!mobile}}"></paper-icon-button>
+            <paper-icon-button class="next-click" size="64" icon="hardware:keyboard-arrow-right" on-click="_NextClick" hidden$="{{!mobile}}"></paper-icon-button> -->
+
+            <!-- Swipe Pages -->
+            <!--
+            <iron-swipeable-pages show-arrow id="swipe" selected="{{selectedService}}" flex="auto" width="100" hidden$="{{!mobile}}">
+                <div class="page" grid="vertical" layout="center-center">
+                    <div class="product-mini">
+                        <img src="../../images/products/diesel-pumps.svg" alt="Diesel Pumps">
+                    </div>
+                    <h3>Pumps</h3>
+                </div>
+
+                <div class="page" grid="vertical" layout="center-center">
+                    <div class="product-mini">
+                        <img src="../../images/products/diesel-injectors.svg" alt="Diesel Injectors">
+                    </div>
+                    <h3>Injectors</h3>
+                </div>
+
+                <div class="page" grid="vertical" layout="center-center">
+                    <div class="product-mini">
+                        <img src="../../images/products/diesel-rebuilds.svg" alt="Diesel Rebuilds">
+                    </div>
+                    <h3>Rebuilds</h3>
+                </div>
+
+                <div class="page" grid="vertical" layout="center-center">
+                    <div class="product-mini">
+                        <img src="../../images/products/diesel-common-rail.svg" alt="Diesel Common Rail">
+                    </div>
+                    <h3>Common Rail</h3>
+                </div>
+            </iron-swipeable-pages> -->
+
+            <!-- MOBILE -->
+            <!-- MOBILE -->
+            <!-- MOBILE -->
+
+
+
+        <!-- :  :  :  :  :  :  :  :  :  :  :  :  :  :  :  :  :   -->
+
+
+
+            <!-- DESKTOP -->
+            <!-- DESKTOP -->
+            <!-- DESKTOP -->
+            <!--
+            <div grid="horizontal" layout="center-center" hidden$="{{mobile}}">
+
+                <div class="swipe-page">
+                    <div class="product-mini">
+                        <img src="../../images/products/diesel-pumps.svg" alt="Diesel Pumps">
+                    </div>
+                    <h3>Pumps</h3>
+                </div>
+
+                <div class="swipe-page">
+                    <div class="product-mini">
+                        <img src="../../images/products/diesel-injectors.svg" alt="Diesel Injectors">
+                    </div>
+                    <h3>Injectors</h3>
+                </div>
+
+                <div class="swipe-page">
+                    <div class="product-mini">
+                        <img src="../../images/products/diesel-rebuilds.svg" alt="Diesel Rebuilds">
+                    </div>
+                    <h3>Rebuilds</h3>
+                </div>
+
+                <div class="swipe-page">
+                    <div class="product-mini">
+                        <img src="../../images/products/diesel-common-rail.svg" alt="Diesel Common Rail">
+                    </div>
+                    <h3>Common Rail</h3>
+                </div>
+
+            </div> -->
+            <!-- DESKTOP -->
+            <!-- DESKTOP -->
+            <!-- DESKTOP -->
+
+
+        <!-- :  :  :  :  :  :  :  :  :  :  :  :  :  :  :  :  :   -->
+
+        <!--
+        </section> -->
+
+
+        <!-- BASELINE -->
+        <!--
+        <section flex="none" grid="vertical" layout="center-center" width="1" class="baseline" hidden$="{{mobile}}">
+            <fx-arrows color="white" hidden$="{{mobile}}"></fx-arrows>
+        </section>
+
+    </component-page> -->
+
+<!--  Content
+---------------------------------------------------------------------------------------------------------------->
+
+</template>
 
   <script>
 

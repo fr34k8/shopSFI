@@ -33,10 +33,33 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       overflow-y: scroll;
     }
 
-    h1, h2 { font-family: 'LaPejina-ffp', sans-serif; font-weight: normal; text-transform: uppercase; color: white; display: block; text-align: center; margin: 0 auto; text-shadow: 1px 1px 0 rgba(0, 0, 0, 1); }
-    h1 strong, h2 strong { font-family: 'Roboto', 'Noto', sans-serif; display: inline-block; margin: 0 auto; font-weight: 400; font-size: 24px; position: relative; }
+    h1, h2 { color: white; text-transform: uppercase; text-shadow: 1px 1px 0 rgba(0, 0, 0, 1); margin: 0; padding: 0; }
 
-    h1 strong:before, h2 strong:before { content: ""; display: block; position: absolute; top: 0; right: 100%; height: 2px; width: 100%; background: white; }
+    /*h2:before, h2:after { font-family: 'Roboto', 'Noto', sans-serif; font-size: 24px; color: white; font-weight: 400; position: relative; }*/
+
+    /* Front Layer */
+    /*
+    --app-header-background-front-layer: {
+        background-image: url('../images/bg/desktop/the-open-road.jpg');
+        background-size: cover;
+        background-position: 50% 50%;
+        background-attachment: fixed;
+        -webkit-filter: grayscale(.4) opacity(1);
+        filter: grayscale(.4) opacity(1);
+    };*/
+
+    /* Back Layer */
+    /*
+    --app-header-background-rear-layer: {
+        background-image: url('../images/bg/desktop/the-open-road.jpg');
+        background-color: black;
+        background-size: cover;
+        background-position: 50% 50%;
+        background-attachment: fixed;
+        opacity: .42 !important;
+    };*/
+
+    /*h2:before { content: ""; display: block; position: absolute; top: 0; right: 100%; height: 2px; width: 100%; background: white; }*/
 
     /* styling for render while resources are loading */
     shop-app[unresolved] {
