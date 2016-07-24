@@ -19,7 +19,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/iron-media-query/iron-media-query.html">
 <link rel="import" href="../bower_components/iron-pages/iron-pages.html">
 <link rel="import" href="../bower_components/iron-selector/iron-selector.html">
-<link rel="import" href="../fonts/fonts.html">
+<!-- <link rel="import" href="fonts/fonts.html"> -->
 <link rel="import" href="data-category.html">
 <!-- Since 'home' is the default route, eagerly load it. -->
 <link rel="import" href="page-home.html">
@@ -53,7 +53,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       app-header {
         @apply(--layout-fixed-top);
         z-index: 2;
-        box-shadow: inset 0px -4px 0px 0px rgba(256,256,256, .5);
+        box-shadow: inset 0px -4px 0px 0px rgba(256,256,256, .14);
         background: rgba(0,0,0, .78);
 
         --app-header-shadow: {
@@ -67,7 +67,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       }
 
-      paper-icon-button { color: var(--app-primary-color); opacity: .5; transition: opacity .22s ease-in-out; }
+      paper-icon-button { color: var(--app-color-white); opacity: .5; transition: opacity .22s ease-in-out; }
       paper-icon-button:hover { opacity: 1; transition: opacity .22s ease-in-out; }
       a { text-decoration: none; }
 
@@ -204,9 +204,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <div id="tabContainer" class="flex-1 flex-horizontal layout-end tablet-margin-r-1 desktop-margin-r-1" primary$="[[_shouldShowTabs]]" hidden$="[[!_shouldShowTabs]]">
           <template is="dom-if" if="[[_shouldRenderTabs]]">
 
-            <component-tabs selected="[[categoryName]]" attr-for-selected="name">
+            <component-tabs selected="[[categoryName]]" attr-for-selected="name" noink>
               <template is="dom-repeat" items="[[categories]]" as="category" initial-count="4">
-                <component-tab name="[[category.name]]">
+                <component-tab name="[[category.name]]" noink>
                   <a href="/list/[[category.name]]" class="flex-vertical center-center">[[category.title]]</a>
                 </component-tab>
               </template>
