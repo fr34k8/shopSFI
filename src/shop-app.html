@@ -156,7 +156,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         data="{{routeData}}"
         tail="{{subroute}}"></app-route>
 
+
+    <!-- Media Queries -->
     <iron-media-query query="max-width: 767px" query-matches="{{smallScreen}}"></iron-media-query>
+    <iron-media-query query="(min-width: 0) and (max-width: 768px)" query-matches="{{mobile}}"></iron-media-query>
+    <iron-media-query query="(min-width: 769px) and (max-width: 1024px)" query-matches="{{tablet}}"></iron-media-query>
+    <iron-media-query query="(min-width: 1025px)" query-matches="{{desktop}}"></iron-media-query>
+
 
     <!-- data-category provides the list of categories. -->
     <data-category categories="{{categories}}"></data-category>
@@ -214,7 +220,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <component-tabs selected="[[categoryName]]" attr-for-selected="name" noink>
               <template is="dom-repeat" items="[[categories]]" as="category" initial-count="4">
                 <component-tab name="[[category.name]]" noink>
-                  <a href="/list/[[category.name]]" class="flex-vertical center-center">[[category.title]]</a>
+                  <a href="/list/[[category.name]]" class="flex-vertical center-center">[[category.headline]]</a>
                 </component-tab>
               </template>
             </component-tabs>
@@ -257,7 +263,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <app-drawer opened="{{drawerOpened}}" swipe-open tabindex="0">
         <iron-selector role="navigation" class="drawer-list" selected="[[categoryName]]" attr-for-selected="name">
           <template is="dom-repeat" items="[[categories]]" as="category" initial-count="4">
-            <a name="[[category.name]]" href="/list/[[category.name]]">[[category.title]]</a>
+            <a name="[[category.name]]" href="/list/[[category.name]]">[[category.headline]]</a>
           </template>
         </iron-selector>
       </app-drawer>

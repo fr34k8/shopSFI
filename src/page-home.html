@@ -9,6 +9,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 
 <link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/iron-swipeable-pages/iron-swipeable-pages.html">
 <link rel="import" href="../bower_components/fx-skew/fx-skew.html">
 <link rel="import" href="../bower_components/fx-arrows/fx-arrows.html">
 <link rel="import" href="components/component-button.html">
@@ -24,6 +25,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         h1 { font-family: 'LaPejina-ffp', sans-serif;  font-weight: normal;  }
         h2 { font-family: 'Roboto', 'Noto', sans-serif; color: white; font-weight: 400; position: relative; border-top: 2px solid white; border-bottom: 2px solid white; }
+        h3 { color: white; text-transform: uppercase; }
         a { text-decoration: none; }
 
         .product-img { outline: none; }
@@ -33,12 +35,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         component-image { position: relative; max-width: 100%; display: block;
             --component-image-img: {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: -9999px;
-            right: -9999px;
-            max-width: 100%;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: -9999px;
+                right: -9999px;
+                max-width: 100%;
             };
         }
 
@@ -48,8 +50,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     .item {  }
     .item .product-link {  }
     .item .product-link h3 { font-size: 18px; transition: color .22s ease-in-out; text-shadow: 1px 1px 0 #000; }
-
-    .item .product-img { position: relative; display: block; margin: 2rem 1.2rem; width: 185px; height: 185px; border-radius: 100%; box-sizing: border-box; padding: 16px; transition: transform .22s ease-in-out;
+    .item .product-img { position: relative; display: inline-block; margin: 2rem 1.2rem; width: 185px; height: 185px; border-radius: 100%; box-sizing: border-box; padding: 16px; transition: transform .22s ease-in-out;
         background: rgba(0,0,0, .64);
         border: 6px solid rgba(0,0,0, 1); }
 
@@ -64,7 +65,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     .item .product-img:before                     { opacity: .25; border-top: 12px solid var(--app-color-white);     border-left: 12px solid var(--app-color-white);  }
     .item .product-img:after                      { opacity:  .5; border-bottom: 12px solid var(--app-color-white);  border-right: 12px solid var(--app-color-white); }
-
     .item .product-img component-image            { display: block; max-width: 100%; overflow: visible; -webkit-filter: grayscale(1); filter: grayscale(1); transition: all .22s ease-in-out; }
 
     /* Hover States */
@@ -74,28 +74,58 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     .item:hover .product-img:before               { transform: rotate(180deg); border-color: var(--app-accent-color); opacity: .5; background: rgba(256,0,0, .11); }
     .item:hover .product-img:after                { transform: rotate(180deg); opacity: .25; }
 
-
-
     .logo {  }
     .logo img { width: 350px; }
 
-    component-image {  }
-    h3 { color: white; text-transform: uppercase; }
 
-
-    /* Mobile */
+/*  Mobile
+********************************************************/
     @media (min-width: 0) and (max-width: 768px) {
         component-image {  }
 
         h1 { font-size: 42px; }
         h2 { font-size: 18px; padding: 0 1rem; }
+        h3 { margin: 0; }
 
-        .item {  }
+        /* Iron Swipeable Pages */
+        iron-swipeable-pages { z-index: 1; overflow: hidden; }
+        iron-swipeable-pages > * {
+            -webkit-user-select: none;  /* Chrome all / Safari all */
+            -moz-user-select: none;     /* Firefox all */
+            -ms-user-select: none;      /* IE 10+ */
+            user-select: none;          /* Likely future */
+            cursor: default;
+            overflow: hidden;
+        }
+        iron-swipeable-pages .page { height: 300px; width: 100vw; margin: 0; }
+        iron-swipeable-pages .page .product-img { margin: 0; }
+        iron-swipeable-pages .page .product-link { margin: 0; }
 
+        .next-click,
+        .prev-click {
+            color: rgba(255, 255, 255, 1);
+            position: absolute;
+            top: calc(50% - 40px);
+            z-index: 10;
+            opacity: .5;
+            transition: .25s opacity;
+        }
+
+        .next-click:hover,
+        .prev-click:hover { opacity: 1; transition: .25s opacity; }
+
+        .prev-click { left: 0; }
+        .next-click { right: 0; }
+
+
+
+        /* Icons */
+        paper-icon-button iron-icon { height: 64px; width: 64px; }
     }
 
 
-    /* Tablet */
+/*  Tablet
+********************************************************/
     @media (min-width: 769px) {
         component-image {  }
 
@@ -115,7 +145,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <main class="flex-vertical center-center height-100 min-height-100"> <!-- height100 !important! (IE11 Fix) -->
 
         <!-- TOP -->
-        <section class="flex-vertical end-center mobile-center-center flex-2">
+        <section class="flex-vertical end-center flex-1">
             <a href="/" class="logo" hidden$="{{mobile}}">
                 <img src="../images/logo.svg" alt="Sulphur Fuel Injector" />
             </a>
@@ -142,16 +172,19 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <!-- MOBILE -->
         <!-- MOBILE -->
         <!-- MOBILE -->
-        <section class="flex-vertical center-center flex-1" hidden$="{{!mobile}}">
-            <!-- Swipe Pages -->
-            <paper-icon-button class="prev-click" size="64" icon="hardware:keyboard-arrow-left" on-click="_PrevClick" hidden$="{{!mobile}}"></paper-icon-button>
-            <paper-icon-button class="next-click" size="64" icon="hardware:keyboard-arrow-right" on-click="_NextClick" hidden$="{{!mobile}}"></paper-icon-button>
+
+        <!-- MIDDLE -->
+        <section class="flex-horizontal center-center relative height-300px width-100" hidden$="{{!mobile}}">
 
             <!-- Swipe Pages -->
-            <iron-swipeable-pages show-arrow id="swipe" selected="{{selectedService}}" flex="auto" width="100" hidden$="{{!mobile}}">
+            <paper-icon-button class="prev-click bg-black" icon="icons:arrow-left"  on-click="_PrevClick" hidden$="{{!mobile}}"></paper-icon-button>
+            <paper-icon-button class="next-click bg-black" icon="icons:arrow-right" on-click="_NextClick" hidden$="{{!mobile}}"></paper-icon-button>
+
+            <!-- Swipe Pages -->
+            <iron-swipeable-pages id="swipe" selected="{{selectedService}}" show-arrow>
                 <template is="dom-repeat" items="[[categories]]" strip-whitespace>
 
-                    <div class="item flex-vertical center-center">
+                    <div class="item page width-100 flex-horizontal">
                         <a class="product-img" href$="/list/[[item.name]]">
                             <component-image src="[[item.image]]" alt="[[item.headline]]" placeholder-img="[[item.placeholder]]"></component-image>
                         </a>
@@ -162,6 +195,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
                 </template>
             </iron-swipeable-pages>
+
+
         </section>
         <!-- MOBILE -->
         <!-- MOBILE -->
@@ -172,144 +207,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <!-- :  :  :  :  :  :  :  :  :  :  :  :  :  :  :  :  :   -->
 
         <!-- BOTTOM -->
-        <section class="flex-vertical height-100px">
+        <section class="flex-vertical flex-none height-100px" hidden$="{{mobile}}">
             <fx-arrows color="white"></fx-arrows>
         </section>
     </main>
-<!--  Content
----------------------------------------------------------------------------------------------------------------->
-    <!--
-    <component-page grid="vertical" layout="center-center"> -->
-
-        <!-- TOP -->
-        <!--
-        <section flex="1" grid="vertical" layout="end-center" class="top">
-            <a href="/" class="logo">
-                <img src="../../images/logo-sulphur-big-circle.svg" alt="Sulphur Fuel Injector" />
-            </a>
-            <span class="text-big drop-shadow">You're going places.</span>
-        </section> -->
-
-
-        <!-- MIDDLE -->
-        <!--
-        <section flex="none" grid="vertical" layout="around-center" class="middle drop-shadow" padding="1">
-            <img src="../../images/icon-block.svg" alt="Map Markers" class="map-markers drop-shadow" />
-            <span class="text-small drop-shadow">We'll help you get there.</span>
-        </section> -->
-
-
-        <!-- BOTTOM -->
-        <!--
-        <section flex="none" mobile-flex="1" grid="vertical" layout="center-center" width="1" class="bottom relative"> -->
-
-            <!-- MOBILE -->
-            <!-- MOBILE -->
-            <!-- MOBILE -->
-
-            <!-- Swipe Pages -->
-            <!--
-            <paper-icon-button class="prev-click" size="64" icon="hardware:keyboard-arrow-left" on-click="_PrevClick" hidden$="{{!mobile}}"></paper-icon-button>
-            <paper-icon-button class="next-click" size="64" icon="hardware:keyboard-arrow-right" on-click="_NextClick" hidden$="{{!mobile}}"></paper-icon-button> -->
-
-            <!-- Swipe Pages -->
-            <!--
-            <iron-swipeable-pages show-arrow id="swipe" selected="{{selectedService}}" flex="auto" width="100" hidden$="{{!mobile}}">
-                <div class="page" grid="vertical" layout="center-center">
-                    <div class="product-mini">
-                        <img src="../../images/products/diesel-pumps.svg" alt="Diesel Pumps">
-                    </div>
-                    <h3>Pumps</h3>
-                </div>
-
-                <div class="page" grid="vertical" layout="center-center">
-                    <div class="product-mini">
-                        <img src="../../images/products/diesel-injectors.svg" alt="Diesel Injectors">
-                    </div>
-                    <h3>Injectors</h3>
-                </div>
-
-                <div class="page" grid="vertical" layout="center-center">
-                    <div class="product-mini">
-                        <img src="../../images/products/diesel-rebuilds.svg" alt="Diesel Rebuilds">
-                    </div>
-                    <h3>Rebuilds</h3>
-                </div>
-
-                <div class="page" grid="vertical" layout="center-center">
-                    <div class="product-mini">
-                        <img src="../../images/products/diesel-common-rail.svg" alt="Diesel Common Rail">
-                    </div>
-                    <h3>Common Rail</h3>
-                </div>
-            </iron-swipeable-pages> -->
-
-            <!-- MOBILE -->
-            <!-- MOBILE -->
-            <!-- MOBILE -->
-
-
-
-        <!-- :  :  :  :  :  :  :  :  :  :  :  :  :  :  :  :  :   -->
-
-
-
-            <!-- DESKTOP -->
-            <!-- DESKTOP -->
-            <!-- DESKTOP -->
-            <!--
-            <div grid="horizontal" layout="center-center" hidden$="{{mobile}}">
-
-                <div class="swipe-page">
-                    <div class="product-mini">
-                        <img src="../../images/products/diesel-pumps.svg" alt="Diesel Pumps">
-                    </div>
-                    <h3>Pumps</h3>
-                </div>
-
-                <div class="swipe-page">
-                    <div class="product-mini">
-                        <img src="../../images/products/diesel-injectors.svg" alt="Diesel Injectors">
-                    </div>
-                    <h3>Injectors</h3>
-                </div>
-
-                <div class="swipe-page">
-                    <div class="product-mini">
-                        <img src="../../images/products/diesel-rebuilds.svg" alt="Diesel Rebuilds">
-                    </div>
-                    <h3>Rebuilds</h3>
-                </div>
-
-                <div class="swipe-page">
-                    <div class="product-mini">
-                        <img src="../../images/products/diesel-common-rail.svg" alt="Diesel Common Rail">
-                    </div>
-                    <h3>Common Rail</h3>
-                </div>
-
-            </div> -->
-            <!-- DESKTOP -->
-            <!-- DESKTOP -->
-            <!-- DESKTOP -->
-
-
-        <!-- :  :  :  :  :  :  :  :  :  :  :  :  :  :  :  :  :   -->
-
-        <!--
-        </section> -->
-
-
-        <!-- BASELINE -->
-        <!--
-        <section flex="none" grid="vertical" layout="center-center" width="1" class="baseline" hidden$="{{mobile}}">
-            <fx-arrows color="white" hidden$="{{mobile}}"></fx-arrows>
-        </section>
-
-    </component-page> -->
-
-<!--  Content
----------------------------------------------------------------------------------------------------------------->
 
 </template>
 
@@ -328,6 +229,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         visible: {
           type: Boolean,
           observer: '_visibleChanged'
+        },
+
+        selectedService: {
+            type: Number,
+            value: 0
         }
 
       },
@@ -336,9 +242,26 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         if (visible) {
           this.fire('change-section', { headline: 'Home' });
         }
+      },
+
+      _PrevClick: function() {
+        var pages = this.$.swipe.querySelectorAll('.page');
+        var max = (pages && pages.length - 1) || 0;
+        this.selectedService = this.selectedService === 0 ? max : (this.selectedService - 1);
+      },
+
+      _NextClick: function() {
+        var pages = this.$.swipe.querySelectorAll('.page');
+        var max = (pages && pages.length - 1) || 0;
+        this.selectedService = this.selectedService === max ? 0 : (this.selectedService + 1);
       }
 
     });
+
+
+
+
+
 
   </script>
 

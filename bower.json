@@ -21,7 +21,7 @@
     "iron-selector": "polymerelements/iron-selector#^1.0.0",
     "paper-icon-button": "polymerelements/paper-icon-button#^1.0.0",
     "paper-spinner": "polymerelements/paper-spinner#^1.0.0",
-    "iron-swipeable-pages": "^1.2.5",
+    "iron-swipeable-pages": "^1.2.6",
     "social-post-icons": "^0.2.0",
     "social-media-icons": "^1.0.3",
     "fx-skew": "^0.0.5",
