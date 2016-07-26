@@ -31,7 +31,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         .product-img { outline: none; }
         .product-img > component-image::after { display: block; content: ''; position: absolute; transition-property: opacity; transition-duration: 0s; transition-delay: 90ms; pointer-events: none; opacity: 0; top: 5px; left: 5px; right: 5px; bottom: 5px; outline: #2196F3 auto 5px; outline: -moz-mac-focusring auto 5px; outline: -webkit-focus-ring-color auto 5px; }
         .product-img:focus > component-image::after { opacity: 1; }
-        .item { display: block; position: relative; text-decoration: none; text-align: center; }
 
         component-image { position: relative; max-width: 100%; display: block;
             --component-image-img: {
@@ -44,10 +43,40 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             };
         }
 
-
     component-image::after { display: block; content: ''; position: absolute; transition-property: opacity; transition-duration: 0s; transition-delay: 90ms; pointer-events: none; opacity: 0; top: 5px; left: 5px; right: 5px; bottom: 5px; outline: #2196F3 auto 5px; outline: -moz-mac-focusring auto 5px; outline: -webkit-focus-ring-color auto 5px; }
 
-    .item {  }
+/*  Iron Swipeable Pages
+********************************************************/
+    iron-swipeable-pages {  }
+    iron-swipeable-pages > * {
+        -webkit-user-select: none;  /* Chrome all / Safari all */
+        -moz-user-select: none;     /* Firefox all */
+        -ms-user-select: none;      /* IE 10+ */
+        user-select: none;          /* Likely future */
+        cursor: default;
+    }
+    iron-swipeable-pages .page { margin: 0; }
+    iron-swipeable-pages .page .product-img { margin: 0; }
+    iron-swipeable-pages .page .product-link { margin: 0; }
+
+    .next-click,
+    .prev-click {
+        color: rgba(255, 255, 255, 1);
+        position: absolute;
+        top: calc(50% - 40px);
+        z-index: 10;
+        opacity: .5;
+        transition: .25s opacity;
+    }
+
+    .next-click:hover,
+    .prev-click:hover { opacity: 1; transition: .25s opacity; }
+
+    .prev-click { left: 0; }
+    .next-click { right: 0; }
+
+
+    .item { overflow: hidden; height: 100%; }
     .item .product-link {  }
     .item .product-link h3 { font-size: 18px; transition: color .22s ease-in-out; text-shadow: 1px 1px 0 #000; }
     .item .product-img { position: relative; display: inline-block; margin: 2rem 1.2rem; width: 185px; height: 185px; border-radius: 100%; box-sizing: border-box; padding: 16px; transition: transform .22s ease-in-out;
@@ -87,38 +116,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         h2 { font-size: 18px; padding: 0 1rem; }
         h3 { margin: 0; }
 
-        /* Iron Swipeable Pages */
-        iron-swipeable-pages { z-index: 1; overflow: hidden; }
-        iron-swipeable-pages > * {
-            -webkit-user-select: none;  /* Chrome all / Safari all */
-            -moz-user-select: none;     /* Firefox all */
-            -ms-user-select: none;      /* IE 10+ */
-            user-select: none;          /* Likely future */
-            cursor: default;
-            overflow: hidden;
-        }
-        iron-swipeable-pages .page { height: 300px; width: 100vw; margin: 0; }
-        iron-swipeable-pages .page .product-img { margin: 0; }
-        iron-swipeable-pages .page .product-link { margin: 0; }
-
-        .next-click,
-        .prev-click {
-            color: rgba(255, 255, 255, 1);
-            position: absolute;
-            top: calc(50% - 40px);
-            z-index: 10;
-            opacity: .5;
-            transition: .25s opacity;
-        }
-
-        .next-click:hover,
-        .prev-click:hover { opacity: 1; transition: .25s opacity; }
-
-        .prev-click { left: 0; }
-        .next-click { right: 0; }
-
-
-
         /* Icons */
         paper-icon-button iron-icon { height: 64px; width: 64px; }
     }
@@ -133,8 +130,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         h2 { font-size: 24px; padding: 0 3rem; }
 
     }
-
-    </style>
+</style>
 
     <!-- Media Queries -->
     <iron-media-query query="(min-width: 0) and (max-width: 768px)" query-matches="{{mobile}}"></iron-media-query>
@@ -142,74 +138,82 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <iron-media-query query="(min-width: 1025px)" query-matches="{{desktop}}"></iron-media-query>
 
 
-    <main class="flex-vertical center-center height-100 min-height-100"> <!-- height100 !important! (IE11 Fix) -->
+    <main class="flex-vertical height-100 min-height-100"> <!-- height100 !important! (IE11 Fix) -->
 
         <!-- TOP -->
-        <section class="flex-vertical end-center flex-1">
-            <a href="/" class="logo" hidden$="{{mobile}}">
-                <img src="../images/logo.svg" alt="Sulphur Fuel Injector" />
-            </a>
-            <h1>Common Rail</h1>
-            <h2>Fuel Injector Testing</h2>
-        </section>
+        <!-- TOP -->
+        <!-- TOP -->
+        <section class="flex-1">
+            <div class="flex-vertical end-center item">
 
-        <!-- MIDDLE -->
-        <section class="flex-horizontal end-center flex-1" hidden$="{{mobile}}">
-            <template is="dom-repeat" items="[[categories]]" strip-whitespace>
-
-                <div class="item">
-                    <a class="product-img" href$="/list/[[item.name]]">
-                        <component-image src="[[item.image]]" alt="[[item.headline]]" placeholder-img="[[item.placeholder]]"></component-image>
-                    </a>
-                    <a class="product-link" href$="/list/[[item.name]]">
-                        <h3>[[item.headline]]</h3>
-                    </a>
-                </div>
-
-            </template>
-        </section>
-
-        <!-- MOBILE -->
-        <!-- MOBILE -->
-        <!-- MOBILE -->
-
-        <!-- MIDDLE -->
-        <section class="flex-horizontal center-center relative height-300px width-100" hidden$="{{!mobile}}">
-
-            <!-- Swipe Pages -->
-            <paper-icon-button class="prev-click bg-black" icon="icons:arrow-left"  on-click="_PrevClick" hidden$="{{!mobile}}"></paper-icon-button>
-            <paper-icon-button class="next-click bg-black" icon="icons:arrow-right" on-click="_NextClick" hidden$="{{!mobile}}"></paper-icon-button>
-
-            <!-- Swipe Pages -->
-            <iron-swipeable-pages id="swipe" selected="{{selectedService}}" show-arrow>
-                <template is="dom-repeat" items="[[categories]]" strip-whitespace>
-
-                    <div class="item page width-100 flex-horizontal">
-                        <a class="product-img" href$="/list/[[item.name]]">
-                            <component-image src="[[item.image]]" alt="[[item.headline]]" placeholder-img="[[item.placeholder]]"></component-image>
-                        </a>
-                        <a class="product-link" href$="/list/[[item.name]]">
-                            <h3>[[item.headline]]</h3>
-                        </a>
-                    </div>
-
+                <template is="dom-if" if="{{!mobile}}">
+                <a href="/" class="logo">
+                    <img src="../images/logo.svg" alt="Sulphur Fuel Injector" />
+                </a>
                 </template>
-            </iron-swipeable-pages>
 
+                <h1>Common Rail</h1>
+                <h2>Fuel Injector Testing</h2>
+
+            </div>
+        </section>
+
+        <!-- MIDDLE (Tablet & Desktop) -->
+        <!-- MIDDLE (Tablet & Desktop) -->
+        <!-- MIDDLE (Tablet & Desktop) -->
+        <template is="dom-if" if="{{!mobile}}">
+        <section class="flex-horizontal flex-1">
+
+            <template is="dom-repeat" items="[[categories]]" strip-whitespace>
+            <div class="item">
+                <a class="product-img" href$="/list/[[item.name]]">
+                    <component-image src="[[item.image]]" alt="[[item.headline]]" placeholder-img="[[item.placeholder]]"></component-image>
+                </a>
+                <a class="product-link" href$="/list/[[item.name]]">
+                    <h3>[[item.headline]]</h3>
+                </a>
+            </div>
+            </template>
 
         </section>
-        <!-- MOBILE -->
-        <!-- MOBILE -->
-        <!-- MOBILE -->
+        </template>
 
+        <!-- MIDDLE (Mobile) -->
+        <!-- MIDDLE (Mobile) -->
+        <!-- MIDDLE (Mobile) -->
+        <!--
+        <section class="flex-vertial center-center relative height-300px width-100"> -->
+        <!-- Swipe Buttons -->
+        <template is="dom-if" if="{{mobile}}">
+        <paper-icon-button class="prev-click bg-black" icon="icons:arrow-left"  on-click="_PrevClick"></paper-icon-button>
+        <paper-icon-button class="next-click bg-black" icon="icons:arrow-right" on-click="_NextClick"></paper-icon-button>
 
+        <!-- Swipe Pages -->
+        <iron-swipeable-pages class="flex-1" id="swipe" selected="{{selectedService}}" show-arrow>
 
-    <!-- :  :  :  :  :  :  :  :  :  :  :  :  :  :  :  :  :   -->
+            <template is="dom-repeat" items="[[categories]]" strip-whitespace>
+            <div class="item flex-vertical center-center">
+                <a class="product-img" href$="/list/[[item.name]]">
+                    <component-image src="[[item.image]]" alt="[[item.headline]]" placeholder-img="[[item.placeholder]]"></component-image>
+                </a>
+                <a class="product-link" href$="/list/[[item.name]]">
+                    <h3>[[item.headline]]</h3>
+                </a>
+            </div>
+            </template>
+
+        </iron-swipeable-pages>
+        </template>
+
 
         <!-- BOTTOM -->
-        <section class="flex-vertical flex-none height-100px" hidden$="{{mobile}}">
+        <!-- BOTTOM -->
+        <!-- BOTTOM -->
+        <template is="dom-if" if="{{!mobile}}">
+        <section class="flex-none">
             <fx-arrows color="white"></fx-arrows>
         </section>
+        </template>
     </main>
 
 </template>
@@ -245,13 +249,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       },
 
       _PrevClick: function() {
-        var pages = this.$.swipe.querySelectorAll('.page');
+        var pages = this.$.swipe.querySelectorAll('.item');
         var max = (pages && pages.length - 1) || 0;
         this.selectedService = this.selectedService === 0 ? max : (this.selectedService - 1);
       },
 
       _NextClick: function() {
-        var pages = this.$.swipe.querySelectorAll('.page');
+        var pages = this.$.swipe.querySelectorAll('.item');
         var max = (pages && pages.length - 1) || 0;
         this.selectedService = this.selectedService === max ? 0 : (this.selectedService + 1);
       }
