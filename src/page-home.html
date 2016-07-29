@@ -27,10 +27,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         .middle {  }
         .bottom { height: 100px; }
 
+        .top .top-text { display: inline-block; overflow: hidden; text-align: center; }
+
         h1, h2 { color: white; text-transform: uppercase; text-shadow: 1px 1px 0 rgba(0, 0, 0, 1); margin: 0; padding: 0; }
 
         h1 { font-family: 'LaPejina-ffp', sans-serif;  font-weight: normal;  }
-        h2 { font-family: 'Roboto', 'Noto', sans-serif; color: white; font-weight: 400; position: relative; border-top: 2px solid white; border-bottom: 2px solid white; }
+        h2 { font-family: 'Roboto', 'Noto', sans-serif; color: white; font-weight: 400; position: relative; display: inline-block; }
+
+        h2:before, h2:after { content: "══════════════════════════════════════════════════════════════════"; display: inline-block; position: absolute; top: 0; }
+        h2:before { left: 100%; }
+        h2:after { right: 100%; }
+
         h3 { color: white; text-transform: uppercase; }
         a { text-decoration: none; }
 
@@ -119,7 +126,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         component-image {  }
 
         h1 { font-size: 42px; }
-        h2 { font-size: 18px; padding: 0 1rem; }
+        h2 { font-size: 18px; padding: 0 .5rem; }
         h3 { margin: 0; }
 
         /* Icons */
@@ -154,7 +161,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         component-image {  }
 
         h1 { font-size: 72px; }
-        h2 { font-size: 24px; padding: 0 3rem; }
+        h2 { font-size: 24px; padding: 0 1rem; }
 
     }
 </style>
@@ -181,9 +188,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 </a>
                 </template>
 
-                <h1>Common Rail</h1>
-                <h2>Fuel Injector Testing</h2>
-
+                <div class="top-text">
+                    <h1>Common Rail</h1>
+                    <h2>Fuel Injector Testing</h2>
+                </div>
             </div>
         </section>
 

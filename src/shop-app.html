@@ -112,13 +112,24 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         /*--app-drawer-scrim-background: rgba(88, 0, 0, .65);*/
 
         --app-drawer-content-container: {
+          width: 264px;
           background-color: var(--app-primary-color);
         }
       }
 
-      .drawer-list { margin: 0 20px; background: var(--app-primary-color); }
-      .drawer-list a { display: block; padding: 0 16px; line-height: 40px; text-decoration: none; color: var(--app-color-white); border-top: 1px solid transparent; border-bottom: 1px solid transparent; }
-      .drawer-list a.iron-selected { background: rgba(256,256,256, .72); color: var(--app-primary-color); font-weight: bold; border-top: 1px solid white; border-bottom: 1px solid white; }
+      app-drawer .drawer-map                   { height: 25vh; width: 264px; position: relative; border-bottom: 4px solid silver; }
+      app-drawer .drawer-map google-map        { -webkit-filter: grayscale(1); filter: grayscale(1); }
+      app-drawer .drawer-map img               { display: inline-block; max-width: 100%; position: absolute; left: calc(50% - 40px); top: calc(100% - 24px); z-index: 1; }
+      app-drawer .drawer-map component-pulse   { position: absolute; left: calc(50% - 10px); top: calc(50% - 10px); z-index: 1; }
+
+      app-drawer .drawer-map:after             { content: ""; display: block; position: absolute; top: 0; right: 0; bottom: 0; left: 0; background: black; opacity: .5; z-index: 0; }
+
+      app-drawer .drawer-list                  { margin: 0 20px; background: var(--app-primary-color); }
+      app-drawer .drawer-list a                { display: block; padding: 0 16px; line-height: 40px; text-transform: uppercase; text-decoration: none; color: var(--app-color-white); border-top: 1px solid transparent; border-bottom: 1px solid transparent; }
+      app-drawer .drawer-list a.iron-selected  { background: rgba(256,256,256, .72); color: var(--app-primary-color); font-weight: bold; border-top: 1px solid white; border-bottom: 1px solid white; }
+
+      app-drawer .info-links a                 { display: block; color: var(--app-tertiary-color); line-height: 24px; padding: 0 16px; }
+      app-drawer .info-links a iron-icon       { color: white; width: 18px; height: 18px; padding: 0 5px 0 0; }
 
       cart-modal { z-index: 2; }
       iron-pages { max-width: 100%; margin: 0 auto; }
@@ -261,11 +272,49 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <template is="dom-if" if="[[_shouldRenderDrawer]]">
       <!-- Two-way bind `drawerOpened` since app-drawer can update `opened` itself. -->
       <app-drawer opened="{{drawerOpened}}" swipe-open tabindex="0">
+        <!--
+        <section class="drawer-img">
+            <img src="../images/shop-icon-192.png" alt="Sulphur Fuel Injection">
+        </section> -->
+
+        <section class="drawer-map">
+            <google-map latitude="30.236041" longitude="-93.312204" zoom="15"></google-map>
+            <component-pulse></component-pulse>
+            <img src="../images/logo-fill.svg" alt="Sulphur Fuel Injection" />
+        </section>
+
         <iron-selector role="navigation" class="drawer-list" selected="[[categoryName]]" attr-for-selected="name">
           <template is="dom-repeat" items="[[categories]]" as="category" initial-count="4">
             <a name="[[category.name]]" href="/list/[[category.name]]">[[category.headline]]</a>
           </template>
         </iron-selector>
+
+        <section class="info-links">
+            <!-- Call -->
+            <a href="tel:3376260004" aria-label="Phone Number">
+                <iron-icon icon="icons:phone"></iron-icon>
+                1(337)626-0004
+            </a>
+
+            <!-- Email -->
+            <a href="mailo:sales@sulphurfuelinjection.com" aria-label="Email Address">
+                <iron-icon icon="icons:email"></iron-icon>
+                sales@sulphurfuelinjection.com
+            </a>
+
+            <!-- Location -->
+            <a href="https://www.google.com/maps/place/Sulphur+Fuel+Injection/@30.2360406,-93.3144457,17z/data=!3m1!4b1!4m15!1m9!4m8!1m0!1m6!1m2!1s0x863b8ee90c5001cd:0x84cdcf8337373941!2sSulphur+Fuel+Injection,+121+Industrial+Dr,+Sulphur,+LA+70663!2m2!1d-93.312257!2d30.236036!3m4!1s0x863b8ee90c5001cd:0x84cdcf8337373941!8m2!3d30.236036!4d-93.312257" aria-label="Location" target="_blank">
+                <iron-icon icon="icons:map"></iron-icon>
+                121 Industrial Dr, Sulphur, LA 70663
+            </a>
+
+            <!-- Business Hours -->
+            <a href="tel:3376260004" aria-label="Business Hours">
+                <iron-icon icon="icons:time"></iron-icon>
+                Monday - Friday | 8am - 5pm
+            </a>
+        </section>
+
       </app-drawer>
     </template>
     <!-- DRAWER -->

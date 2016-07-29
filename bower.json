@@ -28,7 +28,8 @@
     "steel-properties": "^0.0.92",
     "fx-arrows": "^0.0.6",
     "iron-scroll-spy": "*",
-    "paper-tabs": "PolymerElements/paper-tabs#^1.6.2"
+    "paper-tabs": "PolymerElements/paper-tabs#^1.6.2",
+    "google-map": "GoogleWebComponents/google-map#^1.1.10"
   },
   "devDependencies": {
     "web-component-tester": "^4.0.0"
