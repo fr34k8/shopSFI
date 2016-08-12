@@ -39,7 +39,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         font-weight: bold;
       }
 
-      .price {
+      .product-name {
+        color: var(--app-primary-color);
+        font-weight: bold;
+        white-space: normal;
+        word-wrap: break-word;
+      }
+
+      .product-info {
         color: var(--app-secondary-color);
       }
 
@@ -65,10 +72,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         }
       }
     </style>
-
-    <component-image src="[[item.image]]" alt="[[item.title]]"></component-image>
-    <div class="title">[[item.title]]</div>
-    <span class="price">[[_formatPrice(item.price)]]</span>
+    <component-image src="[[item.IMAGE]]" alt="[[item.CATEGORY]]"></component-image>
+    <div class="product-name">[[item.NAME]]</div>
+    <div class="product-info">[[item.WARRANTY]] Warranty</div>
 
   </template>
 

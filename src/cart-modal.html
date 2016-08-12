@@ -46,6 +46,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
 
       .layout-horizontal {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: stretch;
+      }
+
+      .stupid-layout-horizontal {
         @apply(--layout-horizontal);
       }
 
@@ -56,7 +62,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
 
       .modal-button {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: stretch;
+        flex-grow: 1;
+        margin: 16px 8px;
+      }
+
+      .stupid-modal-button {
         @apply(--layout-flex);
+        flex-grow: 1;
         margin: 16px 8px;
       }
 
@@ -89,14 +104,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     </style>
 
     <div class="layout-horizontal">
-      <div class="label">Added to list</div>
+      <div class="label">Added to Service Quote</div>
     </div>
     <div class="layout-horizontal">
       <component-button class="modal-button">
-        <a href="/cart" on-tap="close" id="viewCartAnchor">View List</a>
+        <a href="/cart" on-tap="close" id="viewCartAnchor">View Service Quote</a>
       </component-button>
       <component-button class="modal-button">
-        <a href="/checkout" on-tap="close">Get Quote</a>
+        <a href="/checkout" on-tap="close">Submit Service Quote</a>
       </component-button>
     </div>
 

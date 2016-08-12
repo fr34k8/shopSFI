@@ -166,12 +166,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     </style>
 
-    <a href$="/detail/[[entry.item.category]]/[[entry.item.name]]" title$="[[entry.item.title]]">
-      <component-image src="[[entry.item.image]]" alt="[[entry.item.title]]"></component-image>
+    <a href$="/detail/[[entry.item.CATEGORYKEY]]/[[entry.item.KEY]]" title$="[[entry.item.NAME]]">
+      <component-image src="[[entry.item.IMAGE]]" alt="[[entry.item.NAME]]"></component-image>
     </a>
     <div class="flex">
       <div class="name">
-        <a href$="/detail/[[entry.item.category]]/[[entry.item.name]]">[[entry.item.title]]</a>
+        <a href$="/detail/[[entry.item.CATEGORYKEY]]/[[entry.item.KEY]]">[[entry.item.NAME]]</a>
       </div>
       <div class="detail">
         <div class="quantity">
@@ -195,8 +195,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <shop-md-decorator aria-hidden="true"></shop-md-decorator>
           </component-select>
         </div>
-        <div class="size">Type: <span>[[entry.size]]</span></div>
-        <div class="price">[[_formatPrice(entry.item.price)]]</div>
+        <div class="size">Services: <span>[[entry.size]]</span></div>
+        <!-- <div class="price">[[_formatPrice(entry.item.price)]]</div> -->
 
         <!--
           Use on-click instead of on-tap to prevent the next cart item to be focused

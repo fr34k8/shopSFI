@@ -1,0 +1,183 @@
+!--
+API for retrieving data from a google spreadsheet posing as a cms
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<script src="../bower_components/tabletop/src/tabletop.js"></script>
+
+<dom-module id="data-category-cms">
+
+  <script>
+  (function() {
+    var categoryList = [
+      {
+        name: 'common_rail_fuel_systems',
+        headline: 'Common Rail',
+        title: 'Common Rail Products',
+        image: '/images/prod_common_rail_color.png',
+        bg: '/images/bg_common_rail_color.jpg',
+        placeholder: 'data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAAAeAAD/7gAOQWRvYmUAZMAAAAAB/9sAhAAQCwsLDAsQDAwQFw8NDxcbFBAQFBsfFxcXFxcfHhcaGhoaFx4eIyUnJSMeLy8zMy8vQEBAQEBAQEBAQEBAQEBAAREPDxETERUSEhUUERQRFBoUFhYUGiYaGhwaGiYwIx4eHh4jMCsuJycnLis1NTAwNTVAQD9AQEBAQEBAQEBAQED/wAARCAADAA4DASIAAhEBAxEB/8QAWwABAQEAAAAAAAAAAAAAAAAAAAMEAQEAAAAAAAAAAAAAAAAAAAAAEAABAwEJAAAAAAAAAAAAAAARAAESEyFhodEygjMUBREAAwAAAAAAAAAAAAAAAAAAAEFC/9oADAMBAAIRAxEAPwDb7kupZU1MTGnvOCgxpvzEXTyRElCmf//Z'
+      },
+      {
+        name: 'diesel_fuel_pumps',
+        headline: 'Fuel Pumps',
+        title: 'Diesel Fuel Pumps',
+        image: '/images/prod_fuel_pump_color.png',
+        bg: '/images/diesel-fuel-pumps.jpg',
+        placeholder: 'data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAAAeAAD/7gAOQWRvYmUAZMAAAAAB/9sAhAAQCwsLDAsQDAwQFw8NDxcbFBAQFBsfFxcXFxcfHhcaGhoaFx4eIyUnJSMeLy8zMy8vQEBAQEBAQEBAQEBAQEBAAREPDxETERUSEhUUERQRFBoUFhYUGiYaGhwaGiYwIx4eHh4jMCsuJycnLis1NTAwNTVAQD9AQEBAQEBAQEBAQED/wAARCAADAA4DASIAAhEBAxEB/8QAXAABAQEAAAAAAAAAAAAAAAAAAAIEAQEAAAAAAAAAAAAAAAAAAAACEAAAAwYHAQAAAAAAAAAAAAAAERMBAhIyYhQhkaEDIwUVNREBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8A3dkr5e8tfpwuneJITOzIcmQpit037Bw4mnCVNOpAAQv/2Q=='
+      },
+      {
+        name: 'diesel_fuel_injectors',
+        headline: 'Fuel Injectors',
+        title: 'Diesel Fuel Injectors',
+        image: '/images/prod_fuel_injectors_color.png',
+        bg: '/images/diesel-fuel-injectors.jpg',
+        placeholder: 'data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAAAeAAD/7gAOQWRvYmUAZMAAAAAB/9sAhAAQCwsLDAsQDAwQFw8NDxcbFBAQFBsfFxcXFxcfHhcaGhoaFx4eIyUnJSMeLy8zMy8vQEBAQEBAQEBAQEBAQEBAAREPDxETERUSEhUUERQRFBoUFhYUGiYaGhwaGiYwIx4eHh4jMCsuJycnLis1NTAwNTVAQD9AQEBAQEBAQEBAQED/wAARCAADAA4DASIAAhEBAxEB/8QAWQABAQAAAAAAAAAAAAAAAAAAAAEBAQEAAAAAAAAAAAAAAAAAAAIDEAABAwMFAQAAAAAAAAAAAAARAAEygRIDIlITMwUVEQEBAAAAAAAAAAAAAAAAAAAAQf/aAAwDAQACEQMRAD8Avqn5meQ0kwk1UyclmLtNj7L4PQoioFf/2Q=='
+      },
+      // {
+      //   name: 'dps_filters',
+      //   headline: 'DPS Filters',
+      //   title: 'Diesel Filters',
+      //   image: '/images/prod_dps_filters_color.png',
+      //   bg: '/images/diesel-rebuilds.jpg',
+      //   placeholder: 'data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAAAeAAD/7gAOQWRvYmUAZMAAAAAB/9sAhAAQCwsLDAsQDAwQFw8NDxcbFBAQFBsfFxcXFxcfHhcaGhoaFx4eIyUnJSMeLy8zMy8vQEBAQEBAQEBAQEBAQEBAAREPDxETERUSEhUUERQRFBoUFhYUGiYaGhwaGiYwIx4eHh4jMCsuJycnLis1NTAwNTVAQD9AQEBAQEBAQEBAQED/wAARCAADAA4DASIAAhEBAxEB/8QAXwABAQEAAAAAAAAAAAAAAAAAAAMFAQEBAAAAAAAAAAAAAAAAAAABAhAAAQIDCQAAAAAAAAAAAAAAEQABITETYZECEjJCAzMVEQACAwAAAAAAAAAAAAAAAAAAATFBgf/aAAwDAQACEQMRAD8AzeADAZiFc5J7BC9Scek3VrtooilSNaf/2Q=='
+      // }
+    ];
+
+    Polymer({
+
+      is: 'data-category-cms',
+
+      properties: {
+
+        categoryName: String,
+
+        itemName: String,
+
+          dataKey: {
+          type: String,
+          value: '1Ve96UECFFDbI4asH-XDXVSn6n30uSG1U5kZ2khFGLvk',
+          readOnly: true
+        },
+
+        categories: {
+          type: Array,
+          value: categoryList,
+          readOnly: true, //one way databinding upward
+          notify: true
+        },
+
+        category: {
+          type: Object,
+          computed: '_computeCategory(categoryName, dataKey)',
+          //computed: '_mycomputeCategory(categoryName, dataKey)',
+          notify: true
+        },
+
+        item: {
+          type: Object,
+          computed: '_computeItem(category.items, itemName)',
+          notify: true
+        },
+
+        failure: {
+          type: Boolean,
+          notify: true,
+          readOnly: true
+        }
+      },
+
+      ready: function () {
+        console.log('Category is ', this.categoryName, 'Item is ', this.itemName);
+      },
+
+      // returns a specific object from the categories array matching the categoryName...
+      // ... argument and returns null if there is no such object
+      _getCategoryObject: function(categoryName) {
+        for (var i = 0, c; c = this.categories[i]; ++i) {
+          if (c.name === categoryName) {
+            return c;
+          }
+        }
+        return null;
+      },
+
+      _computeCategory: function(categoryName, dataKey) {
+        // console.log('in the _computeCategory function my object is: ', this, ' & my category name is: ',categoryName);
+        // Fetch the items of the category. Note that the fetch is asynchronous,
+        // which means `category.items` may not be set initially (but that path
+        // will be notified when the fetch completes).
+        var categoryObj = this._getCategoryObject(categoryName);
+        this._myfetchItems(categoryObj, 1, dataKey);
+        return categoryObj;
+      },
+
+      _computeItem: function(items, itemName) {
+        console.log('itemName is:', itemName);
+        for (var i = 0, item; item = items[i]; ++i) {
+          if (item.KEY === itemName) {
+            return item;
+          }
+        }
+      },
+
+      _myfetchItems: function(category, attempts, dataKey) {
+        this._setFailure(false);
+        // Only fetch the items of a category if it has not been previously set.
+        if (!category || category.items) {
+          return;
+        }
+        let staticThis = this;
+
+        console.log('in the _myfetchItems function my object is:', this, ' & my category name is: ',category.name);
+
+        function assignItems(data, tabletop) {
+          let mySheet = tabletop.sheets(category.name).all();
+          function logArrayElements(element, index, array) {
+            element.CATEGORYKEY = category.name;
+            element.KEY = element.NAME.replace(/ /g,"+");
+          }
+          mySheet.forEach(logArrayElements);
+          staticThis.set('category.items',mySheet);
+          console.log(JSON.stringify(staticThis.category.items));
+          // console.log('in the assignItems function my object is:', this, ' & my category name is: ',category.name);
+        }
+
+        let myTableTop = Tabletop.init({
+          key: dataKey,
+          callback: assignItems
+        });
+      },
+
+      _fetchItems: function(category, attempts) {
+        this._setFailure(false);
+        console.log('fetch items object is:',this);
+        // Only fetch the items of a category if it has not been previously set.
+        if (!category || category.items) {
+          return;
+        }
+        this._getResource({
+          url: '/data/' + category.name + '.json',
+          onLoad: function(e) {
+            console.log('fetch items object, on load, is:',this);
+            this.set('category.items', JSON.parse(e.target.responseText));
+          },
+          onError: function(e) {
+            this._setFailure(true);
+          }
+        }, attempts);
+      },
+
+      refresh: function() {
+        if (this.categoryName) {
+          // Try at most 3 times to get the items.
+          this._myfetchItems(this._getCategoryObject(this.categoryName), 3, this.dataKey);
+        }
+      }
+
+    });
+
+  })();
+  </script>
+
+</dom-module>
