@@ -368,13 +368,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 <h2>Order Summary</h2>
                 <template is="dom-repeat" items="[[cart]]" as="entry">
                   <div class="row order-summary-row">
-                    <div class="flex">[[entry.item.title]]</div>
-                    <div>[[_getEntryTotal(entry)]]</div>
+                    <div class="flex">[[entry.item.NAME]]</div>
+                    <div>[[entry.quantity]]</div>
+                    <!-- <div>[[_getEntryTotal(entry)]]</div> -->
                   </div>
                 </template>
                 <div class="row total-row">
-                  <div class="flex">Total</div>
-                  <div>[[_formatPrice(total)]]</div>
+                  <div class="flex">Total Items</div>
+                  <div>[[numItems]]</div>
+                  <!-- <div>[[_formatPrice(total)]]</div> -->
                 </div>
                 <component-button responsive id="submitBox">
                   <input type="button" on-click="_submit" value="Submit Quote">
