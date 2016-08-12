@@ -333,9 +333,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <!-- detail view of one item -->
       <shop-detail name="detail" route="[[subroute]]" offline="[[offline]]"></shop-detail>
       <!-- cart view -->
-      <shop-cart name="cart" cart="[[cart]]" total="[[total]]"></shop-cart>
+      <shop-cart name="cart" cart="[[cart]]" total="[[total]]" num-items=[[numItems]]></shop-cart>
       <!-- checkout view -->
-      <shop-checkout name="checkout" cart="[[cart]]" total="[[total]]" route="{{subroute}}"></shop-checkout>
+      <shop-checkout name="checkout" cart="[[cart]]" total="[[total]]" route="{{subroute}}" num-items=[[numItems]]></shop-checkout>
     </iron-pages>
 
     <!-- Business Footer

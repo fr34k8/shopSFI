@@ -50,7 +50,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <div class="subsection" visible$="[[_hasItems]]">
         <header>
           <h1>Products and Services you are Interested in</h1>
-          <span>([[_getPluralizedQuantity(cart.length)]])</span>
+          <span>([[_getPluralizedQuantity(numItems)]])</span>
         </header>
         <div class="list">
           <template is="dom-repeat" items="[[cart]]" as="entry">

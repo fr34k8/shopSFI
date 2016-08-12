@@ -46,6 +46,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
 
       .layout-horizontal {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: stretch;
+      }
+
+      .stupid-layout-horizontal {
         @apply(--layout-horizontal);
       }
 
@@ -56,7 +62,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
 
       .modal-button {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: stretch;
+        flex-grow: 1;
+        margin: 16px 8px;
+      }
+
+      .stupid-modal-button {
         @apply(--layout-flex);
+        flex-grow: 1;
         margin: 16px 8px;
       }
 
