@@ -87,10 +87,6 @@ API for retrieving data from a google spreadsheet posing as a cms
         }
       },
 
-      ready: function () {
-        console.log('Category is ', this.categoryName, 'Item is ', this.itemName);
-      },
-
       // returns a specific object from the categories array matching the categoryName...
       // ... argument and returns null if there is no such object
       _getCategoryObject: function(categoryName) {
@@ -103,7 +99,6 @@ API for retrieving data from a google spreadsheet posing as a cms
       },
 
       _computeCategory: function(categoryName, dataKey) {
-        // console.log('in the _computeCategory function my object is: ', this, ' & my category name is: ',categoryName);
         // Fetch the items of the category. Note that the fetch is asynchronous,
         // which means `category.items` may not be set initially (but that path
         // will be notified when the fetch completes).
@@ -113,7 +108,6 @@ API for retrieving data from a google spreadsheet posing as a cms
       },
 
       _computeItem: function(items, itemName) {
-        console.log('itemName is:', itemName);
         for (var i = 0, item; item = items[i]; ++i) {
           if (item.KEY === itemName) {
             return item;
@@ -129,8 +123,6 @@ API for retrieving data from a google spreadsheet posing as a cms
         }
         let staticThis = this;
 
-        console.log('in the _myfetchItems function my object is:', this, ' & my category name is: ',category.name);
-
         function assignItems(data, tabletop) {
           let mySheet = tabletop.sheets(category.name).all();
           function logArrayElements(element, index, array) {
@@ -139,8 +131,6 @@ API for retrieving data from a google spreadsheet posing as a cms
           }
           mySheet.forEach(logArrayElements);
           staticThis.set('category.items',mySheet);
-          console.log(JSON.stringify(staticThis.category.items));
-          // console.log('in the assignItems function my object is:', this, ' & my category name is: ',category.name);
         }
 
         let myTableTop = Tabletop.init({
@@ -151,7 +141,6 @@ API for retrieving data from a google spreadsheet posing as a cms
 
       _fetchItems: function(category, attempts) {
         this._setFailure(false);
-        console.log('fetch items object is:',this);
         // Only fetch the items of a category if it has not been previously set.
         if (!category || category.items) {
           return;
@@ -159,7 +148,6 @@ API for retrieving data from a google spreadsheet posing as a cms
         this._getResource({
           url: '/data/' + category.name + '.json',
           onLoad: function(e) {
-            console.log('fetch items object, on load, is:',this);
             this.set('category.items', JSON.parse(e.target.responseText));
           },
           onError: function(e) {
