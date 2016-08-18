@@ -644,33 +644,39 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         var body = form.request.body;
         var myLinkedGroup = this.linkedGroup;
         var myLength = myLinkedGroup.length;
-
-        this._setWaiting(true);
-
-        if (!body) {
-          return;
-        }
-        // Populate the request body where `cartItemsId[i]` is the ID and `cartItemsQuantity[i]`
-        // is the quantity for some item `i`.
+        //create a formatted date to add to subject line of Formspree email
         var today = new Date();
         var dd = ("0" + today.getDate()).slice (-2);
         var mm = ("0" + (today.getMonth()+1)).slice (-2);
         var yyyy = today.getFullYear();
         var formattedDate = mm+'/'+dd+'/'+yyyy;
 
+        this._setWaiting(true);
+
+        if (!body) {
+          return;
+        }
+
+        // create the Formspree email subject line with the date, number of items,
+        // ... and user name
         body._subject = "Quote Request on " + formattedDate + " for " + this.numItems + " Items from " + body.Name;
 
+        // check to see if user submitted an email address and if they did, cc them
+        // ... and, make them the reply target of the email.
         for (var linkedEl, i=0; linkedEl = myLinkedGroup[i], i < myLength; i++) {
           if (linkedEl.elementName == "Email") {
             if(linkedEl.isValid = true) {
               body._replyto = linkedEl.elementDOM.value;
+              body._cc = linkedEl.elementDOM.value;
               break;
             } else {
               break;
             }
           }
         }
-
+         
+        // Have the email form list a seperate object for each product type; where it lists
+        //... the name of the product, the service needed, and the quantity requested.
         this.cart.forEach(function(cartItem, i) {
           var myName = cartItem.item.NAME;
           var formattedNo = ("0" + (i+1)).slice (-2);
