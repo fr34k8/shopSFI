@@ -21,6 +21,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <style include="component-button">
 
+        .bg-home         { background: url("../images/bg_common_rail_gray.jpg") 0 0 no-repeat; background-size: cover; }
+        .bg-location     { background: url("../images/location.jpg") 0 0 no-repeat; background-size: cover; }
+
         [hidden] { display: none; }
 
         .top {  }
@@ -145,6 +148,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         .iron-selected .item .product-img:before               { transform: rotate(180deg); border-color: var(--app-accent-color); opacity: .5; background: rgba(256,0,0, .11); }
         .iron-selected .item .product-img:after                { transform: rotate(180deg); opacity: .25; }
 
+        .footer { position: fixed; left: 0; bottom: 0; right: 0; z-index: 2; background: #000; }
         .footer div { background: rgba(0,0,0, .64); }
         .footer a:nth-child(1) { background: rgba(256,256,256, .42); }
         .footer a:nth-child(2) { background: rgba(256,256,256, .22); border-left:  4px solid rgba(0, 0, 0, 1); }
@@ -172,7 +176,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <iron-media-query query="(min-width: 1025px)" query-matches="{{desktop}}"></iron-media-query>
 
 
-    <main class="flex-vertical height-100 min-height-100"> <!-- height100 !important! (IE11 Fix) -->
+<!-- Home
+-------------------------------------------------------------------------------------------------------------------------->
+
+    <fx-skew class="flex-vertical height-100 min-height-100 bg-home z-1"> <!-- height100 !important! (IE11 Fix) -->
 
 
 
@@ -273,6 +280,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 </a>
             </div>
         </section>
+        <section class="flex-none footer">
+        </section>
         </template>
 
 
@@ -285,7 +294,58 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <fx-arrows color="white"></fx-arrows>
         </section>
         </template>
-    </main>
+    </fx-skew>
+
+
+
+
+<!-- Company
+-------------------------------------------------------------------------------------------------------------------------->
+
+    <!-- <fx-skew class="flex-vertical items-center height-50 min-height-50 bg-white">
+
+        <section class="flex-1">
+            <div class="flex-vertical center-center page">
+
+                <div class="top-text bg-black">
+                    <h1>Sulphur Fuel Injection</h1>
+                    <p>In business since 1952, we at Diesel Pump & Injector Service, Ltd. provide our customers with quality service using the latest and most effective equipment. Our technicians are highly qualified and factory trained in all the latest technology to provide you with the reliable service you deserve and expect.</p>
+                </div>
+
+            </div>
+        </section>
+
+    </fx-skew> -->
+
+    <fx-skew class="flex-vertical items-center bg-white height-50">
+
+        <section class="flex-1">
+
+            <h1 class="black">Sulphur Fuel Injection</h1>
+            <p class="title">In business since 1952, we at Diesel Pump & Injector Service, Ltd. provide our customers with quality service using the latest and most effective equipment. Our technicians are highly qualified and factory trained in all the latest technology to provide you with the reliable service you deserve and expect.</p>
+
+
+            <!-- <div class="info-links text-left flex-1">
+                <img src="../images/icon-owner.png" class="icon-owner" alt="Bart Winzer" />
+            </div> -->
+        </section>
+        
+    </fx-skew>
+
+
+<!-- Map
+-------------------------------------------------------------------------------------------------------------------------->
+    <fx-skew class="flex-vertical height-100 min-height-100 z-1"> <!-- height100 !important! (IE11 Fix) -->
+        <section class="flex-vertical items-center height-100 min-height-100 bg-location">
+
+            <section class="flex-1">
+                <div class="flex-vertical center-center page">
+
+
+                </div>
+            </section>
+        </section>
+    </fx-skew>
 
 </template>
 
