@@ -13,17 +13,19 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../bower_components/fx-skew/fx-skew.html">
 <link rel="import" href="../bower_components/paper-toast/paper-toast.html">
+<link rel="import" href="../bower_components/paper-input/paper-textarea.html">
 <link rel="import" href="components/component-button.html">
 <link rel="import" href="styles-main.html">
 <link rel="import" href="styles-form.html">
 <link rel="import" href="components/component-input.html">
+<link rel="import" href="components/component-textarea-style.html">
 <link rel="import" href="components/component-select.html">
 <link rel="import" href="components/component-checkbox.html">
 
 <dom-module id="shop-checkout">
 
   <template>
-    <style include="styles-main component-button styles-form component-input component-select component-checkbox">
+    <style include="styles-main component-button styles-form component-input component-textarea-style component-select component-checkbox">
 
       .main-frame {
         transition: opacity 0.5s;
@@ -34,7 +36,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         opacity: 0.1;
       }
 
-      component-input, component-select {
+      component-input, component-select, component-textarea-style {
         font-size: 16px;
       }
 
@@ -47,6 +49,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         top: calc(50% - 14px);
         left: calc(50% - 14px);
       }
+
+      paper-textarea {
+        --paper-input-container-focus-color:#dd2c00;
+      }
+
 
       /*
       .contact-instructions-hidden {
@@ -241,6 +248,20 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                       <shop-underline></shop-underline>
                     </shop-md-decorator>
                   </component-input>
+                </div>
+                <div class="row input-row">
+                  <component-textarea-style id='textarea-container'>
+                    <textarea id="Comments" name="Comments" rows="4"
+                      placeholder="Commments, Questions, and Such"
+                      aria-labelledby="CommentLabel InfoHeading"></textarea>
+                    <!-- <paper-textarea id="Comments" name="Comments" rows="4"
+                      placeholder="Commments, Questions, or Details"
+                      aria-labelledby="CommentLabel InfoHeading"></paper-textarea> -->
+                    <shop-md-decorator error-message="Comments Optional" aria-hidden="true">
+                      <label id="CommentLabel">Commments, Questions, and Such</label>
+                      <shop-underline></shop-underline>
+                    </shop-md-decorator>
+                  </component-textarea-style>
                 </div>
 
                 <h2 id="AddressHeading">Optional Address</h2>
