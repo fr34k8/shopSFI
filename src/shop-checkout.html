@@ -11,6 +11,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="../bower_components/app-route/app-route.html">
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../bower_components/fx-skew/fx-skew.html">
 <link rel="import" href="../bower_components/paper-toast/paper-toast.html">
 <link rel="import" href="../bower_components/paper-input/paper-textarea.html">
 <link rel="import" href="components/component-button.html">
@@ -28,6 +29,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       .main-frame {
         transition: opacity 0.5s;
+        overflow: visible;
       }
 
       :host([waiting]) .main-frame {
@@ -48,10 +50,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         left: calc(50% - 14px);
       }
 
+<<<<<<< HEAD
       paper-textarea {
         --paper-input-container-focus-color:#dd2c00;
       }
 
+=======
+      /*
+>>>>>>> upstream/master
       .contact-instructions-hidden {
         display: none;
         text-align: center;
@@ -63,6 +69,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         color: #b71c1c;
         line-height: normal;
       }
+      */
 
 
       .billing-address-picker {
@@ -119,29 +126,78 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         margin: 30px 0;
       }
 
-      @media (max-width: 767px) {
+      fx-skew            { background: rgba(255, 255, 255, 1); margin: -55vh auto 0; position: relative; z-index: 1; min-height: 50vh; }
+      fx-skew h1         {  }
 
-        .grid {
-          display: block;
-          margin-top: 0;
-        }
-
-        .grid > section:not(:first-child) {
-          margin-left: 0;
-        }
-
+      .hero-image {
+        position: relative;
+        height: 100vh;
+        max-width: 100%;
+        overflow: hidden;
+        z-index: 0;
       }
+
+      .hero-image {
+        --component-image-img: {
+          position: fixed;
+          top: 0;
+          bottom: 0;
+          left: -9999px;
+          right: -9999px;
+          width: 100vw;
+          height: 100vh;
+          max-width: 100%;
+          max-height: auto;
+        };
+      }
+
+      .info-links                   { position: relative; border-top: 2px solid black; padding: 1rem 0 0; margin: 4rem 0 0; min-width: 280px; }
+      .info-links img               { width: 150px; position: absolute; bottom: 100%; left: 50%; margin: 0 0 0 -75px; }
+      .info-links a                 { display: block; color: var(--app-tertiary-color); line-height: 24px; padding: 0 16px; text-decoration: none; }
+      .info-links a iron-icon       { color: rgba(0,0,0,.78); width: 18px; height: 18px; padding: 0 5px 0 0; }
+
+      [success] p                   { margin: 0; padding: 0; }
+
+/*  Mobile
+********************************************************/
+@media (min-width: 0) and (max-width: 768px) {
+
+    paper-toast { margin: 0; height: 64px; min-height: 64px; max-height: 64px; width: 100%; }
+    paper-toast * { background: lime; display: block; }
+
+    .grid {
+        display: block;
+        margin-top: 0;
+    }
+
+    .grid > section:not(:first-child) {
+        margin-left: 0;
+    }
+
+    .info-links { margin: 10rem 0 0; }
+
+    /* Directions and Call */
+    .footer { position: fixed; left: 0; bottom: 0; right: 0; z-index: 2; background: #000; }
+    .footer div { background: rgba(0,0,0, .64); }
+    .footer a { text-decoration: none; }
+    .footer a:nth-child(1) { background: rgba(256,256,256, .42); }
+    .footer a:nth-child(2) { background: rgba(256,256,256, .22); border-left:  4px solid rgba(0, 0, 0, 1); }
+
+    .footer a { border-top: 2px inset rgba(256, 256, 256, 1); color: white; font-size: 15px; text-transform: uppercase; opacity: .5; }
+    .footer a paper-button iron-icon { color: white; padding-right: 10px; }
+}
 
     </style>
 
     <iron-media-query query="(min-width: 0) and (max-width: 768px)" query-matches="{{mobile}}"></iron-media-query>
 
-    <div class="main-frame">
+    <div>
       <iron-pages selected="[[state]]" attr-for-selected="state">
         <div state="init">
           <form
               id="checkoutForm"
               is="iron-form"
+              class="main-frame"
               method="post"
               action= "https://formspree.io/dpifuelinjection@gmail.com"
               on-iron-form-response="_didReceiveResponse"
@@ -152,14 +208,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             </div>
 
             <header class="subsection" visible$="[[_hasItems]]">
-              <paper-toast id="toast" text="You Must Provide Either an EMAIL or a PHONE NUMBER" dynamic-align="true"></paper-toast>
+              <paper-toast id="toast" text="You must provide either an Email Address or Phone Number." dynamic-align="true" class="flex-vertical items-center"></paper-toast>
               <h1>Get Quote</h1>
               <span>Fill in your details so we can Contact You!</span>
             </header>
 
             <div class="subsection grid" visible$="[[_hasItems]]">
               <section>
-                <h3 id='ValidateWarning' class$="[[instructionsClass]]">You Must Provide Either an EMAIL or a PHONE NUMBER</h3>
+                <!-- <h3 id='ValidateWarning' class$="[[instructionsClass]]">You must provide either an Email Address or Phone Number.</h3> -->
                 <h2 id="InfoHeading">Contact Information</h2>
 
                 <div class="row input-row">
@@ -207,9 +263,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 <h2 id="AddressHeading">Optional Address</h2>
                 <div class="billing-address-picker">
                   <component-checkbox>
-                    <input type="checkbox" id="setBilling"
-                        checked$="[[hasBillingAddress]]" on-change="_toggleBillingAddress">
-                    <shop-md-decorator></shop-md-decorator aria-hidden="true">
+                    <input type="checkbox" id="setBilling" checked$="[[hasBillingAddress]]" on-change="_toggleBillingAddress" />
+                    <shop-md-decorator aria-hidden="true"></shop-md-decorator>
                   </component-checkbox>
                   <label for="setBilling">Provide Your Address</label>
                 </div>
@@ -293,23 +348,90 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         <!-- Success message UI -->
         <header state="success">
-          <h1>Thank you</h1>
-          <p>Our Sales Team Contact You Soon</p>
-          <p>[[response.successMessage]]</p>
-          <!-- Directions -->
-          <component-button responsive>
-            <a href="https://www.google.com/maps/place/Sulphur+Fuel+Injection/@30.2360406,-93.3144457,17z/data=!3m1!4b1!4m15!1m9!4m8!1m0!1m6!1m2!1s0x863b8ee90c5001cd:0x84cdcf8337373941!2sSulphur+Fuel+Injection,+121+Industrial+Dr,+Sulphur,+LA+70663!2m2!1d-93.312257!2d30.236036!3m4!1s0x863b8ee90c5001cd:0x84cdcf8337373941!8m2!3d30.236036!4d-93.312257" aria-label="Get Directions" target="_blank">
-              <iron-icon icon="icons:map"></iron-icon>
-              Directions
-            </a>
-          </component-button>
-          <!-- Call -->
-          <component-button responsive>
-            <a href="tel:3376260004" aria-label="Call Now">
-              <iron-icon icon="icons:phone"></iron-icon>
-              Call
-            </a>
-          </component-button>
+
+            <!-- BG Image -->
+            <component-image
+                alt="Sulphur Fuel Injection Location"
+                src="../images/location.jpg"
+                placeholder-img="[[category.placeholder]]" class="hero-image">
+            </component-image>
+
+
+            <!-- Thankyou -->
+            <fx-skew>
+                <div class="main-frame">
+
+                    <section class="flex-vertical items-stretch">
+                        <section class="flex-1 flex-horizontal mobile-flex-vertical">
+                            <div class="flex-2 text-left padding-r-1">
+                                <h1>Thank you!</h1>
+
+                                <p class="margin-0">We've emailed you a copy of the items you're interested in and a member of our sales team will contact you soon.</p>
+                                <p>[[response.successMessage]]</p>
+
+                                <p>If you have any questions, please give us call. Business hours are Monday through Friday, 8:00 to 5:00 Central Standard Time. All internet quotes, emails, and faxes are processed during our normal business hours.</p>
+                            </div>
+
+                            <div class="info-links text-left flex-1">
+                                <!-- Owner Icon -->
+                                <img src="../images/icon-owner.png" class="icon-owner" alt="Bart Winzer" />
+
+                                <!-- Call -->
+                                <a href="tel:3376260004" aria-label="Phone Number">
+                                    <iron-icon icon="icons:phone"></iron-icon>
+                                    1(337)626-0004
+                                </a>
+
+                                <!-- Email -->
+                                <a href="mailo:sales@sulphurfuelinjection.com" aria-label="Email Address">
+                                    <iron-icon icon="icons:email"></iron-icon>
+                                    sales@sulphurfuelinjection.com
+                                </a>
+
+                                <!-- Location -->
+                                <a href="https://www.google.com/maps/place/Sulphur+Fuel+Injection/@30.2360406,-93.3144457,17z/data=!3m1!4b1!4m15!1m9!4m8!1m0!1m6!1m2!1s0x863b8ee90c5001cd:0x84cdcf8337373941!2sSulphur+Fuel+Injection,+121+Industrial+Dr,+Sulphur,+LA+70663!2m2!1d-93.312257!2d30.236036!3m4!1s0x863b8ee90c5001cd:0x84cdcf8337373941!8m2!3d30.236036!4d-93.312257" aria-label="Location" target="_blank">
+                                    <iron-icon icon="icons:map"></iron-icon>
+                                    121 Industrial Dr, Sulphur, LA 70663
+                                </a>
+
+                                <!-- Business Hours -->
+                                <a href="tel:3376260004" aria-label="Business Hours">
+                                    <iron-icon icon="icons:time"></iron-icon>
+                                    Monday - Friday | 8am - 5pm
+                                </a>
+                            </div>
+                        </section>
+                    </section>
+                </div>
+            </fx-skew>
+
+
+          <!-- BOTTOM (Mobile) -->
+          <!-- BOTTOM (Mobile) -->
+          <!-- BOTTOM (Mobile) -->
+          <template is="dom-if" if="{{mobile}}">
+          <section class="flex-none footer">
+              <div class="flex-horizontal">
+
+                  <!-- Directions -->
+                  <a class="flex-1" href="https://www.google.com/maps/place/Sulphur+Fuel+Injection/@30.2360406,-93.3144457,17z/data=!3m1!4b1!4m15!1m9!4m8!1m0!1m6!1m2!1s0x863b8ee90c5001cd:0x84cdcf8337373941!2sSulphur+Fuel+Injection,+121+Industrial+Dr,+Sulphur,+LA+70663!2m2!1d-93.312257!2d30.236036!3m4!1s0x863b8ee90c5001cd:0x84cdcf8337373941!8m2!3d30.236036!4d-93.312257" aria-label="Get Directions" target="_blank">
+                      <paper-button class="flex-horizontal padding-1">
+                          <iron-icon icon="icons:map"></iron-icon>
+                          Directions
+                      </paper-button>
+                  </a>
+
+                  <!-- Call -->
+                  <a href="tel:3376260004" class="flex-1" aria-label="Call Now">
+                      <paper-button class="flex-horizontal padding-1">
+                          <iron-icon icon="icons:phone"></iron-icon>
+                          Call
+                      </paper-button>
+                  </a>
+              </div>
+          </section>
+          </template>
+
         </header>
 
         <!-- Error message UI -->
