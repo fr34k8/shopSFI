@@ -19,41 +19,23 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         margin: 20px 0;
       }
 
-      component-textarea-style > label{
-        display: block;
-        pointer-events: none;
-        opacity: 0.5;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        -webkit-transform-origin: 0 0;
-        transform-origin: 0 0;
-        transition-property: opacity, -webkit-transform;
-        transition-property: opacity, transform;
-        transition-duration: 0.15s;
-        transition-timing-function: ease-out;
-        will-change: transform;
-        -webkit-transform: translate3d(0px, -1.9em, 0px);
-        transform: translate3d(0px, -1.9em, 0px);
-      }
-
-      component-textarea-style > paper-textarea::-webkit-input-placeholder {
+      component-textarea-style > textarea::-webkit-input-placeholder {
         color: transparent;
       }
 
-      component-textarea-style > paper-textarea::-moz-placeholder {
+      component-textarea-style > textarea::-moz-placeholder {
         color: transparent;
       }
 
-      component-textarea-style > paper-textarea:-ms-input-placeholder {
+      component-textarea-style > textarea:-ms-input-placeholder {
         color: transparent;
       }
 
-      component-textarea-style > paper-textarea::-ms-input-placeholder {
+      component-textarea-style > textarea::-ms-input-placeholder {
         color: transparent;
       }
 
-      component-textarea-style > paper-textarea {
+      component-textarea-style > textarea {
         font-size: 1em;
         font-weight: 300;
         color: var(--app-primary-color);
@@ -61,9 +43,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         padding: 8px 0;
         width: 100%;
         outline: none;
+        resize: none;
       }
 
-      component-textarea-style > input:invalid {
+      component-textarea-style > textarea:invalid {
         /* reset the default style in FF */
         box-shadow: none;
       }
@@ -94,7 +77,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         transition: transform 0.2s ease-in;
       }
 
-      /* input label */
+      /* textarea label */
       component-textarea-style > shop-md-decorator > label {
         display: block;
         pointer-events: none;
@@ -126,7 +109,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         white-space: nowrap;
       }
 
-      component-textarea-style > input:focus + shop-md-decorator > shop-underline {
+      component-textarea-style > textarea:focus + shop-md-decorator > shop-underline {
         -webkit-transform: scale3d(1, 1, 1);
         transform: scale3d(1, 1, 1);
         transition: -webkit-transform 0.2s ease-out;
@@ -134,32 +117,34 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
 
       /* Label: valid state */
-      component-textarea-style > input:focus + shop-md-decorator > label {
-        -webkit-transform: translate3d(0px, -3.4em, 0px) scale(0.8, 0.8);
-        transform: translate3d(0px, -3.4em, 0px) scale(0.8, 0.8);
+      component-textarea-style > textarea:focus + shop-md-decorator > label {
+        /*-webkit-transform: translate3d(0px, -3.4em, 0px) scale(0.8, 0.8);
+        transform: translate3d(0px, -3.4em, 0px) scale(0.8, 0.8);*/
+        -webkit-transform: translate3d(0px, -7.4em, 0px) scale(0.8, 0.8);
+        transform: translate3d(0px, -7.4em, 0px) scale(0.8, 0.8);
         opacity: 1;
       }
 
-      component-textarea-style > input:optional:not(:placeholder-shown) + shop-md-decorator > label {
-        -webkit-transform: translate3d(0px, -3.4em, 0px) scale(0.8, 0.8);
-        transform: translate3d(0px, -3.4em, 0px) scale(0.8, 0.8);
+      component-textarea-style > textarea:optional:not(:placeholder-shown) + shop-md-decorator > label {
+        -webkit-transform: translate3d(0px, -7.4em, 0px) scale(0.8, 0.8);
+        transform: translate3d(0px, -7.4em, 0px) scale(0.8, 0.8);
         opacity: 1;
       }
 
-      _:-ms-lang(x), component-textarea-style > input + shop-md-decorator > label {
-        -webkit-transform: translate3d(0px, -3.4em, 0px) scale(0.8, 0.8);
-        transform: translate3d(0px, -3.4em, 0px) scale(0.8, 0.8);
+      _:-ms-lang(x), component-textarea-style > textarea + shop-md-decorator > label {
+        -webkit-transform: translate3d(0px, -7.4em, 0px) scale(0.8, 0.8);
+        transform: translate3d(0px, -7.4em, 0px) scale(0.8, 0.8);
         opacity: 1;
       }
 
-      component-textarea-style > input:optional:-moz-ui-valid + shop-md-decorator > label {
-        -webkit-transform: translate3d(0px, -3.4em, 0px) scale(0.8, 0.8);
-        transform: translate3d(0px, -3.4em, 0px) scale(0.8, 0.8);
+      component-textarea-style > textarea:optional:-moz-ui-valid + shop-md-decorator > label {
+        -webkit-transform: translate3d(0px, -7.4em, 0px) scale(0.8, 0.8);
+        transform: translate3d(0px, -7.4em, 0px) scale(0.8, 0.8);
         opacity: 1;
       }
 
       /* Underline */
-      component-textarea-style > input:not(:focus):not(:placeholder-shown):invalid + shop-md-decorator > shop-underline {
+      component-textarea-style > textarea:not(:focus):not(:placeholder-shown):invalid + shop-md-decorator > shop-underline {
         background-color: #dd2c00;
         -webkit-transform: scale3d(1, 1, 1);
         transform: scale3d(1, 1, 1);
@@ -167,7 +152,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         transition: transform 0.2s ease-out;
       }
 
-      component-textarea-style > input:not(:focus):-moz-ui-invalid:invalid + shop-md-decorator > shop-underline {
+      component-textarea-style > textarea:not(:focus):-moz-ui-invalid:invalid + shop-md-decorator > shop-underline {
         background-color: #dd2c00;
         -webkit-transform: scale3d(1, 1, 1);
         transform: scale3d(1, 1, 1);
@@ -175,7 +160,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         transition: transform 0.2s ease-out;
       }
 
-      component-textarea-style > input[aria-invalid='true']:not(:valid) + shop-md-decorator > shop-underline {
+      component-textarea-style > textarea[aria-invalid='true']:not(:valid) + shop-md-decorator > shop-underline {
         background-color: #dd2c00;
         -webkit-transform: scale3d(1, 1, 1);
         transform: scale3d(1, 1, 1);
@@ -184,46 +169,46 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
 
       /* Error message */
-      component-textarea-style > input:not(:focus):not(:placeholder-shown):invalid + shop-md-decorator::after {
+      component-textarea-style > textarea:not(:focus):not(:placeholder-shown):invalid + shop-md-decorator::after {
         display: block;
       }
 
-      component-textarea-style > input:not(:focus):-moz-ui-invalid:invalid + shop-md-decorator::after {
+      component-textarea-style > textarea:not(:focus):-moz-ui-invalid:invalid + shop-md-decorator::after {
         display: block;
       }
 
-      component-textarea-style > input[aria-invalid='true'] + shop-md-decorator::after {
+      component-textarea-style > textarea[aria-invalid='true'] + shop-md-decorator::after {
         display: block;
       }
 
-      /*component-textarea-style > input[aria-invalid='true']:not(:valid) + shop-md-decorator::after {
+      /*component-textarea-style > textarea[aria-invalid='true']:not(:valid) + shop-md-decorator::after {
         display: block;
       }*/
 
       /* Error label */
-      component-textarea-style > input:not(:focus):not(:placeholder-shown):invalid + shop-md-decorator > label {
-        -webkit-transform: translate3d(0px, -3.4em, 0px) scale(0.8, 0.8);
-        transform: translate3d(0px, -3.4em, 0px) scale(0.8, 0.8);
+      component-textarea-style > textarea:not(:focus):not(:placeholder-shown):invalid + shop-md-decorator > label {
+        -webkit-transform: translate3d(0px, -7.4em, 0px) scale(0.8, 0.8);
+        transform: translate3d(0px, -7.4em, 0px) scale(0.8, 0.8);
         opacity: 1;
         color: #dd2c00;
       }
 
-      component-textarea-style > input:not(:focus):-moz-ui-invalid:invalid + shop-md-decorator > label {
-        -webkit-transform: translate3d(0px, -3.4em, 0px) scale(0.8, 0.8);
-        transform: translate3d(0px, -3.4em, 0px) scale(0.8, 0.8);
+      component-textarea-style > textarea:not(:focus):-moz-ui-invalid:invalid + shop-md-decorator > label {
+        -webkit-transform: translate3d(0px, -7.4em, 0px) scale(0.8, 0.8);
+        transform: translate3d(0px, -7.4em, 0px) scale(0.8, 0.8);
         opacity: 1;
         color: #dd2c00;
       }
 
-      component-textarea-style > input[aria-invalid='true'] + shop-md-decorator > label {
-        -webkit-transform: translate3d(0px, -3.4em, 0px) scale(0.8, 0.8);
-        transform: translate3d(0px, -3.4em, 0px) scale(0.8, 0.8);
+      component-textarea-style > textarea[aria-invalid='true'] + shop-md-decorator > label {
+        -webkit-transform: translate3d(0px, -7.4em, 0px) scale(0.8, 0.8);
+        transform: translate3d(0px, -7.4em, 0px) scale(0.8, 0.8);
         opacity: 1;
         color: #dd2c00;
       }
 
 
-      /*component-textarea-style > input[aria-invalid='true']:not(:valid) + shop-md-decorator > label {
+      /*component-textarea-style > textarea[aria-invalid='true']:not(:valid) + shop-md-decorator > label {
         -webkit-transform: translate3d(0px, -3.4em, 0px) scale(0.8, 0.8);
         transform: translate3d(0px, -3.4em, 0px) scale(0.8, 0.8);
         opacity: 1;
@@ -231,12 +216,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }*/
 
       /* Valid label */
-      component-textarea-style > input:not(:focus):required:valid + shop-md-decorator > label {
-        -webkit-transform: translate3d(0px, -3.4em, 0px) scale(0.8, 0.8);
-        transform: translate3d(0px, -3.4em, 0px) scale(0.8, 0.8);
+      component-textarea-style > textarea:not(:focus):required:valid + shop-md-decorator > label {
+        -webkit-transform: translate3d(0px, -7.4em, 0px) scale(0.8, 0.8);
+        transform: translate3d(0px, -7.4em, 0px) scale(0.8, 0.8);
         opacity: 1;
       }
 
     </style>
   </template>
-</dom-module>
+  </dom-module>

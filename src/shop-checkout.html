@@ -36,7 +36,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         opacity: 0.1;
       }
 
-      component-input, component-select {
+      component-input, component-select, component-textarea-style {
         font-size: 16px;
       }
 
@@ -50,14 +50,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         left: calc(50% - 14px);
       }
 
-<<<<<<< HEAD
       paper-textarea {
         --paper-input-container-focus-color:#dd2c00;
       }
 
-=======
+
       /*
->>>>>>> upstream/master
       .contact-instructions-hidden {
         display: none;
         text-align: center;
@@ -253,10 +251,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 </div>
                 <div class="row input-row">
                   <component-textarea-style id='textarea-container'>
-                    <paper-textarea id="Comments" name="Comments" rows="4"
+                    <textarea id="Comments" name="Comments" rows="4"
+                      placeholder="Commments, Questions, and Such"
+                      aria-labelledby="CommentLabel InfoHeading"></textarea>
+                    <!-- <paper-textarea id="Comments" name="Comments" rows="4"
                       placeholder="Commments, Questions, or Details"
-                      aria-labelledby="CommentLabel InfoHeading"></paper-textarea>
-                    <label id="CommentLabel">Comments</label>
+                      aria-labelledby="CommentLabel InfoHeading"></paper-textarea> -->
+                    <shop-md-decorator error-message="Comments Optional" aria-hidden="true">
+                      <label id="CommentLabel">Commments, Questions, and Such</label>
+                      <shop-underline></shop-underline>
+                    </shop-md-decorator>
                   </component-textarea-style>
                 </div>
 
