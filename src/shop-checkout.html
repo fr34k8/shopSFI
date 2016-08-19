@@ -27,6 +27,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       .main-frame {
         transition: opacity 0.5s;
+        overflow: visible;
       }
 
       :host([waiting]) .main-frame {
@@ -116,7 +117,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         margin: 30px 0;
       }
 
-      fx-skew { background: rgba(255, 255, 255, 1); margin: -55vh auto 0; position: relative; z-index: 2; }
+      fx-skew            { background: rgba(255, 255, 255, 1); margin: -55vh auto 0; position: relative; z-index: 1; min-height: 50vh; }
+      fx-skew h1         {  }
 
       .hero-image {
         position: relative;
@@ -140,12 +142,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         };
       }
 
-      .info-links                   { position: relative; border-top: 2px solid black; padding: 1rem 0 0; margin: 150px 0 0; }
+      .info-links                   { position: relative; border-top: 2px solid black; padding: 1rem 0 0; margin: 4rem 0 0; min-width: 280px; }
       .info-links img               { width: 150px; position: absolute; bottom: 100%; left: 50%; margin: 0 0 0 -75px; }
       .info-links a                 { display: block; color: var(--app-tertiary-color); line-height: 24px; padding: 0 16px; text-decoration: none; }
       .info-links a iron-icon       { color: rgba(0,0,0,.78); width: 18px; height: 18px; padding: 0 5px 0 0; }
 
-
+      [success] p                   { margin: 0; padding: 0; }
 
 /*  Mobile
 ********************************************************/
@@ -163,8 +165,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         margin-left: 0;
     }
 
+    .info-links { margin: 10rem 0 0; }
+
     /* Directions and Call */
-    .footer { position: fixed; left: 0; bottom: 0; right: 0; background: #000; }
+    .footer { position: fixed; left: 0; bottom: 0; right: 0; z-index: 2; background: #000; }
     .footer div { background: rgba(0,0,0, .64); }
     .footer a { text-decoration: none; }
     .footer a:nth-child(1) { background: rgba(256,256,256, .42); }
@@ -339,41 +343,47 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <!-- Thankyou -->
             <fx-skew>
                 <div class="main-frame">
-                    <h1>Thank you!</h1>
-                    <p>We've emailed you a copy of the items you're interested in and a member of our sales team will contact you soon. Business hours are Monday through Friday, 8:00 to 5:00 Central Standard Time. All internet quotes, emails, and faxes are processed during our normal business hours.</p>
-                    <p>If you have any questions, please give us call.</p>
-                    <p>[[response.successMessage]]</p>
 
-                    <section class="flex-vertical items-center margin-t-2">
+                    <section class="flex-vertical items-stretch">
+                        <section class="flex-1 flex-horizontal mobile-flex-vertical">
+                            <div class="flex-2 text-left padding-r-1">
+                                <h1>Thank you!</h1>
 
-                        <div class="info-links text-left">
-                            <!-- Owner Icon -->
-                            <img src="../images/icon-owner.png" class="icon-owner" alt="Bart Winzer" />
+                                <p class="margin-0">We've emailed you a copy of the items you're interested in and a member of our sales team will contact you soon.</p>
+                                <p>[[response.successMessage]]</p>
 
-                            <!-- Call -->
-                            <a href="tel:3376260004" aria-label="Phone Number">
-                                <iron-icon icon="icons:phone"></iron-icon>
-                                1(337)626-0004
-                            </a>
+                                <p>If you have any questions, please give us call. Business hours are Monday through Friday, 8:00 to 5:00 Central Standard Time. All internet quotes, emails, and faxes are processed during our normal business hours.</p>
+                            </div>
 
-                            <!-- Email -->
-                            <a href="mailo:sales@sulphurfuelinjection.com" aria-label="Email Address">
-                                <iron-icon icon="icons:email"></iron-icon>
-                                sales@sulphurfuelinjection.com
-                            </a>
+                            <div class="info-links text-left flex-1">
+                                <!-- Owner Icon -->
+                                <img src="../images/icon-owner.png" class="icon-owner" alt="Bart Winzer" />
 
-                            <!-- Location -->
-                            <a href="https://www.google.com/maps/place/Sulphur+Fuel+Injection/@30.2360406,-93.3144457,17z/data=!3m1!4b1!4m15!1m9!4m8!1m0!1m6!1m2!1s0x863b8ee90c5001cd:0x84cdcf8337373941!2sSulphur+Fuel+Injection,+121+Industrial+Dr,+Sulphur,+LA+70663!2m2!1d-93.312257!2d30.236036!3m4!1s0x863b8ee90c5001cd:0x84cdcf8337373941!8m2!3d30.236036!4d-93.312257" aria-label="Location" target="_blank">
-                                <iron-icon icon="icons:map"></iron-icon>
-                                121 Industrial Dr, Sulphur, LA 70663
-                            </a>
+                                <!-- Call -->
+                                <a href="tel:3376260004" aria-label="Phone Number">
+                                    <iron-icon icon="icons:phone"></iron-icon>
+                                    1(337)626-0004
+                                </a>
 
-                            <!-- Business Hours -->
-                            <a href="tel:3376260004" aria-label="Business Hours">
-                                <iron-icon icon="icons:time"></iron-icon>
-                                Monday - Friday | 8am - 5pm
-                            </a>
-                        </div>
+                                <!-- Email -->
+                                <a href="mailo:sales@sulphurfuelinjection.com" aria-label="Email Address">
+                                    <iron-icon icon="icons:email"></iron-icon>
+                                    sales@sulphurfuelinjection.com
+                                </a>
+
+                                <!-- Location -->
+                                <a href="https://www.google.com/maps/place/Sulphur+Fuel+Injection/@30.2360406,-93.3144457,17z/data=!3m1!4b1!4m15!1m9!4m8!1m0!1m6!1m2!1s0x863b8ee90c5001cd:0x84cdcf8337373941!2sSulphur+Fuel+Injection,+121+Industrial+Dr,+Sulphur,+LA+70663!2m2!1d-93.312257!2d30.236036!3m4!1s0x863b8ee90c5001cd:0x84cdcf8337373941!8m2!3d30.236036!4d-93.312257" aria-label="Location" target="_blank">
+                                    <iron-icon icon="icons:map"></iron-icon>
+                                    121 Industrial Dr, Sulphur, LA 70663
+                                </a>
+
+                                <!-- Business Hours -->
+                                <a href="tel:3376260004" aria-label="Business Hours">
+                                    <iron-icon icon="icons:time"></iron-icon>
+                                    Monday - Friday | 8am - 5pm
+                                </a>
+                            </div>
+                        </section>
                     </section>
                 </div>
             </fx-skew>
@@ -783,7 +793,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             }
           }
         }
-         
+
         // Have the email form list a seperate object for each product type; where it lists
         //... the name of the product, the service needed, and the quantity requested.
         this.cart.forEach(function(cartItem, i) {
