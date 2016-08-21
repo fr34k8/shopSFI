@@ -6,6 +6,7 @@
     "src/shop-detail.html",
     "src/shop-cart.html",
     "src/shop-checkout.html",
+    "src/shop-company.html",
     "src/app-resources.html"
   ]
 }
