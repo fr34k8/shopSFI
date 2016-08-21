@@ -19,6 +19,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/iron-media-query/iron-media-query.html">
 <link rel="import" href="../bower_components/iron-pages/iron-pages.html">
 <link rel="import" href="../bower_components/iron-selector/iron-selector.html">
+
 <!-- <link rel="import" href="fonts/fonts.html"> -->
 <link rel="import" href="data-category-cms.html">
 <!-- Since 'home' is the default route, eagerly load it. -->
@@ -143,6 +144,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       shop-checkout { padding: 100px 0 0; }
 
       component-footer { margin-top: 140px; }
+      :host([page=home]) { background: url("../images/bg_common_rail_gray.jpg") 0 0 no-repeat; background-size: cover; }
       :host([page=home]) component-footer { margin-top: 0; }
 
 
@@ -313,6 +315,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 <iron-icon icon="icons:time"></iron-icon>
                 Monday - Friday | 8am - 5pm
             </a>
+
+            <a href="/company" aria-label="Our Company">
+                <iron-icon icon="icons:time"></iron-icon>
+                Learn about us
+            </a>
+
         </section>
 
       </app-drawer>
@@ -320,10 +328,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <!-- DRAWER -->
     <!-- DRAWER -->
     <!-- DRAWER -->
-
-
-
-
 
     <iron-pages role="main" selected="[[page]]" attr-for-selected="name" selected-attribute="visible">
       <!-- home view -->
@@ -336,11 +340,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <shop-cart name="cart" cart="[[cart]]" total="[[total]]" num-items=[[numItems]]></shop-cart>
       <!-- checkout view -->
       <shop-checkout name="checkout" cart="[[cart]]" total="[[total]]" route="{{subroute}}" num-items=[[numItems]]></shop-checkout>
+      <!-- about us -->
+      <shop-company name="company" full-content="true"></shop-company>
     </iron-pages>
 
     <!-- Business Footer
     ------------------------------------------------------------->
-    <component-footer id="Footer" class="bg-gray z-2"></component-footer>
+    <component-footer id="Footer" class="bg-gray"></component-footer>
 
     <!-- a11y announcer -->
     <div class="announcer" aria-live="assertive">[[_a11yLabel]]</div>

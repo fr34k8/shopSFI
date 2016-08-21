@@ -8,6 +8,8 @@
 <link rel="import" href="../../bower_components/iron-label/iron-label.html">
 <link rel="import" href="../../bower_components/steel-properties/steel-classes.html">
 <link rel="import" href="../../bower_components/fx-skew/fx-skew.html">
+<link rel="import" href="../../bower_components/paper-dialog/paper-dialog.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
 
 <!-- <link rel="import" href="../../images/icons/logo-icons.html"> -->
 <link rel="import" href="../../images/icons/business-icons.html">
@@ -58,9 +60,34 @@
     </style>
 
     <template>
+
+
+
         <fx-skew class="bg-gray"></fx-skew>
 
         <footer class="flex-vertical nowrap">
+
+          <paper-dialog id="modalterms" class="modal-terms" >
+            <h2>Terms and Conditions</h2>
+            <p>You understand and agree that the owners of this site shall not be liable for any direct, indirect incidental, consequential or
+              exemplary damages, including but not limited to, damages for loss of profits, data or other intangible losses (even if the owners of this site have
+              been advised of and or service(s) or any misuse of the product(s) and or service(s) in a manner not in accordance with their intended use.)</p>
+            <!-- <div class="buttons">
+              <paper-button dialog-confirm autofocus>close</paper-button>
+            </div> -->
+          </paper-dialog>
+
+          <paper-dialog id="modalprivacy" class="modal-privacy" >
+            <h2>Privacy Policy</h2>
+            <p>For each visitor to our web page, our web server automatically recognizes no information regarding the domain or email address.
+              We collect the email address of those who communicate with us via email, aggregate information on what pages consumers access volunteered
+              by the consumer, such as survey information and/or site registrations. The information we collect is used for internal review and is then
+              discarded, used to the content of our web page, used to customize the content and/or layout of our page for individual consumer and
+              used by us that you do not want to receive email from our company. </p>
+            <!-- <div class="buttons">
+              <paper-button dialog-confirm autofocus>close</paper-button>
+            </div> -->
+          </paper-dialog>
 
             <!-- Footer Top -->
             <section class="wrapper flex-horizontal mobile-flex-vertical between-between mobile-center-start width-100 mobile-width-90 tablet-width-90 padding-b-3 text-normal">
@@ -77,8 +104,8 @@
                 <div class="flex-vertical start-stretch flex-1 mobile-margin-b-2">
                     <h4>Legal</h4>
 
-                    <a href="#Policy">Privacy Policy</a>
-                    <a href="#Terms">Terms & Conditions</a>
+                    <a class="link-button" on-tap="_openprivacy">Privacy Policy</a>
+                    <a class="link-button" on-tap="_openterms">Terms & Conditions</a>
                 </div>
 
                 <div class="flex-vertical start-stretch flex-1 tablet-flex-2 mobile-margin-b-2">
@@ -104,6 +131,12 @@
                             <iron-icon icon="business:access-time" class="margin-r-5"></iron-icon>
                             <a href="#">Monday - Friday | 8am - 5pm</a>
                         </iron-label>
+
+                        <iron-label>
+                            <iron-icon icon="icons:time" class="margin-r-5"></iron-icon>
+                            <a href="/company">Learn about us</a>
+                        </iron-label>
+
                     </div>
 
                     <!--
@@ -130,7 +163,17 @@
 <script>
     Polymer({
 
-        is: 'component-footer'
+        is: 'component-footer',
+
+        _openprivacy: function() {
+            this.$.modalprivacy.toggle();
+            console.log('pressed');
+        },
+
+        _openterms: function() {
+            this.$.modalterms.toggle();
+            console.log('pressed');
+        }
 
     });
 </script>

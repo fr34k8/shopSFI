@@ -1,0 +1,131 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/fx-skew/fx-skew.html">
+<link rel="import" href="components/component-image.html">
+
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="styles-main.html">
+<link rel="import" href="../bower_components/app-route/app-route.html">
+
+<dom-module id="shop-company">
+
+ <template>
+
+   <style include="styles-main">
+
+     fx-skew { background: rgba(255, 255, 255, 1); margin: -50vh auto 0; }
+
+     .hero-image {
+       position: relative;
+       height: 100vh;
+       max-width: 100%;
+       overflow: hidden;
+       z-index: 0;
+     }
+
+     .hero-image {
+       --component-image-img: {
+         position: fixed;
+         top: 0;
+         bottom: 0;
+         left: -9999px;
+         right: -9999px;
+         width: 100vw;
+         height: 100vh;
+         max-width: 100%;
+         max-height: auto;
+       };
+     }
+
+     .grid {
+       @apply(--layout-horizontal);
+       @apply(--layout-wrap);
+       @apply(--layout-justified);
+       margin: 0 10px 32px 10px;
+     }
+
+     .griditem {
+       -webkit-flex: 1 1;
+       flex: 1 1;
+       -webkit-flex-basis: 33%;
+       flex-basis: 33%;
+       max-width: 33%;
+       text-decoration: none;
+     }
+
+     @media (min-width: 0) and (max-width: 769px) {
+       .hero-image {
+         display: none;
+       }
+
+       .griditem {
+         -webkit-flex-basis: 50%;
+         flex-basis: 50%;
+         max-width: 50%;
+       }
+
+       fx-skew { margin-top: 80px; }
+     }
+
+   </style>
+
+   <!-- app-route allows access to data in address bar.
+   ------------------------------------------------------------------------->
+   <!-- <app-route
+       route="[[route]]"
+       pattern="/:category"
+       data="{{routeData}}">
+   </app-route> -->
+
+   <!-- Background Image for page.
+   ------------------------------------------------------------------------->
+
+   <component-image
+       alt="Our Location"
+       src="/images/location.jpg"
+       class="hero-image">
+   </component-image>
+
+   <fx-skew>
+       <h1>Our Company</h1>
+       <p>
+         In business since 1952, we at Diesel Pump & Injector Service, Ltd. provide
+         our customers with quality service using the latest and most effective equipment.
+         Our technicians are highly qualified and factory trained in all the latest
+         technology to provide you with the reliable service you deserve and expect.
+       </p>
+
+       <template is="dom-if" if="[[fullContent]]">
+         <div>Full Content Shown</div>
+       </template>
+
+   </fx-skew>
+
+</template>
+
+ <script>
+
+   Polymer({
+
+     is: 'shop-company',
+
+     properties: {
+
+       fullContent: Boolean
+
+     }
+
+   });
+
+ </script>
+
+</dom-module>
