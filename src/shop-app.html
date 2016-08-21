@@ -113,12 +113,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         /*--app-drawer-scrim-background: rgba(88, 0, 0, .65);*/
 
         --app-drawer-content-container: {
-          width: 264px;
+          width: 280px;
           background-color: var(--app-primary-color);
         }
       }
 
-      app-drawer .drawer-map                   { height: 25vh; width: 264px; position: relative; border-bottom: 4px solid silver; }
+      app-drawer .drawer-map                   { height: 25vh; width: 280px; position: relative; border-bottom: 4px solid silver; }
       app-drawer .drawer-map google-map        { -webkit-filter: grayscale(1); filter: grayscale(1); }
       app-drawer .drawer-map img               { display: inline-block; max-width: 100%; position: absolute; left: calc(50% - 40px); top: calc(100% - 24px); z-index: 1; }
       app-drawer .drawer-map component-pulse   { position: absolute; left: calc(50% - 10px); top: calc(50% - 10px); z-index: 1; }
@@ -434,6 +434,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         }
       },
 
+      // BRIAN (SEO)
       _pageLoaded: function(shouldResetLayout) {
         this._ensureLazyLoaded();
         if (shouldResetLayout) {
