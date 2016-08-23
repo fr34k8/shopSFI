@@ -10,19 +10,22 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="../bower_components/fx-skew/fx-skew.html">
-<link rel="import" href="components/component-image.html">
-
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
-<link rel="import" href="styles-main.html">
 <link rel="import" href="../bower_components/app-route/app-route.html">
+<link rel="import" href="components/component-image.html">
+<link rel="import" href="styles-main.html">
+<link rel="import" href="styles-fonts.html">
 
 <dom-module id="shop-company">
 
  <template>
 
-   <style include="styles-main">
-
-     fx-skew { background: rgba(255, 255, 255, 1); margin: -50vh auto 0; }
+   <style include="styles-main styles-fonts">
+     :host {
+         display: block;
+         position: relative;
+         min-height: 50vh;
+     }
 
      .hero-image {
        position: relative;
@@ -62,6 +65,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        text-decoration: none;
      }
 
+     fx-skew { background: rgba(255, 255, 255, 1); margin: -45vh auto 0; min-height: 50vh; }
+     h3 { color: var(--app-primary-color); }
+
+     .wrapper { height: 51vh; }
+     .icon-owner { width: 230px; display: block; margin: 0 auto; padding: 2rem 0 0; }
+     .bullet-points { text-align: left; }
+
      @media (min-width: 0) and (max-width: 769px) {
        .hero-image {
          display: none;
@@ -74,41 +84,79 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        }
 
        fx-skew { margin-top: 80px; }
+
+       .bullet-points > div { min-width: 50vw; margin: 0 auto; }
      }
 
    </style>
 
-   <!-- app-route allows access to data in address bar.
-   ------------------------------------------------------------------------->
-   <!-- <app-route
-       route="[[route]]"
-       pattern="/:category"
-       data="{{routeData}}">
-   </app-route> -->
+    <!-- app-route allows access to data in address bar.
+    ------------------------------------------------------------------------->
+    <!-- <app-route
+    route="[[route]]"
+    pattern="/:category"
+    data="{{routeData}}">
+    </app-route> -->
 
-   <!-- Background Image for page.
-   ------------------------------------------------------------------------->
+    <!-- Background Image for page.
+    ------------------------------------------------------------------------->
+    <component-image
+        alt="Our Location"
+        src="/images/location.jpg"
+        class="hero-image">
 
-   <component-image
-       alt="Our Location"
-       src="/images/location.jpg"
-       class="hero-image">
-   </component-image>
+        <div class="wrapper text-center flex-vertical end-center">
+            <h1>Our Company</h1>
+            <h2>Certified technicians w/ 25+ years experience</h2>
 
-   <fx-skew>
-       <h1>Our Company</h1>
-       <p>
-         In business since 1952, we at Diesel Pump & Injector Service, Ltd. provide
-         our customers with quality service using the latest and most effective equipment.
-         Our technicians are highly qualified and factory trained in all the latest
-         technology to provide you with the reliable service you deserve and expect.
-       </p>
+            <!-- Owner Icon -->
+            <img src="../images/icon-owner.png" class="icon-owner" alt="Bart Winzer" />
 
-       <template is="dom-if" if="[[fullContent]]">
-         <div>Full Content Shown</div>
-       </template>
+        </div>
+    </component-image>
 
-   </fx-skew>
+    <fx-skew>
+        <main class="wrapper">
+            <p class="text-16">
+            In business since 1952, we at Sulphur Fuel & Injection Service, Ltd. provide
+            our customers with quality service using the latest and most effective equipment.
+            Our technicians are highly qualified and factory trained in all the latest
+            technology to provide you with the reliable service you deserve and expect.
+            </p>
+
+            <section class="flex-horizontal mobile-flex-vertical start-center bullet-points">
+                <div class="flex-1 padding-1">
+                    <h3>Services</h3>
+                    <ul>
+                        <li>Complete rebuild of Diesel Fuel Injection Components</li>
+                        <li>Rebuild today's popular Diesel Fuel Injection Pumps and Injectors</li>
+                        <li>Rebuild 12 valve and 24 valve Cummins Fuel Injection Pumps in house</li>
+                        <li>Test and rebuild Duramax and Dodge Common Rail Injectors</li>
+                        <li>Check and rebuild Injectors</li>
+                        <li>Carry FPPF and Stanadyne Diesel Fuel Treatment</li>
+                        <li>Rebuild Diesel Fuel Injection Pumps and Injectors for most ALL types of Diesel Engines</li>
+                    </ul>
+                </div>
+
+                <div class="flex-1 padding-1">
+                    <h3>Rebuilds</h3>
+                    <ul>
+                        <li>bullet point</li>
+                        <li>bullet point</li>
+                        <li>bullet point</li>
+                        <li>bullet point</li>
+                        <li>bullet point</li>
+                        <li>bullet point</li>
+                    </ul>
+                </div>
+
+            </section>
+
+            <template is="dom-if" if="[[fullContent]]">
+                <div>Full Content Shown</div>
+            </template>
+        </main>
+    </fx-skew>
 
 </template>
 

@@ -38,13 +38,29 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         margin-top: 20px;
       }
 
-      @media (max-width: 767px) {
+      .wrapper { margin: 0 auto; position: relative; overflow: hidden; display: block; }
 
-        header > h1 {
-          font-size: 1.1em;
-        }
+/*  Mobile
+********************************************************/
+@media (min-width: 0) and (max-width: 768px) {
 
-      }
+    header > h1 { font-size: 1.1em; }
+    .wrapper { width: 95%; }
+}
+
+/*  Tablet
+********************************************************/
+@media (min-width: 769px) and (max-width: 1024px) {
+
+    .wrapper { width: 90%; }
+}
+
+/*  Desktop
+********************************************************/
+@media (min-width: 1025px) {
+
+    .wrapper { width: 80%; max-width: 1024px; }
+}
 
     </style>
   </template>
