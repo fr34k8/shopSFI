@@ -12,98 +12,86 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/fx-skew/fx-skew.html">
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../bower_components/app-route/app-route.html">
+<link rel="import" href="../bower_components/app-layout/app-scroll-effects/effects/parallax-background.html">
+<link rel="import" href="../bower_components/app-layout/app-box/app-box.html">
 <link rel="import" href="components/component-image.html">
 <link rel="import" href="styles-main.html">
 <link rel="import" href="styles-fonts.html">
 
 <dom-module id="shop-company">
+<template>
 
- <template>
+<style is="custom-style" include="styles-main styles-fonts">
+:host {
+display: block;
+position: relative;
+min-height: 100vh;
+height: 100vh;
+}
 
-   <style include="styles-main styles-fonts">
-     :host {
-         display: block;
-         position: relative;
-         min-height: 50vh;
-     }
+fx-skew { background: rgba(255, 255, 255, 1); min-height: 50vh; }
+h3 { color: var(--app-primary-color); }
 
-     .hero-image {
-       position: relative;
-       height: 100vh;
-       max-width: 100%;
-       overflow: hidden;
-       z-index: 0;
-     }
+.wrapper {  }
+.icon-owner { width: 230px; display: block; margin: 0 auto; padding: 2rem 0 0; }
+.bullet-points { text-align: left; }
 
-     .hero-image {
-       --component-image-img: {
-         position: fixed;
-         top: 0;
-         bottom: 0;
-         left: -9999px;
-         right: -9999px;
-         width: 100vw;
-         height: 100vh;
-         max-width: 100%;
-         max-height: auto;
-       };
-     }
 
-     .grid {
-       @apply(--layout-horizontal);
-       @apply(--layout-wrap);
-       @apply(--layout-justified);
-       margin: 0 10px 32px 10px;
-     }
+/* Mobile
+**********************************************************************************/
+@media (min-width: 0) and (max-width: 769px) {
+fx-skew { margin-top: 80px; }
 
-     .griditem {
-       -webkit-flex: 1 1;
-       flex: 1 1;
-       -webkit-flex-basis: 33%;
-       flex-basis: 33%;
-       max-width: 33%;
-       text-decoration: none;
-     }
+.bullet-points > div { min-width: 50vw; margin: 0 auto; }
+}
 
-     fx-skew { background: rgba(255, 255, 255, 1); margin: -45vh auto 0; min-height: 50vh; }
-     h3 { color: var(--app-primary-color); }
 
-     .wrapper { height: 51vh; }
-     .icon-owner { width: 230px; display: block; margin: 0 auto; padding: 2rem 0 0; }
-     .bullet-points { text-align: left; }
 
-     @media (min-width: 0) and (max-width: 769px) {
-       fx-skew { margin-top: 80px; }
 
-       .bullet-points > div { min-width: 50vw; margin: 0 auto; }
-     }
 
-   </style>
+/* APP BOX */
+.app-box {
+    min-height: 50vh;
 
-    <!-- app-route allows access to data in address bar.
-    ------------------------------------------------------------------------->
-    <!-- <app-route
-    route="[[route]]"
-    pattern="/:category"
-    data="{{routeData}}">
+  --app-box-background-front-layer: {
+    background-image: url(/images/location.jpg);
+    background-position: center;
+    padding-bottom: 120px;
+    margin-top: -180px;
+    height: 100%;
+  };
+}
+
+.app-box .wrapper { height: 50vh; }
+</style>
+
+
+
+
+
+<!-- APP ROUTE: allows access to data in URL bar
+------------------------------------------------------------------------->
+    <!--
+    <app-route
+        route="[[route]]"
+        pattern="/:category"
+        data="{{routeData}}">
     </app-route> -->
 
-    <!-- Background Image for page.
-    ------------------------------------------------------------------------->
-    <component-image
-        alt="Our Location"
-        src="/images/location.jpg"
-        class="hero-image">
 
-        <div class="wrapper text-center flex-vertical end-center">
-            <h1>Our Company</h1>
-            <h2>Certified technicians w/ 25+ years experience</h2>
 
-            <!-- Owner Icon -->
-            <img src="../images/icon-owner.png" class="icon-owner" alt="Bart Winzer" />
+<!-- APP BOX: Parrallax BG for page
+------------------------------------------------------------------------->
+      <app-box class="app-box" effects="parallax-background">
+          <div class="wrapper text-center flex-vertical end-center">
+              <h1>Our Company</h1>
+              <h2>Certified technicians w/ 25+ years experience</h2>
 
-        </div>
-    </component-image>
+              <!-- Owner Icon -->
+              <img src="../images/icon-owner.png" class="icon-owner" alt="Bart Winzer" />
+
+          </div>
+      </app-box>
 
     <fx-skew>
         <main class="wrapper">
