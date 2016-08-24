@@ -144,7 +144,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       shop-checkout { padding: 100px 0 0; }
 
       component-footer { margin-top: 140px; }
-      :host([page=home]) { background: url("../images/bg_common_rail_gray.jpg") 0 0 no-repeat; background-size: cover; }
       :host([page=home]) component-footer { margin-top: 0; }
 
 
@@ -337,9 +336,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <!-- detail view of one item -->
       <shop-detail name="detail" route="[[subroute]]" offline="[[offline]]"></shop-detail>
       <!-- cart view -->
-      <shop-cart name="cart" cart="[[cart]]" total="[[total]]" num-items=[[numItems]]></shop-cart>
+      <shop-cart name="cart" cart="[[cart]]" total="[[total]]" num-items="[[numItems]]"></shop-cart>
       <!-- checkout view -->
-      <shop-checkout name="checkout" cart="[[cart]]" total="[[total]]" route="{{subroute}}" num-items=[[numItems]]></shop-checkout>
+      <shop-checkout name="checkout" cart="[[cart]]" total="[[total]]" route="{{subroute}}" num-items="[[numItems]]"></shop-checkout>
       <!-- about us -->
       <shop-company name="company" full-content="true"></shop-company>
     </iron-pages>
