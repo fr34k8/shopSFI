@@ -23,13 +23,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <!-- <link rel="import" href="fonts/fonts.html"> -->
 <link rel="import" href="data-category-cms.html">
 <!-- Since 'home' is the default route, eagerly load it. -->
-<link rel="import" href="page-home.html">
+<link rel="import" href="shop-home.html">
 
 <dom-module id="shop-app">
 
   <template>
 
-    <style>
+    <style is="custom-style">
 
       :host {
         display: block;
@@ -66,6 +66,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
 
       app-toolbar {  }
+      iron-pages .fullbleed { min-height: 100vh; display: block; }
 
       paper-icon-button { color: var(--app-color-white); opacity: .5; transition: opacity .22s ease-in-out; }
       paper-icon-button:hover { opacity: 1; transition: opacity .22s ease-in-out; }
@@ -81,6 +82,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       .announcer { position: fixed; height: 0; overflow: hidden; }
 
       :host(:not([page=detail])) .back-btn {
+        display: none;
+      }
+      :host(:not([page=company])) component-button {
         display: none;
       }
 
@@ -330,17 +334,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <iron-pages role="main" selected="[[page]]" attr-for-selected="name" selected-attribute="visible">
       <!-- home view -->
-      <page-home name="home" categories="[[categories]]"></page-home>
+      <shop-home name="home" categories="[[categories]]" class="fullbleed"></shop-home>
       <!-- list view of items in a category -->
-      <shop-list name="list" route="[[subroute]]" offline="[[offline]]"></shop-list>
+      <shop-list name="list" route="[[subroute]]" offline="[[offline]]" class="fullbleed"></shop-list>
       <!-- detail view of one item -->
-      <shop-detail name="detail" route="[[subroute]]" offline="[[offline]]"></shop-detail>
+      <shop-detail name="detail" route="[[subroute]]" offline="[[offline]]" class="fullbleed"></shop-detail>
       <!-- cart view -->
-      <shop-cart name="cart" cart="[[cart]]" total="[[total]]" num-items="[[numItems]]"></shop-cart>
+      <shop-cart name="cart" cart="[[cart]]" total="[[total]]" num-items="[[numItems]]" class="fullbleed"></shop-cart>
       <!-- checkout view -->
-      <shop-checkout name="checkout" cart="[[cart]]" total="[[total]]" route="{{subroute}}" num-items="[[numItems]]"></shop-checkout>
+      <shop-checkout name="checkout" cart="[[cart]]" total="[[total]]" route="{{subroute}}" num-items="[[numItems]]" class="fullbleed"></shop-checkout>
       <!-- about us -->
-      <shop-company name="company" full-content="true"></shop-company>
+      <shop-company name="company" full-content="true" class="fullbleed"></shop-company>
     </iron-pages>
 
     <!-- Business Footer

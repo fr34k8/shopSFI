@@ -20,29 +20,20 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="shop-company.html">
 <link rel="import" href="styles-fonts.html">
 
-<dom-module id="page-home">
+<dom-module id="shop-home">
 
   <template>
 
     <style include="component-button styles-fonts">
-        :host            { display: block; position: relative; z-index: 0; }
-
-        .bg-home         { background: url("../images/bg_common_rail_gray.jpg") 0 0 no-repeat; background-size: cover; }
-        .bg-location     { background: url("../images/location.jpg") 0 0 no-repeat; background-size: cover; }
+        :host {
+            display: block;
+            position: relative;
+            z-index: 0;
+        }
 
         [hidden] { display: none; }
 
-        .top {  }
-        .middle {  }
-        .bottom { height: 100px; }
-
-        .top .top-text { display: inline-block; overflow: hidden; text-align: center; }
         a { text-decoration: none; }
-
-        .product-img { outline: none; }
-        .product-img > component-image::after { display: block; content: ''; position: absolute; transition-property: opacity; transition-duration: 0s; transition-delay: 90ms; pointer-events: none; opacity: 0; top: 5px; left: 5px; right: 5px; bottom: 5px; outline: #2196F3 auto 5px; outline: -moz-mac-focusring auto 5px; outline: -webkit-focus-ring-color auto 5px; }
-        .product-img:focus > component-image::after { opacity: 1; }
-
         component-image { position: relative; max-width: 100%; display: block;
             --component-image-img: {
                 position: absolute;
@@ -54,7 +45,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             };
         }
 
-    component-image::after { display: block; content: ''; position: absolute; transition-property: opacity; transition-duration: 0s; transition-delay: 90ms; pointer-events: none; opacity: 0; top: 5px; left: 5px; right: 5px; bottom: 5px; outline: #2196F3 auto 5px; outline: -moz-mac-focusring auto 5px; outline: -webkit-focus-ring-color auto 5px; }
+        component-image::after { display: block; content: ''; position: absolute; transition-property: opacity; transition-duration: 0s; transition-delay: 90ms; pointer-events: none; opacity: 0; top: 5px; left: 5px; right: 5px; bottom: 5px; outline: #2196F3 auto 5px; outline: -moz-mac-focusring auto 5px; outline: -webkit-focus-ring-color auto 5px; }
+
+        .top {  }
+        .middle {  }
+        .bottom { height: 100px; }
+
+        .top .top-text { display: inline-block; overflow: hidden; text-align: center; }
+
+        .product-img { outline: none; }
+        .product-img > component-image::after { display: block; content: ''; position: absolute; transition-property: opacity; transition-duration: 0s; transition-delay: 90ms; pointer-events: none; opacity: 0; top: 5px; left: 5px; right: 5px; bottom: 5px; outline: #2196F3 auto 5px; outline: -moz-mac-focusring auto 5px; outline: -webkit-focus-ring-color auto 5px; }
+        .product-img:focus > component-image::after { opacity: 1; }
+
 
 /*  Iron Swipeable Pages
 ********************************************************/
@@ -161,6 +163,19 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 @media (min-width: 1025px) {
 
 }
+
+
+
+app-box  { min-height: 100vh;
+
+  --app-box-background-front-layer: {
+    background-image: url(../images/bg_common_rail_gray.jpg);
+    background-position: bottom;
+    padding-bottom: 20px;
+    margin-top: -20px;
+    height: 100%;
+  };
+}
 </style>
 
     <!-- Media Queries -->
@@ -172,8 +187,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <!-- Home
 -------------------------------------------------------------------------------------------------------------------------->
 
-    <fx-skew class="flex-vertical height-100 min-height-100 bg-home z-1"> <!-- height100 !important! (IE11 Fix) -->
-
+    <fx-skew class="flex-vertical height-100 min-height-100 bg-black z-1"> <!-- height100 !important! (IE11 Fix) -->
+    <app-box effects="parallax-background">
+    <article class="wrapper flex-vertical height-100 min-height-100">
 
 
         <!-- TOP -->
@@ -287,6 +303,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <fx-arrows color="white"></fx-arrows>
         </section>
         </template>
+
+
+    </article>
+    </app-box>
     </fx-skew>
 
 
@@ -295,35 +315,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <!-- Company
 -------------------------------------------------------------------------------------------------------------------------->
     <shop-company name="company"></shop-company>
-    <!-- <fx-skew class="flex-vertical items-center height-50 min-height-50 bg-white">
-
-        <section class="flex-1">
-            <div class="flex-vertical center-center page">
-
-                <div class="top-text bg-black">
-                    <h1>Sulphur Fuel Injection</h1>
-                    <p>In business since 1952, we at Diesel Pump & Injector Service, Ltd. provide our customers with quality service using the latest and most effective equipment. Our technicians are highly qualified and factory trained in all the latest technology to provide you with the reliable service you deserve and expect.</p>
-                </div>
-
-            </div>
-        </section>
-
-    </fx-skew> -->
-
-    <!-- <fx-skew class="flex-vertical items-center bg-white height-50">
-
-        <section class="flex-1">
-
-            <h1 class="black">Sulphur Fuel Injection</h1>
-            <p class="title">In business since 1952, we at Diesel Pump & Injector Service, Ltd. provide our customers with quality service using the latest and most effective equipment. Our technicians are highly qualified and factory trained in all the latest technology to provide you with the reliable service you deserve and expect.</p>
-
-
-            <div class="info-links text-left flex-1">
-                <img src="../images/icon-owner.png" class="icon-owner" alt="Bart Winzer" />
-            </div>
-        </section>
-
-    </fx-skew> -->
 
 
 <!-- Map
@@ -336,7 +327,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     Polymer({
 
-      is: 'page-home',
+      is: 'shop-home',
 
       properties: {
 
