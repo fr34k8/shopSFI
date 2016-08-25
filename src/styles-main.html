@@ -12,40 +12,57 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
 
 <dom-module id="styles-main">
-  <template>
-    <style>
+<template>
+<style>
 
-      [hidden] {
+    [hidden] {
         display: none !important;
-      }
+    }
 
-      header {
+    header {
         text-align: center;
-      }
+    }
 
-      header > h1 {
+    header > h1 {
         margin: 0 0 4px 0;
         font-size: 1.3em;
         font-weight: 500;
-      }
+    }
 
-      header > span {
+    header > span {
         color: var(--app-secondary-color);
         font-size: 12px;
-      }
+    }
 
-      header > component-button[responsive] {
+    header > component-button[responsive] {
         margin-top: 20px;
-      }
+    }
 
-      @media (max-width: 767px) {
+    .wrapper { margin: 0 auto; position: relative; overflow: hidden; height: 100%; }
 
-        header > h1 {
-          font-size: 1.1em;
-        }
 
-      }
+/*  Mobile
+********************************************************/
+@media (min-width: 0) and (max-width: 768px) {
 
-    </style>
-  </template>
+    header > h1 { font-size: 1.1em; }
+    .wrapper { width: 95%; }
+}
+
+/*  Tablet
+********************************************************/
+@media (min-width: 769px) and (max-width: 1024px) {
+
+    .wrapper { width: 90%; }
+}
+
+/*  Desktop
+********************************************************/
+@media (min-width: 1025px) {
+
+    .wrapper { width: 80%; max-width: 1024px; }
+}
+
+</style>
+</template>
 </dom-module>

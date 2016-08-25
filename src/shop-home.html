@@ -11,43 +11,29 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="../bower_components/iron-swipeable-pages/iron-swipeable-pages.html">
 <link rel="import" href="../bower_components/fx-skew/fx-skew.html">
+<link rel="import" href="../bower_components/app-layout/app-box/app-box.html">
 <link rel="import" href="../bower_components/fx-arrows/fx-arrows.html">
+<link rel="import" href="../bower_components/app-layout/app-scroll-effects/effects/parallax-background.html">
+<link rel="import" href="../bower_components/app-layout/app-box/app-box.html">
 <link rel="import" href="components/component-button.html">
 <link rel="import" href="components/component-image.html">
+<link rel="import" href="shop-company.html">
+<link rel="import" href="styles-fonts.html">
 
-<dom-module id="page-home">
+<dom-module id="shop-home">
 
   <template>
 
-    <style include="component-button">
-
-        .bg-home         { background: url("../images/bg_common_rail_gray.jpg") 0 0 no-repeat; background-size: cover; }
-        .bg-location     { background: url("../images/location.jpg") 0 0 no-repeat; background-size: cover; }
+    <style include="component-button styles-fonts">
+        :host {
+            display: block;
+            position: relative;
+            z-index: 0;
+        }
 
         [hidden] { display: none; }
 
-        .top {  }
-        .middle {  }
-        .bottom { height: 100px; }
-
-        .top .top-text { display: inline-block; overflow: hidden; text-align: center; }
-
-        h1, h2 { color: white; text-transform: uppercase; text-shadow: 1px 1px 0 rgba(0, 0, 0, 1); margin: 0; padding: 0; }
-
-        h1 { font-family: 'LaPejina-ffp', sans-serif;  font-weight: normal;  }
-        h2 { font-family: 'Roboto', 'Noto', sans-serif; color: white; font-weight: 400; position: relative; display: inline-block; }
-
-        h2:before, h2:after { content: "══════════════════════════════════════════════════════════════════"; display: inline-block; position: absolute; top: 0; }
-        h2:before { left: 100%; }
-        h2:after { right: 100%; }
-
-        h3 { color: white; text-transform: uppercase; }
         a { text-decoration: none; }
-
-        .product-img { outline: none; }
-        .product-img > component-image::after { display: block; content: ''; position: absolute; transition-property: opacity; transition-duration: 0s; transition-delay: 90ms; pointer-events: none; opacity: 0; top: 5px; left: 5px; right: 5px; bottom: 5px; outline: #2196F3 auto 5px; outline: -moz-mac-focusring auto 5px; outline: -webkit-focus-ring-color auto 5px; }
-        .product-img:focus > component-image::after { opacity: 1; }
-
         component-image { position: relative; max-width: 100%; display: block;
             --component-image-img: {
                 position: absolute;
@@ -59,7 +45,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             };
         }
 
-    component-image::after { display: block; content: ''; position: absolute; transition-property: opacity; transition-duration: 0s; transition-delay: 90ms; pointer-events: none; opacity: 0; top: 5px; left: 5px; right: 5px; bottom: 5px; outline: #2196F3 auto 5px; outline: -moz-mac-focusring auto 5px; outline: -webkit-focus-ring-color auto 5px; }
+        component-image::after { display: block; content: ''; position: absolute; transition-property: opacity; transition-duration: 0s; transition-delay: 90ms; pointer-events: none; opacity: 0; top: 5px; left: 5px; right: 5px; bottom: 5px; outline: #2196F3 auto 5px; outline: -moz-mac-focusring auto 5px; outline: -webkit-focus-ring-color auto 5px; }
+
+        .top {  }
+        .middle {  }
+        .bottom { height: 100px; }
+
+        .top .top-text { display: inline-block; overflow: hidden; text-align: center; }
+
+        .product-img { outline: none; }
+        .product-img > component-image::after { display: block; content: ''; position: absolute; transition-property: opacity; transition-duration: 0s; transition-delay: 90ms; pointer-events: none; opacity: 0; top: 5px; left: 5px; right: 5px; bottom: 5px; outline: #2196F3 auto 5px; outline: -moz-mac-focusring auto 5px; outline: -webkit-focus-ring-color auto 5px; }
+        .product-img:focus > component-image::after { opacity: 1; }
+
 
 /*  Iron Swipeable Pages
 ********************************************************/
@@ -125,49 +122,60 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 /*  Mobile
 ********************************************************/
-    @media (min-width: 0) and (max-width: 768px) {
-        component-image {  }
+@media (min-width: 0) and (max-width: 768px) {
+    component-image {  }
 
-        h1 { font-size: 42px; }
-        h2 { font-size: 18px; padding: 0 .5rem; }
-        h3 { margin: 0; }
+    /* Icons */
+    paper-icon-button iron-icon { height: 64px; width: 64px; }
 
-        /* Icons */
-        paper-icon-button iron-icon { height: 64px; width: 64px; }
+    /* Selected Animation */
+    .item .product-link h3                                 { transition: opacity .22s ease-in-out .22s; }
+    .item .product-img                                     { transition: transform .22s ease-in-out .22s; }
+    .item .product-img:before, .item .product-img:after    { transition: all .22s ease-in-out .22s; }
+    .item .product-img component-image                     { transition: all .22s ease-in-out .22s; }
 
-        /* Selected Animation */
-        .item .product-link h3                                 { transition: opacity .22s ease-in-out .22s; }
-        .item .product-img                                     { transition: transform .22s ease-in-out .22s; }
-        .item .product-img:before, .item .product-img:after    { transition: all .22s ease-in-out .22s; }
-        .item .product-img component-image                     { transition: all .22s ease-in-out .22s; }
+    /* Selected States */
+    .iron-selected .item .product-link h3                  { opacity: 1; }
+    .iron-selected .item .product-img component-image      { opacity: 1; -webkit-filter: grayscale(0); filter: grayscale(0); transform: scale(1.07, 1.07) translate(0, -7px); }
+    .iron-selected .item .product-img                      {  }
+    .iron-selected .item .product-img:before               { transform: rotate(180deg); border-color: var(--app-accent-color); opacity: .5; background: rgba(256,0,0, .11); }
+    .iron-selected .item .product-img:after                { transform: rotate(180deg); opacity: .25; }
 
-        /* Selected States */
-        .iron-selected .item .product-link h3                  { opacity: 1; }
-        .iron-selected .item .product-img component-image      { opacity: 1; -webkit-filter: grayscale(0); filter: grayscale(0); transform: scale(1.07, 1.07) translate(0, -7px); }
-        .iron-selected .item .product-img                      {  }
-        .iron-selected .item .product-img:before               { transform: rotate(180deg); border-color: var(--app-accent-color); opacity: .5; background: rgba(256,0,0, .11); }
-        .iron-selected .item .product-img:after                { transform: rotate(180deg); opacity: .25; }
+    .footer { position: fixed; left: 0; bottom: 0; right: 0; z-index: 2; background: #000; }
+    .footer div { background: rgba(0,0,0, .64); }
+    .footer a:nth-child(1) { background: rgba(256,256,256, .42); }
+    .footer a:nth-child(2) { background: rgba(256,256,256, .22); border-left:  4px solid rgba(0, 0, 0, 1); }
 
-        .footer { position: fixed; left: 0; bottom: 0; right: 0; z-index: 2; background: #000; }
-        .footer div { background: rgba(0,0,0, .64); }
-        .footer a:nth-child(1) { background: rgba(256,256,256, .42); }
-        .footer a:nth-child(2) { background: rgba(256,256,256, .22); border-left:  4px solid rgba(0, 0, 0, 1); }
+    .footer a { border-top: 2px inset rgba(256, 256, 256, 1); color: white; font-size: 15px; text-transform: uppercase; opacity: .5; }
 
-        .footer a { border-top: 2px inset rgba(256, 256, 256, 1); color: white; font-size: 15px; text-transform: uppercase; opacity: .5; }
-
-        .footer a paper-button iron-icon { color: white; padding-right: 10px; }
-    }
+    .footer a paper-button iron-icon { color: white; padding-right: 10px; }
+}
 
 
 /*  Tablet
 ********************************************************/
-    @media (min-width: 769px) {
-        component-image {  }
+@media (min-width: 769px) and (max-width: 1024px){
 
-        h1 { font-size: 72px; }
-        h2 { font-size: 24px; padding: 0 1rem; }
+}
 
-    }
+/*  Desktop
+********************************************************/
+@media (min-width: 1025px) {
+
+}
+
+
+
+app-box  { min-height: 100vh;
+
+  --app-box-background-front-layer: {
+    background-image: url(../images/bg_common_rail_gray.jpg);
+    background-position: bottom;
+    padding-bottom: 20px;
+    margin-top: -20px;
+    height: 100%;
+  };
+}
 </style>
 
     <!-- Media Queries -->
@@ -179,8 +187,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <!-- Home
 -------------------------------------------------------------------------------------------------------------------------->
 
-    <fx-skew class="flex-vertical height-100 min-height-100 bg-home z-1"> <!-- height100 !important! (IE11 Fix) -->
-
+    <fx-skew class="flex-vertical height-100 min-height-100 bg-black z-1"> <!-- height100 !important! (IE11 Fix) -->
+    <app-box effects="parallax-background">
+    <article class="wrapper flex-vertical height-100 min-height-100">
 
 
         <!-- TOP -->
@@ -294,6 +303,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <fx-arrows color="white"></fx-arrows>
         </section>
         </template>
+
+
+    </article>
+    </app-box>
     </fx-skew>
 
 
@@ -301,51 +314,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <!-- Company
 -------------------------------------------------------------------------------------------------------------------------->
-
-    <!-- <fx-skew class="flex-vertical items-center height-50 min-height-50 bg-white">
-
-        <section class="flex-1">
-            <div class="flex-vertical center-center page">
-
-                <div class="top-text bg-black">
-                    <h1>Sulphur Fuel Injection</h1>
-                    <p>In business since 1952, we at Diesel Pump & Injector Service, Ltd. provide our customers with quality service using the latest and most effective equipment. Our technicians are highly qualified and factory trained in all the latest technology to provide you with the reliable service you deserve and expect.</p>
-                </div>
-
-            </div>
-        </section>
-
-    </fx-skew> -->
-
-    <fx-skew class="flex-vertical items-center bg-white height-50">
-
-        <section class="flex-1">
-
-            <h1 class="black">Sulphur Fuel Injection</h1>
-            <p class="title">In business since 1952, we at Diesel Pump & Injector Service, Ltd. provide our customers with quality service using the latest and most effective equipment. Our technicians are highly qualified and factory trained in all the latest technology to provide you with the reliable service you deserve and expect.</p>
-
-
-            <!-- <div class="info-links text-left flex-1">
-                <img src="../images/icon-owner.png" class="icon-owner" alt="Bart Winzer" />
-            </div> -->
-        </section>
-        
-    </fx-skew>
+    <shop-company name="company"></shop-company>
 
 
 <!-- Map
 -------------------------------------------------------------------------------------------------------------------------->
-    <fx-skew class="flex-vertical height-100 min-height-100 z-1"> <!-- height100 !important! (IE11 Fix) -->
-        <section class="flex-vertical items-center height-100 min-height-100 bg-location">
 
-            <section class="flex-1">
-                <div class="flex-vertical center-center page">
-
-
-                </div>
-            </section>
-        </section>
-    </fx-skew>
 
 </template>
 
@@ -353,7 +327,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     Polymer({
 
-      is: 'page-home',
+      is: 'shop-home',
 
       properties: {
 

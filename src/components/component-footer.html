@@ -12,11 +12,11 @@
 <link rel="import" href="../../bower_components/paper-button/paper-button.html">
 
 <!-- <link rel="import" href="../../images/icons/logo-icons.html"> -->
-<link rel="import" href="../../images/icons/business-icons.html">
+<link rel="import" href="../icons/app-icons.html">
 
 <dom-module id="component-footer">
 
-    <style>
+    <style include="styles-main">
     :host {
         display: block;
         width: 100%;
@@ -42,11 +42,10 @@
 
         social-media-icons:hover   { cursor: pointer; opacity: 1; transition: opacity .22s ease-in-out; }
 
-        .footer-bottom             { background: rgba(0,0,0, .07); }
+        .footer-logo               { -webkit-filter: grayscale(100%) invert(1); filter: grayscale(100%) invert(1); }
+        .footer-bottom             { background: rgba(0,0,0, .07); padding: .5rem 0; }
         .footer-bottom *           { opacity: .12; transition: opacity .22s ease-in-out; }
         .footer-bottom:hover *     { opacity: .22; transition: opacity .22s ease-in-out; }
-
-        .wrapper { margin: 0 auto; max-width: 1440px; }
 
         main { margin: 0 auto; }
     </style>
@@ -67,24 +66,26 @@
 
         <footer class="flex-vertical nowrap">
 
-          <paper-dialog id="modalterms" class="modal-terms" >
+          <paper-dialog id="modalterms" class="modal-terms">
             <h2>Terms and Conditions</h2>
             <p>You understand and agree that the owners of this site shall not be liable for any direct, indirect incidental, consequential or
               exemplary damages, including but not limited to, damages for loss of profits, data or other intangible losses (even if the owners of this site have
               been advised of and or service(s) or any misuse of the product(s) and or service(s) in a manner not in accordance with their intended use.)</p>
-            <!-- <div class="buttons">
+            <!--
+            <div class="buttons">
               <paper-button dialog-confirm autofocus>close</paper-button>
             </div> -->
           </paper-dialog>
 
-          <paper-dialog id="modalprivacy" class="modal-privacy" >
+          <paper-dialog id="modalprivacy" class="modal-privacy">
             <h2>Privacy Policy</h2>
             <p>For each visitor to our web page, our web server automatically recognizes no information regarding the domain or email address.
               We collect the email address of those who communicate with us via email, aggregate information on what pages consumers access volunteered
               by the consumer, such as survey information and/or site registrations. The information we collect is used for internal review and is then
               discarded, used to the content of our web page, used to customize the content and/or layout of our page for individual consumer and
               used by us that you do not want to receive email from our company. </p>
-            <!-- <div class="buttons">
+            <!--
+            <div class="buttons">
               <paper-button dialog-confirm autofocus>close</paper-button>
             </div> -->
           </paper-dialog>
@@ -104,8 +105,8 @@
                 <div class="flex-vertical start-stretch flex-1 mobile-margin-b-2">
                     <h4>Legal</h4>
 
-                    <a class="link-button" on-tap="_openprivacy">Privacy Policy</a>
-                    <a class="link-button" on-tap="_openterms">Terms & Conditions</a>
+                    <a href="javascript:void(0)" class="link-button" on-tap="_openprivacy">Privacy Policy</a>
+                    <a href="javascript:void(0)" class="link-button" on-tap="_openterms">Terms & Conditions</a>
                 </div>
 
                 <div class="flex-vertical start-stretch flex-1 tablet-flex-2 mobile-margin-b-2">
@@ -113,27 +114,27 @@
 
                     <div class="flex-vertical start-start margin-b-1">
                         <iron-label>
-                            <iron-icon icon="business:phone" class="margin-r-5"></iron-icon>
-                            <a href="#">1(337)626-0004</a>
+                            <iron-icon icon="icons:phone" class="margin-r-5"></iron-icon>
+                            <a href="javascript:void(0)">1(337)626-0004</a>
                         </iron-label>
 
                         <iron-label>
-                            <iron-icon icon="business:mail" class="margin-r-5"></iron-icon>
-                            <a href="#">sales@sulphurfuelinjection.com</a>
+                            <iron-icon icon="icons:email" class="margin-r-5"></iron-icon>
+                            <a href="javascript:void(0)">sales@sulphurfuelinjection.com</a>
                         </iron-label>
 
                         <iron-label>
-                            <iron-icon icon="business:place" class="margin-r-5"></iron-icon>
-                            <a href="#">121 Industrial Dr, Sulphur, LA 70663</a>
-                        </iron-label>
-
-                        <iron-label>
-                            <iron-icon icon="business:access-time" class="margin-r-5"></iron-icon>
-                            <a href="#">Monday - Friday | 8am - 5pm</a>
+                            <iron-icon icon="icons:map" class="margin-r-5"></iron-icon>
+                            <a href="javascript:void(0)">121 Industrial Dr, Sulphur, LA 70663</a>
                         </iron-label>
 
                         <iron-label>
                             <iron-icon icon="icons:time" class="margin-r-5"></iron-icon>
+                            <a href="javascript:void(0)">Monday - Friday | 8am - 5pm</a>
+                        </iron-label>
+
+                        <iron-label>
+                            <iron-icon icon="icons:home" class="margin-r-5"></iron-icon>
                             <a href="/company">Learn about us</a>
                         </iron-label>
 
@@ -153,8 +154,8 @@
 
             <!-- Footer Bottom -->
             <section class="flex-auto flex-horizontal center-center footer-bottom">
-                    <iron-icon icon="logo-icons:logo" class="logo margin-r-5"></iron-icon>
-                    <span class="black">Copyright © 2016</span>
+                <img src="../../images/logo-small.svg" alt="Sulphur Fuel Injection" class="footer-logo">
+                <!-- <span class="black">Copyright © 2016</span> -->
             </section>
         </footer>
     </template>
