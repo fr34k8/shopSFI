@@ -11,8 +11,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="../bower_components/iron-swipeable-pages/iron-swipeable-pages.html">
 <link rel="import" href="../bower_components/fx-skew/fx-skew.html">
-<link rel="import" href="../bower_components/app-layout/app-box/app-box.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../bower_components/fx-arrows/fx-arrows.html">
+<link rel="import" href="../bower_components/iron-media-query/iron-media-query.html">
 <link rel="import" href="../bower_components/app-layout/app-scroll-effects/effects/parallax-background.html">
 <link rel="import" href="../bower_components/app-layout/app-box/app-box.html">
 <link rel="import" href="components/component-button.html">
@@ -24,7 +26,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   <template>
 
-    <style include="component-button styles-fonts">
+    <style include="component-button styles-fonts styles-main">
         :host {
             display: block;
             position: relative;
@@ -171,9 +173,12 @@ app-box  { min-height: 100vh;
   --app-box-background-front-layer: {
     background-image: url(../images/bg_common_rail_gray.jpg);
     background-position: bottom;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
     margin-top: -20px;
     height: 100%;
+    -webkit-box-shadow: inset 0px -40px 72px 11px rgba(0,0,0,1);
+    -moz-box-shadow: inset 0px -40px 72px 11px rgba(0,0,0,1);
+    box-shadow: inset 0px -40px 72px 11px rgba(0,0,0,1);
   };
 }
 </style>
@@ -187,15 +192,15 @@ app-box  { min-height: 100vh;
 <!-- Home
 -------------------------------------------------------------------------------------------------------------------------->
 
-    <fx-skew class="flex-vertical height-100 min-height-100 bg-black z-1"> <!-- height100 !important! (IE11 Fix) -->
+<main class="flex-vertical min-height-100 bg-black relative z-2"> <!-- height100 !important! (IE11 Fix) -->
     <app-box effects="parallax-background">
-    <article class="wrapper flex-vertical height-100 min-height-100">
+    <article class="flex-vertical height-100 min-height-100 text-center">
 
 
         <!-- TOP -->
         <!-- TOP -->
         <!-- TOP -->
-        <section class="flex-1 top">
+        <section class="flex-1 top wrapper">
             <div class="flex-vertical end-center page">
 
                 <template is="dom-if" if="{{!mobile}}">
@@ -204,7 +209,7 @@ app-box  { min-height: 100vh;
                 </a>
                 </template>
 
-                <div class="top-text">
+                <div class="">
                     <h1>Common Rail</h1>
                     <h2>Fuel Injector Testing</h2>
                 </div>
@@ -307,9 +312,9 @@ app-box  { min-height: 100vh;
 
     </article>
     </app-box>
-    </fx-skew>
+</main>
 
-
+<fx-skew class="bg-black z-1"></fx-skew>
 
 
 <!-- Company
