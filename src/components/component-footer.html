@@ -61,102 +61,103 @@
 </style>
 
 <template>
-    <fx-skew class="bg-gray">
-        <footer class="flex-vertical nowrap">
+    <fx-skew class="bg-gray"></fx-skew>
 
-          <paper-dialog id="modalterms" class="modal-terms">
-            <h2>Terms and Conditions</h2>
-            <p>You understand and agree that the owners of this site shall not be liable for any direct, indirect incidental, consequential or
-              exemplary damages, including but not limited to, damages for loss of profits, data or other intangible losses (even if the owners of this site have
-              been advised of and or service(s) or any misuse of the product(s) and or service(s) in a manner not in accordance with their intended use.)</p>
-            <!--
-            <div class="buttons">
-              <paper-button dialog-confirm autofocus>close</paper-button>
-            </div> -->
-          </paper-dialog>
+    <footer class="flex-vertical nowrap">
 
-          <paper-dialog id="modalprivacy" class="modal-privacy">
-            <h2>Privacy Policy</h2>
-            <p>For each visitor to our web page, our web server automatically recognizes no information regarding the domain or email address.
-              We collect the email address of those who communicate with us via email, aggregate information on what pages consumers access volunteered
-              by the consumer, such as survey information and/or site registrations. The information we collect is used for internal review and is then
-              discarded, used to the content of our web page, used to customize the content and/or layout of our page for individual consumer and
-              used by us that you do not want to receive email from our company. </p>
-            <!--
-            <div class="buttons">
-              <paper-button dialog-confirm autofocus>close</paper-button>
-            </div> -->
-          </paper-dialog>
+      <paper-dialog id="modalterms" class="modal-terms">
+        <h2>Terms and Conditions</h2>
+        <p>You understand and agree that the owners of this site shall not be liable for any direct, indirect incidental, consequential or
+          exemplary damages, including but not limited to, damages for loss of profits, data or other intangible losses (even if the owners of this site have
+          been advised of and or service(s) or any misuse of the product(s) and or service(s) in a manner not in accordance with their intended use.)</p>
+        <!--
+        <div class="buttons">
+          <paper-button dialog-confirm autofocus>close</paper-button>
+        </div> -->
+      </paper-dialog>
 
-            <!-- Footer Top -->
-            <section class="wrapper flex-horizontal mobile-flex-vertical between-between mobile-center-start width-100 mobile-width-90 tablet-width-90 padding-b-3 text-normal">
+      <paper-dialog id="modalprivacy" class="modal-privacy">
+        <h2>Privacy Policy</h2>
+        <p>For each visitor to our web page, our web server automatically recognizes no information regarding the domain or email address.
+          We collect the email address of those who communicate with us via email, aggregate information on what pages consumers access volunteered
+          by the consumer, such as survey information and/or site registrations. The information we collect is used for internal review and is then
+          discarded, used to the content of our web page, used to customize the content and/or layout of our page for individual consumer and
+          used by us that you do not want to receive email from our company. </p>
+        <!--
+        <div class="buttons">
+          <paper-button dialog-confirm autofocus>close</paper-button>
+        </div> -->
+      </paper-dialog>
+
+        <!-- Footer Top -->
+        <section class="wrapper flex-horizontal mobile-flex-vertical between-between mobile-center-start width-100 mobile-width-90 tablet-width-90 padding-b-3 text-normal">
 
 
-                <div class="flex-vertical start-stretch flex-1 mobile-margin-b-2">
-                    <h4>Get A Quote</h4>
+            <div class="flex-vertical start-stretch flex-1 mobile-margin-b-2">
+                <h4>Get A Quote</h4>
 
-                    <a href="/list/common_rail_fuel_systems">Common Rail</a>
-                    <a href="/list/diesel_fuel_pumps">Fuel Pumps</a>
-                    <a href="/list/diesel_fuel_injectors">Fuel Injectors</a>
+                <a href="/list/common_rail_fuel_systems">Common Rail</a>
+                <a href="/list/diesel_fuel_pumps">Fuel Pumps</a>
+                <a href="/list/diesel_fuel_injectors">Fuel Injectors</a>
+            </div>
+
+            <div class="flex-vertical start-stretch flex-1 mobile-margin-b-2">
+                <h4>Legal</h4>
+
+                <a href="javascript:void(0)" class="link-button" on-tap="_openprivacy">Privacy Policy</a>
+                <a href="javascript:void(0)" class="link-button" on-tap="_openterms">Terms & Conditions</a>
+            </div>
+
+            <div class="flex-vertical start-stretch flex-1 tablet-flex-2 mobile-margin-b-2">
+                <h4>Connect</h4>
+
+                <div class="flex-vertical start-start margin-b-1">
+                    <iron-label>
+                        <iron-icon icon="icons:phone" class="margin-r-5"></iron-icon>
+                        <a href="javascript:void(0)">1(337)626-0004</a>
+                    </iron-label>
+
+                    <iron-label>
+                        <iron-icon icon="icons:email" class="margin-r-5"></iron-icon>
+                        <a href="javascript:void(0)">sales@sulphurfuelinjection.com</a>
+                    </iron-label>
+
+                    <iron-label>
+                        <iron-icon icon="icons:map" class="margin-r-5"></iron-icon>
+                        <a href="javascript:void(0)">121 Industrial Dr, Sulphur, LA 70663</a>
+                    </iron-label>
+
+                    <iron-label>
+                        <iron-icon icon="icons:time" class="margin-r-5"></iron-icon>
+                        <a href="javascript:void(0)">Monday - Friday | 8am - 5pm</a>
+                    </iron-label>
+
+                    <iron-label>
+                        <iron-icon icon="icons:home" class="margin-r-5"></iron-icon>
+                        <a href="/company">Learn about us</a>
+                    </iron-label>
+
                 </div>
 
-                <div class="flex-vertical start-stretch flex-1 mobile-margin-b-2">
-                    <h4>Legal</h4>
-
-                    <a href="javascript:void(0)" class="link-button" on-tap="_openprivacy">Privacy Policy</a>
-                    <a href="javascript:void(0)" class="link-button" on-tap="_openterms">Terms & Conditions</a>
+                <!--
+                <div class="flex-horizontal">
+                    <social-media-icons icon="facebook"></social-media-icons>
+                    <social-media-icons icon="youtube" ></social-media-icons>
+                    <social-media-icons icon="twitter" ></social-media-icons>
+                    <social-media-icons icon="linkedin"></social-media-icons>
                 </div>
-
-                <div class="flex-vertical start-stretch flex-1 tablet-flex-2 mobile-margin-b-2">
-                    <h4>Connect</h4>
-
-                    <div class="flex-vertical start-start margin-b-1">
-                        <iron-label>
-                            <iron-icon icon="icons:phone" class="margin-r-5"></iron-icon>
-                            <a href="javascript:void(0)">1(337)626-0004</a>
-                        </iron-label>
-
-                        <iron-label>
-                            <iron-icon icon="icons:email" class="margin-r-5"></iron-icon>
-                            <a href="javascript:void(0)">sales@sulphurfuelinjection.com</a>
-                        </iron-label>
-
-                        <iron-label>
-                            <iron-icon icon="icons:map" class="margin-r-5"></iron-icon>
-                            <a href="javascript:void(0)">121 Industrial Dr, Sulphur, LA 70663</a>
-                        </iron-label>
-
-                        <iron-label>
-                            <iron-icon icon="icons:time" class="margin-r-5"></iron-icon>
-                            <a href="javascript:void(0)">Monday - Friday | 8am - 5pm</a>
-                        </iron-label>
-
-                        <iron-label>
-                            <iron-icon icon="icons:home" class="margin-r-5"></iron-icon>
-                            <a href="/company">Learn about us</a>
-                        </iron-label>
-
-                    </div>
-
-                    <!--
-                    <div class="flex-horizontal">
-                        <social-media-icons icon="facebook"></social-media-icons>
-                        <social-media-icons icon="youtube" ></social-media-icons>
-                        <social-media-icons icon="twitter" ></social-media-icons>
-                        <social-media-icons icon="linkedin"></social-media-icons>
-                    </div>
-                     -->
-                </div>
-            </section>
+                 -->
+            </div>
+        </section>
 
 
-            <!-- Footer Bottom -->
-            <section class="flex-auto flex-horizontal center-center footer-bottom">
-                <img src="../../images/logo-small.svg" alt="Sulphur Fuel Injection" class="footer-logo">
-                <!-- <span class="black">Copyright © 2016</span> -->
-            </section>
-        </footer>
-    </fx-skew>
+        <!-- Footer Bottom -->
+        <section class="flex-auto flex-horizontal center-center footer-bottom">
+            <img src="../../images/logo-small.svg" alt="Sulphur Fuel Injection" class="footer-logo">
+            <!-- <span class="black">Copyright © 2016</span> -->
+        </section>
+    </footer>
+
 
 </template>
 
