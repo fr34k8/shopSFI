@@ -1,21 +1,20 @@
 <!--
 
 
-COMPONENT PAGE
+COMPONENT PAGE (template)
 -------------------------------------------------------------------------------------------------------------------------->
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/fx-skew/fx-skew.html">
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../../bower_components/app-layout/app-scroll-effects/effects/parallax-background.html">
 <link rel="import" href="../../bower_components/app-layout/app-box/app-box.html">
-<link rel="import" href="component-image.html">
-<link rel="import" href="component-button.html">
 <link rel="import" href="../styles-main.html">
 <link rel="import" href="../styles-fonts.html">
+<link rel="import" href="component-button.html">
+<link rel="import" href="component-image.html">
 
 <dom-module id="component-page">
 <template>
-
 <style is="custom-style" include="styles-main styles-fonts component-button">
 
     :host {
@@ -28,7 +27,7 @@ COMPONENT PAGE
 
     app-box  {
       --app-box-background-front-layer: {
-        background-image: url(../../images/location.jpg);
+        @apply(--component-page-bg);
         background-position: bottom;
         padding-bottom: 100px;
         margin-top: -100px;
@@ -44,15 +43,15 @@ COMPONENT PAGE
     main section app-box                                                       {  }
     main section app-box article                                               {  }
     main section app-box article.wrapper                                       { padding: calc(64px + 2rem) 0 0; }
-    main section app-box article.wrapper .icon-owner                           { width: 200px; display: block; margin: 0 auto; padding: 2rem 0 40px; }
+    main section app-box article.wrapper figure                                { width: 200px; display: block; margin: 0 auto; padding: 2rem 0 40px; }
 
     /* FX Skew (content) */
     main section fx-skew                                                       { background: rgba(255, 255, 255, 1); position: relative; z-index: 1; }
     main section fx-skew article                                               {  }
     main section fx-skew article.wrapper                                       {  }
     main section fx-skew article.wrapper h3                                    { color: var(--app-primary-color); }
-    main section fx-skew article.wrapper .bullet-points                        { text-align: left; }
-    main section fx-skew article.wrapper .bullet-points div                    { text-align: center; }
+    main section fx-skew article.wrapper .bullet-points                        {  }
+    main section fx-skew article.wrapper .bullet-points div                    {  }
     main section fx-skew article.wrapper .bullet-points div h3                 {  }
     main section fx-skew article.wrapper .bullet-points div ul                 { color: var(--app-secondary-color); }
     main section fx-skew article.wrapper .bullet-points div ul li              {  }
@@ -75,7 +74,7 @@ COMPONENT PAGE
     main section app-box                                 {  }
     main section app-box article                         {  }
     main section app-box article.wrapper                 {  }
-    main section app-box article.wrapper .icon-owner     { width: 160px; }
+    main section app-box article.wrapper figure          { width: 160px; }
 
     /* FX Skew (content) */
     main section fx-skew                                 {  }
@@ -86,7 +85,7 @@ COMPONENT PAGE
 
     app-box  {
       --app-box-background-front-layer: {
-        background-image: url(../../images/location.jpg);
+        @apply(--component-page-bg);
         background-position: bottom;
         padding-bottom: 100px;
         margin-top: -100px;
@@ -109,7 +108,7 @@ COMPONENT PAGE
     main section app-box                                 {  }
     main section app-box article                         {  }
     main section app-box article.wrapper                 {  }
-    main section app-box article.wrapper .icon-owner     { width: 260px; }
+    main section app-box article.wrapper figure          { width: 260px; }
 
     /* FX Skew (content) */
     main section fx-skew                                 {  }
@@ -120,7 +119,7 @@ COMPONENT PAGE
 
     app-box  {
       --app-box-background-front-layer: {
-        background-image: url(../../images/location.jpg);
+        @apply(--component-page-bg);
         background-position: bottom;
         padding-bottom: 100px;
         margin-top: -100px;
@@ -143,7 +142,7 @@ COMPONENT PAGE
     main section app-box                                 {  }
     main section app-box article                         {  }
     main section app-box article.wrapper                 {  }
-    main section app-box article.wrapper .icon-owner     { width: 360px; }
+    main section app-box article.wrapper figure          { width: 360px; }
 
     /* FX Skew (content) */
     main section fx-skew                                 {  }
@@ -154,7 +153,7 @@ COMPONENT PAGE
 
     app-box  {
       --app-box-background-front-layer: {
-        background-image: url(../../images/location.jpg);
+        @apply(--component-page-bg);
         background-position: bottom;
         padding-bottom: 100px;
         margin-top: -120px;
@@ -165,65 +164,45 @@ COMPONENT PAGE
 }
 </style>
 
-
-
-
-<!-- APP ROUTE
-------------------------------------------------------------------------->
-    <!--
-    <app-route
-        route="[[route]]"
-        pattern="/:category"
-        data="{{routeData}}">
-    </app-route> -->
-
-<!-- APP BOX: TEST
-------------------------------------------------------------------------->
 <main>
 
-    <!-- EXAMPLE 02: Background Image -->
     <section>
-        <app-box effects="parallax-background">
-            <article class="wrapper text-center flex-vertical end-center">
-                <h1>Our Company</h1>
-                <h2>Certified technicians w/ 25+ years experience</h2>
-                <!-- <h3>{{someOldBull}}</h3> -->
 
-                <img src="../../images/icon-owner.png" class="icon-owner" alt="Bart Winzer" />
+        <!-- Top Content -->
+        <app-box effects="parallax-background">
+            <article class="wrapper text-center flex-vertical center-center mobile-min-height-30 tablet-min-height-40 desktop-min-height-50">
+                <content select="h1"></content>
+                <content select="h2"></content>
+
+                <figure class="self-end"><content select=".icon-owner"></content></figure>
             </article>
         </app-box>
 
+        <!-- Bottom Content -->
         <fx-skew>
             <article class="wrapper">
+                <content select="h4"></content>
+
                 <p class="text-20 mobile-text-16">
-                In business since 1952, we at Sulphur Fuel & Injection Service, Ltd. provide
-                our customers with quality service using the latest and most effective equipment.
-                Our technicians are highly qualified and factory trained in all the latest
-                technology to provide you with the reliable service you deserve and expect.
+                    <content select="p"></content>
                 </p>
 
-                <template id="goto-url" is="dom-if" if="{{!_showContent(someOldBull)}}" restamp="true">
-                  <component-button>
-                    <a href="/company" aria-label="Learn More">Learn More</a>
-                  </component-button>
-                </template>
+                <content select="component-button"></content>
 
-                <template id="extra-content" is="dom-if" if="{{_showContent(someOldBull)}}">
-                    <section class="flex-vertical start-center bullet-points">
-                        <div class="flex-1 padding-1">
-                            <h3 class="headline text-center">Services</h3>
-                            <ul class="text-20 mobile-text-16 text-left">
-                                <li>Complete rebuild of Diesel Fuel Injection Components</li>
-                                <li>Rebuild today's popular Diesel Fuel Injection Pumps and Injectors</li>
-                                <li>Rebuild 12 valve and 24 valve Cummins Fuel Injection Pumps in house</li>
-                                <li>Test and rebuild Duramax and Dodge Common Rail Injectors</li>
-                                <li>Check and rebuild Injectors</li>
-                                <li>Carry FPPF and Stanadyne Diesel Fuel Treatment</li>
-                                <li>Rebuild Diesel Fuel Injection Pumps and Injectors for most ALL types of Diesel Engines</li>
-                            </ul>
+                <section class="flex-vertical start-center bullet-points">
+                    <div class="flex-1 padding-1">
+                        <div class="headline text-center">
+                            <content select="h3"></content>
                         </div>
-                    </section>
-                </template>
+
+                        <div class="text-20 mobile-text-16 text-left">
+                            <content select="ul">
+                                <content></content>
+                            </content>
+                        </div>
+
+                    </div>
+                </section>
             </article>
         </fx-skew>
     </section>
@@ -237,45 +216,7 @@ COMPONENT PAGE
 
    Polymer({
 
-     is: 'component-page',
-
-     properties: {
-
-       fullContent: {
-         type: Boolean,
-         value: false,
-         notify: true
-       },
-
-       myDate: {
-         value: function() { return Date()}
-       }
-     },
-
-     ready: function() {
-       console.log("created: ", this.myDate);
-       console.log("someOldBull", this.someOldBull);
-       console.log("fullContent: ", this.fullContent);
-     },
-
-      attached: function() {
-        console.log("attached: ", this.fullContent);
-        console.log("someOldBull", this.someOldBull);
-      },
-
-      _showContent: function(myBull) {
-        if (myBull === "yes") {
-          return true;
-        } else {
-          console.log("wrong content value (use: yes)");
-          return false;
-        }
-      }
-
-    //  _show: function (myBoolean) {
-    //    console.log(myBoolean);
-    //    return myBoolean;
-    //  }
+     is: 'component-page'
 
    });
 
