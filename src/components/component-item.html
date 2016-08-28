@@ -10,6 +10,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="component-image.html">
 
 <dom-module id="component-item">
 
@@ -26,6 +27,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       component-image {
         margin: 32px 0 16px;
+        max-width: 100%;
       }
 
       component-image::before {
@@ -42,6 +44,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       .product-name {
         color: var(--app-primary-color);
         font-weight: bold;
+        font-size: 16px;
+        text-transform: uppercase;
         white-space: normal;
         word-wrap: break-word;
       }
@@ -67,11 +71,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         component-image {
           --component-image-img: {
             top: 50%;
-            margin: -25% auto;
+            margin: -50% auto;
           };
         }
       }
     </style>
+
     <component-image src="[[item.IMAGE]]" alt="[[item.CATEGORY]]"></component-image>
     <div class="product-name">[[item.NAME]]</div>
     <div class="product-info">[[item.WARRANTY]] Warranty</div>

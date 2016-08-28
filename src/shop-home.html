@@ -19,6 +19,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/app-layout/app-box/app-box.html">
 <link rel="import" href="components/component-button.html">
 <link rel="import" href="components/component-image.html">
+<link rel="import" href="components/component-bg.html">
 <link rel="import" href="shop-company.html">
 <link rel="import" href="styles-fonts.html">
 <link rel="import" href="styles-main.html">
@@ -37,6 +38,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         [hidden] { display: none; }
 
         a { text-decoration: none; }
+
         component-image { position: relative; max-width: 100%; display: block;
             --component-image-img: {
                 position: absolute;
@@ -48,7 +50,23 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             };
         }
 
-        component-image::after { display: block; content: ''; position: absolute; transition-property: opacity; transition-duration: 0s; transition-delay: 90ms; pointer-events: none; opacity: 0; top: 5px; left: 5px; right: 5px; bottom: 5px; outline: #2196F3 auto 5px; outline: -moz-mac-focusring auto 5px; outline: -webkit-focus-ring-color auto 5px; }
+        component-image::after {
+            display: block;
+            content: '';
+            position: absolute;
+            transition-property: opacity;
+            transition-duration: 0s;
+            transition-delay: 90ms;
+            pointer-events: none;
+            opacity: 0;
+            top: 5px;
+            left: 5px;
+            right: 5px;
+            bottom: 5px;
+            outline: #2196F3 auto 5px;
+            outline: -moz-mac-focusring auto 5px;
+            outline: -webkit-focus-ring-color auto 5px;
+        }
 
         .top {  }
         .middle {  }
@@ -57,7 +75,23 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         .top .top-text { display: inline-block; overflow: hidden; text-align: center; }
 
         .product-img { outline: none; }
-        .product-img > component-image::after { display: block; content: ''; position: absolute; transition-property: opacity; transition-duration: 0s; transition-delay: 90ms; pointer-events: none; opacity: 0; top: 5px; left: 5px; right: 5px; bottom: 5px; outline: #2196F3 auto 5px; outline: -moz-mac-focusring auto 5px; outline: -webkit-focus-ring-color auto 5px; }
+        .product-img > component-image::after {
+            display: block;
+            content: '';
+            position: absolute;
+            transition-property: opacity;
+            transition-duration: 0s;
+            transition-delay: 90ms;
+            pointer-events: none;
+            opacity: 0;
+            top: 5px;
+            left: 5px;
+            right: 5px;
+            bottom: 5px;
+            outline: #2196F3 auto 5px;
+            outline: -moz-mac-focusring auto 5px;
+            outline: -webkit-focus-ring-color auto 5px;
+        }
         .product-img:focus > component-image::after { opacity: 1; }
 
 
@@ -169,19 +203,55 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 
 
-app-box  { min-height: 100vh;
 
-  --app-box-background-front-layer: {
-    background-image: url(../images/bg_common_rail_gray.jpg);
-    background-position: bottom;
-    padding-bottom: 10px;
-    margin-top: -20px;
-    height: 100%;
-    -webkit-box-shadow: inset 0px -40px 72px 11px rgba(0,0,0,1);
-    -moz-box-shadow: inset 0px -40px 72px 11px rgba(0,0,0,1);
-    box-shadow: inset 0px -40px 72px 11px rgba(0,0,0,1);
-  };
-}
+
+
+
+
+
+/*  APP BOX
+****************************************************************/
+
+    /* TOP (Parallax Container) */
+    app-box  {
+
+        --app-box-background-front-layer: {
+          /* background-image: url(bg.jpg);  -->  (bg images only)  */
+          /* background-position: center;    -->  (bg images only)  */
+          /* background-size: cover;         -->  (bg images only)  */
+          /* background-repeat: no-repeat;   -->  (bg images only)  */
+
+          max-width: 100%;
+          max-height: 100%;
+          margin-top: -25%;
+          padding-bottom: 25%;
+        };
+    }
+
+    .hero-image {
+
+      /* Fill Background                Proportionate Scaling          Positioning
+       *************************      *************************      *************************/
+         min-height: 100%;              width: 100%;                   position: absolute;
+         min-width: 1024px;             height: auto;                  top: 0;
+         overflow: hidden;                                             left: 0;
+
+                            /*          ( D U P L I C A T E )          */
+                            /*          ( D U P L I C A T E )          */
+                            /*          ( D U P L I C A T E )          */
+
+
+      --component-image-img: {
+
+      /* Fill Background                Proportionate Scaling          Positioning
+       *************************      *************************      *************************/
+         min-height: 100%;              width: 100%;                   position: absolute;
+         max-width: none;               height: auto;                  top: 0;
+                                                                       bottom: 0;
+                                                                       left: -9999px;
+                                                                       right: -9999px;
+        };
+    }
 </style>
 
     <!-- Media Queries -->
@@ -194,66 +264,50 @@ app-box  { min-height: 100vh;
 -------------------------------------------------------------------------------------------------------------------------->
 
 <main class="flex-vertical min-height-100 bg-black relative z-2"> <!-- height100 !important! (IE11 Fix) -->
-    <app-box effects="parallax-background">
-    <article class="flex-vertical height-100 min-height-100 text-center">
+    <app-box effects="parallax-background" class="bg-intro">
+
+        <!-- Parallax BG -->
+        <component-image
+            alt="Our Company"
+            src="../images/bg_hero.jpg"
+            placeholder-img="../images/bg_hero_placeholder.jpg" class="hero-image" background>
+        </component-image>
+
+        <article class="flex-vertical height-100 min-height-100 text-center">
 
 
-        <!-- TOP -->
-        <!-- TOP -->
-        <!-- TOP -->
-        <section class="flex-1 top wrapper">
-            <div class="flex-vertical end-center page">
+            <!-- TOP -->
+            <!-- TOP -->
+            <!-- TOP -->
+            <section class="flex-1 top wrapper">
+                <div class="flex-vertical end-center page">
 
-                <template is="dom-if" if="{{!mobile}}">
-                <a href="/" class="logo">
-                    <img src="../images/logo.svg" alt="Sulphur Fuel Injector" />
-                </a>
-                </template>
-
-                <div class="">
-                    <h1>Common Rail</h1>
-                    <h2>Fuel Injector Testing</h2>
-                </div>
-            </div>
-        </section>
-
-
-
-        <!-- MIDDLE (Mobile) -->
-        <!-- MIDDLE (Mobile) -->
-        <!-- MIDDLE (Mobile) -->
-        <paper-icon-button class="prev-click" icon="icons:arrow-left"  on-click="_PrevClick" hidden$="{{!mobile}}"></paper-icon-button>
-        <paper-icon-button class="next-click" icon="icons:arrow-right" on-click="_NextClick" hidden$="{{!mobile}}"></paper-icon-button>
-
-        <!-- Swipe Pages -->
-        <iron-swipeable-pages class="flex-2 middle" id="swipe" selected="{{selectedService}}" hidden$="{{!mobile}}" show-arrow>
-
-            <template is="dom-repeat" items="[[categories]]" strip-whitespace>
-            <div class="flex-vertical center-center">
-                <div class="item">
-                    <a class="product-img" href$="/list/[[item.name]]">
-                        <component-image src="[[item.image]]" alt="[[item.headline]]" placeholder-img="[[item.placeholder]]"></component-image>
+                    <template is="dom-if" if="{{!mobile}}">
+                    <a href="/" class="logo">
+                        <img src="../images/logo.svg" alt="Sulphur Fuel Injector" />
                     </a>
-                    <a class="product-link" href$="/list/[[item.name]]">
-                        <h3>[[item.headline]]</h3>
-                    </a>
+                    </template>
+
+                    <div class="">
+                        <h1>Common Rail</h1>
+                        <h2>Fuel Injector Testing</h2>
+                    </div>
                 </div>
-            </div>
-            </template>
-
-        </iron-swipeable-pages>
+            </section>
 
 
 
-        <!-- MIDDLE (Tablet & Desktop) -->
-        <!-- MIDDLE (Tablet & Desktop) -->
-        <!-- MIDDLE (Tablet & Desktop) -->
-        <template is="dom-if" if="{{!mobile}}">
-        <section class="flex-1 middle">
-            <div class="flex-horizontal center-center text-align page">
+            <!-- MIDDLE (Mobile) -->
+            <!-- MIDDLE (Mobile) -->
+            <!-- MIDDLE (Mobile) -->
+            <paper-icon-button class="prev-click" icon="icons:arrow-left"  on-click="_PrevClick" hidden$="{{!mobile}}"></paper-icon-button>
+            <paper-icon-button class="next-click" icon="icons:arrow-right" on-click="_NextClick" hidden$="{{!mobile}}"></paper-icon-button>
+
+            <!-- Swipe Pages -->
+            <iron-swipeable-pages class="flex-2 middle" id="swipe" selected="{{selectedService}}" hidden$="{{!mobile}}" show-arrow>
+
                 <template is="dom-repeat" items="[[categories]]" strip-whitespace>
-
-
+                <div class="flex-vertical center-center">
                     <div class="item">
                         <a class="product-img" href$="/list/[[item.name]]">
                             <component-image src="[[item.image]]" alt="[[item.headline]]" placeholder-img="[[item.placeholder]]"></component-image>
@@ -262,56 +316,80 @@ app-box  { min-height: 100vh;
                             <h3>[[item.headline]]</h3>
                         </a>
                     </div>
-
-
+                </div>
                 </template>
-            </div>
-        </section>
-        </template>
+
+            </iron-swipeable-pages>
 
 
 
-        <!-- BOTTOM (Mobile) -->
-        <!-- BOTTOM (Mobile) -->
-        <!-- BOTTOM (Mobile) -->
-        <template is="dom-if" if="{{mobile}}">
-        <section class="flex-none footer">
-            <div class="flex-horizontal">
+            <!-- MIDDLE (Tablet & Desktop) -->
+            <!-- MIDDLE (Tablet & Desktop) -->
+            <!-- MIDDLE (Tablet & Desktop) -->
+            <template is="dom-if" if="{{!mobile}}">
+            <section class="flex-1 middle">
+                <div class="flex-horizontal center-center text-align page">
+                    <template is="dom-repeat" items="[[categories]]" strip-whitespace>
 
-                <!-- Directions -->
-                <a class="flex-1" href="https://www.google.com/maps/place/Sulphur+Fuel+Injection/@30.2360406,-93.3144457,17z/data=!3m1!4b1!4m15!1m9!4m8!1m0!1m6!1m2!1s0x863b8ee90c5001cd:0x84cdcf8337373941!2sSulphur+Fuel+Injection,+121+Industrial+Dr,+Sulphur,+LA+70663!2m2!1d-93.312257!2d30.236036!3m4!1s0x863b8ee90c5001cd:0x84cdcf8337373941!8m2!3d30.236036!4d-93.312257" aria-label="Get Directions" target="_blank">
-                    <paper-button class="flex-horizontal padding-1">
-                        <iron-icon icon="icons:map"></iron-icon>
-                        Directions
-                    </paper-button>
-                </a>
 
-                <!-- Call -->
-                <a href="tel:3376260004" class="flex-1" aria-label="Call Now">
-                    <paper-button class="flex-horizontal padding-1">
-                        <iron-icon icon="icons:phone"></iron-icon>
-                        Call
-                    </paper-button>
-                </a>
-            </div>
-        </section>
-        <section class="flex-none footer">
-        </section>
-        </template>
+                        <div class="item">
+                            <a class="product-img" href$="/list/[[item.name]]">
+                                <component-image src="[[item.image]]" alt="[[item.headline]]" placeholder-img="[[item.placeholder]]"></component-image>
+                            </a>
+                            <a class="product-link" href$="/list/[[item.name]]">
+                                <h3>[[item.headline]]</h3>
+                            </a>
+                        </div>
+
+
+                    </template>
+                </div>
+            </section>
+            </template>
 
 
 
-        <!-- BOTTOM (Tablet & Desktop) -->
-        <!-- BOTTOM (Tablet & Desktop) -->
-        <!-- BOTTOM (Tablet & Desktop) -->
-        <template is="dom-if" if="{{!mobile}}">
-        <section class="flex-none text-center bottom">
-            <fx-arrows color="white"></fx-arrows>
-        </section>
-        </template>
+            <!-- BOTTOM (Mobile) -->
+            <!-- BOTTOM (Mobile) -->
+            <!-- BOTTOM (Mobile) -->
+            <template is="dom-if" if="{{mobile}}">
+            <section class="flex-none footer">
+                <div class="flex-horizontal">
+
+                    <!-- Directions -->
+                    <a class="flex-1" href="https://www.google.com/maps/place/Sulphur+Fuel+Injection/@30.2360406,-93.3144457,17z/data=!3m1!4b1!4m15!1m9!4m8!1m0!1m6!1m2!1s0x863b8ee90c5001cd:0x84cdcf8337373941!2sSulphur+Fuel+Injection,+121+Industrial+Dr,+Sulphur,+LA+70663!2m2!1d-93.312257!2d30.236036!3m4!1s0x863b8ee90c5001cd:0x84cdcf8337373941!8m2!3d30.236036!4d-93.312257" aria-label="Get Directions" target="_blank">
+                        <paper-button class="flex-horizontal padding-1">
+                            <iron-icon icon="icons:map"></iron-icon>
+                            Directions
+                        </paper-button>
+                    </a>
+
+                    <!-- Call -->
+                    <a href="tel:3376260004" class="flex-1" aria-label="Call Now">
+                        <paper-button class="flex-horizontal padding-1">
+                            <iron-icon icon="icons:phone"></iron-icon>
+                            Call
+                        </paper-button>
+                    </a>
+                </div>
+            </section>
+            <section class="flex-none footer">
+            </section>
+            </template>
 
 
-    </article>
+
+            <!-- BOTTOM (Tablet & Desktop) -->
+            <!-- BOTTOM (Tablet & Desktop) -->
+            <!-- BOTTOM (Tablet & Desktop) -->
+            <template is="dom-if" if="{{!mobile}}">
+            <section class="flex-none text-center bottom">
+                <fx-arrows color="white"></fx-arrows>
+            </section>
+            </template>
+
+
+        </article>
     </app-box>
 </main>
 
