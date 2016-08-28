@@ -7,6 +7,7 @@ COMPNAY PAGE
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../bower_components/app-route/app-route.html">
+<link rel="import" href="../bower_components/iron-image/iron-image.html">
 <link rel="import" href="styles-main.html">
 <link rel="import" href="styles-fonts.html">
 <link rel="import" href="components/component-button.html">
@@ -24,17 +25,17 @@ COMPNAY PAGE
         height: 100%;
     }
 
-    component-page {
-        --component-page-bg: {
-            background-image: url(../images/location.jpg);
-        };
-    }
 
 /*  Mobile
 ****************************************************************/
 @media (min-width: 0) and (max-width: 768px) {
 
-
+/*
+    component-page {
+        --component-page-bg: {
+            background-image: url(../images/location.jpg);
+        };
+    }*/
 
 }
 
@@ -44,7 +45,12 @@ COMPNAY PAGE
 ****************************************************************/
 @media (min-width: 769px) and (max-width: 1024px) {
 
-
+/*
+    component-page {
+        --component-page-bg: {
+            background-image: url(../images/location.jpg);
+        };
+    }*/
 
 }
 
@@ -54,9 +60,34 @@ COMPNAY PAGE
 ****************************************************************/
 @media (min-width: 1025px) {
 
-
+/*
+    component-page {
+        --component-page-bg: {
+            background-image: url(../images/location.jpg);
+        };
+    }*/
 
 }
+
+
+
+
+
+
+/*  APP BOX
+****************************************************************/
+
+    /*component-page  {
+      --component-page-bg: {
+
+        background-position: bottom;
+        padding-bottom: 100px;
+        margin-top: -400px;
+        height: 800px;
+        width: 100%;
+      };
+    }*/
+
 </style>
 
 
@@ -71,19 +102,43 @@ COMPNAY PAGE
         data="{{routeData}}">
     </app-route> -->
 
-<component-page>
+
+
+
 
 <!--
-    TOP CONTENT
+    MAIN CONTENT
 -------------------------------------------------------------------------------------------------------------->
+<component-page>
+
+
+    <!-- TOP
+    ---------------------------------------------->
+
+    <!-- Parallax BG -->
+    <component-image
+         alt="Our Company"
+         src="../images/location.jpg"
+         placeholder-img="../images/location.jpg" class="hero-image" sizing="cover" background></component-image>
+
+
+
+
+
+
+
+
+
+
+    <!-- Top Content -->
     <h1>Our Company</h1>
     <h2>Certified technicians w/ 25+ years experience</h2>
     <img src="../images/icon-owner.png" class="icon-owner" alt="Bart Winzer" />
 
 
-<!--
-    BOTTOM CONTENT
--------------------------------------------------------------------------------------------------------------->
+
+    <!-- BOTTOM
+    ---------------------------------------------->
     <!-- <h4>{{someOldBull}}</h4> -->
 
     <p>

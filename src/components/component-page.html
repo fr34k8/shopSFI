@@ -24,18 +24,6 @@ COMPONENT PAGE (template)
         height: 100%;
     }
 
-
-    app-box  {
-      --app-box-background-front-layer: {
-        @apply(--component-page-bg);
-        background-position: bottom;
-        padding-bottom: 100px;
-        margin-top: -100px;
-        height: 100%;
-      };
-    }
-
-
     main                                                                       {  }
     main section                                                               {  }
 
@@ -63,6 +51,7 @@ COMPONENT PAGE (template)
     h3:before { content: ""; display: block; position: absolute; top: 50%; right: calc(100% + 10px); height: 1px; width: 40px; background: var(--app-primary-color); }
     h3:after  { content: ""; display: block; position: absolute; top: 50%; left: calc(100% + 10px); height: 1px; width: 40px; background: var(--app-primary-color); }
 
+
 /*  Mobile
 ****************************************************************/
 @media (min-width: 0) and (max-width: 768px) {
@@ -83,15 +72,25 @@ COMPONENT PAGE (template)
     main section fx-skew article.wrapper h3              {  }
     main section fx-skew article.wrapper .bullet-points  {  }
 
+/*
     app-box  {
       --app-box-background-front-layer: {
         @apply(--component-page-bg);
         background-position: bottom;
         padding-bottom: 100px;
-        margin-top: -100px;
-        height: 200px;
+        margin-top: -400px;
+        height: 800px;
+        width: 100%;
       };
     }
+
+    .hero-image {
+        background-position: bottom;
+        padding-bottom: 100px;
+        margin-top: -400px;
+        height: 800px;
+        width: 100%;
+    }*/
 
 }
 
@@ -117,15 +116,25 @@ COMPONENT PAGE (template)
     main section fx-skew article.wrapper h3              {  }
     main section fx-skew article.wrapper .bullet-points  {  }
 
+/*
     app-box  {
       --app-box-background-front-layer: {
         @apply(--component-page-bg);
         background-position: bottom;
         padding-bottom: 100px;
-        margin-top: -100px;
-        height: 500px;
+        margin-top: -400px;
+        height: 800px;
+        width: 100%;
       };
     }
+
+    .hero-image {
+        background-position: bottom;
+        padding-bottom: 100px;
+        margin-top: -400px;
+        height: 800px;
+        width: 100%;
+    }*/
 
 }
 
@@ -151,17 +160,81 @@ COMPONENT PAGE (template)
     main section fx-skew article.wrapper h3              {  }
     main section fx-skew article.wrapper .bullet-points  {  }
 
+/*
     app-box  {
       --app-box-background-front-layer: {
         @apply(--component-page-bg);
         background-position: bottom;
         padding-bottom: 100px;
-        margin-top: -120px;
+        margin-top: -400px;
         height: 800px;
+        width: 100%;
       };
     }
 
+    .hero-image {
+        background-position: bottom;
+        padding-bottom: 100px;
+        margin-top: -400px;
+        height: 800px;
+        width: 100%;
+    }*/
+
 }
+
+
+
+
+
+/*  APP BOX
+****************************************************************/
+
+    app-box  {
+
+      --app-box-background-front-layer: {
+        @apply(--component-page-bg);
+/*
+        background-position: bottom;
+        padding-bottom: 100px;
+        margin-top: -100px;
+        min-height: 50vh;
+        width: 100%;*/
+      };
+    }
+
+    .hero-image {
+        position: relative;
+        min-height: 100%;
+        min-height: 50vh;
+        width: 100%;
+        overflow: hidden;
+
+      --iron-image-width: 300px;
+      --iron-image-height: 300px;
+    }
+
+    /*.hero-image {
+        position: relative;
+        min-height: 100%;
+        min-height: 50vh;
+        width: 100%;
+        overflow: hidden;
+    }
+
+
+    .hero-image {
+      --iron-image-placeholder: {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: -9999px;
+        right: -9999px;
+        max-width: 100%;
+        max-height: 100%;
+        margin: 0 auto;
+      };
+    }*/
+
 </style>
 
 <main>
@@ -170,7 +243,12 @@ COMPONENT PAGE (template)
 
         <!-- Top Content -->
         <app-box effects="parallax-background">
-            <article class="wrapper text-center flex-vertical center-center mobile-min-height-30 tablet-min-height-40 desktop-min-height-50">
+            <!-- <img background src="../../images/location.jpg" classs="" style="max-width: none;"> -->
+            <!-- <content select="component-image"></content> -->
+            <content select=".hero-image"></content>
+
+
+            <article class="wrapper text-center flex-vertical center-center mobile-min-height-30 tablet-min-height-40 desktop-min-height-40">
                 <content select="h1"></content>
                 <content select="h2"></content>
 
@@ -186,6 +264,8 @@ COMPONENT PAGE (template)
                 <p class="text-20 mobile-text-16">
                     <content select="p"></content>
                 </p>
+
+                <content select=".grid"></content>
 
                 <content select="component-button"></content>
 
