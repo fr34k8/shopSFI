@@ -3,3 +3,4 @@ build
 _resources
 desktop.ini
 npm-debug.log
+firebase-debug.log
