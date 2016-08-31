@@ -8,5 +8,10 @@
     "src/shop-checkout.html",
     "src/shop-company.html",
     "src/app-resources.html"
+  ],
+  "sourceGlobs": [
+   "src/**/*",
+   "images/**/*",
+   "bower.json"
   ]
 }
