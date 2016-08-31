@@ -49,6 +49,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <header>
           <h1>Products and Services you are Interested in</h1>
           <span>([[_getPluralizedQuantity(numItems)]])</span>
+          <!-- <span>([[_getPluralizedQuantity(cart.length)]])</span> -->
         </header>
         <div class="list">
           <template is="dom-repeat" items="[[cart]]" as="entry">
@@ -75,6 +76,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       properties: {
 
         total: Number,
+
+        numItems: Number,
 
         cart: Array,
 
