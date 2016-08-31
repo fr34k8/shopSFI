@@ -129,7 +129,10 @@ COMPONENT PAGE (template)
     <section>
 
         <!-- Top Content -->
-        <app-box effects="parallax-background" effects-config='{"parallax-background": {"startsAt": 0, "endsAt": 1}}'>
+        <app-box
+            effects="parallax-background"
+            effects-config='{"parallax-background": {"startsAt": 0, "endsAt": 1}}'>
+
             <content select=".hero-image"></content>
 
             <article class="wrapper text-center flex-vertical center-center mobile-min-height-30 tablet-min-height-40 desktop-min-height-40">
@@ -153,6 +156,7 @@ COMPONENT PAGE (template)
 
                 <content select="component-button"></content>
 
+                <!-- Full Content -->
                 <section class="flex-vertical start-center bullet-points">
                     <div class="flex-1 padding-1">
                         <div class="headline text-center">
