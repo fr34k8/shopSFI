@@ -28,7 +28,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <dom-module id="shop-app">
 <template>
 
-<style>
+<style is="custom-style">
 
     :host {
 
@@ -41,8 +41,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         --app-tertiary-color: rgba(117,117,117, 1);
         --app-accent-color: #b71c1c;
         --app-accent-secondary-color: #ffffff;
-
         --app-color-white: #ffffff;
+
         --paper-button-ink-color: var(--app-accent-secondary-color);
         --paper-icon-button-ink-color: var(--app-accent-secondary-color);
         --paper-spinner-color: var(--app-accent-secondary-color);
@@ -77,7 +77,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     app-header {
         @apply(--layout-fixed-top);
-        z-index: 2;
+        z-index: 1;
         box-shadow: inset 0px -4px 0px 0px rgba(256,256,256, .14);
         background: rgba(0,0,0, .78);
 
@@ -136,15 +136,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     }
 
     app-drawer { z-index: 3;
-    /*--app-drawer-scrim-background: rgba(88, 0, 0, .65);*/
 
-    --app-drawer-content-container: {
-    width: 280px;
-    background-color: var(--app-primary-color);
-    }
+        --app-drawer-content-container: {
+            width: 290px;
+            background-color: var(--app-primary-color);
+        }
     }
 
-    app-drawer .drawer-map                   { height: 25vh; width: 280px; position: relative; border-bottom: 4px solid silver; }
+    app-drawer .drawer-map                   { height: 25vh; width: 290px; position: relative; border-bottom: 4px solid silver; }
     app-drawer .drawer-map google-map        { -webkit-filter: grayscale(1); filter: grayscale(1); }
     app-drawer .drawer-map img               { display: inline-block; max-width: 100%; position: absolute; left: calc(50% - 40px); top: calc(100% - 24px); z-index: 1; }
     app-drawer .drawer-map component-pulse   { position: absolute; left: calc(50% - 10px); top: calc(50% - 10px); z-index: 1; }
@@ -246,7 +245,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         --------------------------------------------------->
         <div class="phone-number mobile-none">
             <a href="tel:3376260004" aria-label="Phone Number">
-                <span class="margin-l-1 white">1(337)626-0004</span>
+                <span class="margin-l-1 white">(337) 626-0004</span>
             </a>
         </div>
 
@@ -317,16 +316,23 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         </iron-selector>
 
         <section class="info-links">
+
             <!-- Call -->
             <a href="tel:3376260004" aria-label="Phone Number">
                 <iron-icon icon="icons:phone"></iron-icon>
-                1(337)626-0004
+                tel: (337) 626-0004
+            </a>
+
+            <!-- Fax -->
+            <a href="tel:3376260005" aria-label="Fax Number">
+                <iron-icon icon="icons:print"></iron-icon>
+                fax: (337) 626-0005
             </a>
 
             <!-- Email -->
-            <a href="mailo:sales@sulphurfuelinjection.com" aria-label="Email Address">
+            <a href="mailo:questions@sulphurfuelinjection.com" aria-label="Email Address">
                 <iron-icon icon="icons:email"></iron-icon>
-                sales@sulphurfuelinjection.com
+                questions@sulphurfuelinjection.com
             </a>
 
             <!-- Location -->
@@ -342,7 +348,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             </a>
 
             <a href="/company" aria-label="Our Company">
-                <iron-icon icon="icons:time"></iron-icon>
+                <iron-icon icon="icons:home"></iron-icon>
                 Learn about us
             </a>
 
