@@ -90,6 +90,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       .pickers {
         @apply(--layout-vertical);
         border-top: 1px solid #ccc;
+        margin-bottom: 3rem;
       }
 
       component-select > select {
@@ -153,6 +154,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <component-image alt="[[item.NAME]]" src="[[item.IMAGE]]"></component-image>
       <div class="detail" has-content$="[[_isDefined(item)]]">
         <h1>[[item.NAME]]</h1>
+        <div class="price">Call for availability and price. (337) 626-0004
+</div>
         <!-- <div class="price">[[_formatPrice(item.price)]]</div> -->
         <div class="pickers">
           <component-select>
@@ -180,10 +183,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             </shop-md-decorator>
           </component-select>
         </div>
-        <div class="description">
+        <!-- <div class="description">
           <h4>Description</h4>
           <p id="desc"></p>
-        </div>
+        </div> -->
         <component-button responsive>
           <button on-tap="_addToCart" aria-label="Add this item to service quote">Add to Your Service Quote</button>
         </component-button>
