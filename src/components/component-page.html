@@ -10,6 +10,7 @@ COMPONENT PAGE (template)
 <link rel="import" href="../../bower_components/app-layout/app-box/app-box.html">
 <link rel="import" href="../styles-main.html">
 <link rel="import" href="../styles-fonts.html">
+<link rel="import" href="../app-resources.html">
 <link rel="import" href="component-button.html">
 <link rel="import" href="component-image.html">
 <link rel="import" href="component-bg.html">
@@ -134,12 +135,21 @@ COMPONENT PAGE (template)
             effects-config='{"parallax-background": {"startsAt": 0, "endsAt": 1}}'>
 
             <content select=".hero-image"></content>
+            <content select=".map-location"></content>
 
-            <article class="wrapper text-center flex-vertical center-center mobile-min-height-30 tablet-min-height-40 desktop-min-height-40">
-                <content select="h1"></content>
-                <content select="h2"></content>
+            <article class="wrapper text-center flex-vertical center-center mobile-min-height-30 tablet-min-height-40 desktop-min-height-50">
+                <div class="flex-1 blur">
+                    <content select="h1"></content>
+                    <content select="h2"></content>
+                </div>
 
-                <figure class="self-end"><content select=".icon-owner"></content></figure>
+                <div class="flex-2">
+                    <content select=".top-content"></content>
+                </div>
+
+                <figure class="self-end">
+                    <content select=".icon-owner"></content>
+                </figure>
             </article>
         </app-box>
 

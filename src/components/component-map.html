@@ -1,0 +1,41 @@
+<!--
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    _FOOTER (component)
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
+
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/google-map/google-map.html">
+<link rel="import" href="../../bower_components/google-map/google-map-marker.html">
+<link rel="import" href="../icons/app-icons.html">
+
+<dom-module id="component-map">
+
+<style is="custom-style" include="styles-main">
+:host {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    text-decoration: none;
+    position: relative;
+    z-index: 1;
+}
+
+</style>
+
+<template>
+
+    <!-- Map -->
+    <google-map latitude="30.236045" longitude="-93.314282" zoom="15" api-key="AIzaSyA5SYKRx5yogz5_NUsMvQtCy1plDAamKYE"></google-map>
+
+</template>
+
+
+<script>
+    Polymer({
+
+        is: 'component-map'
+
+    });
+</script>
+
+</dom-module>

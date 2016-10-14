@@ -33,9 +33,10 @@
     a                                     { color: var(--app-color-white); opacity: .42; transition: opacity .22s ease-in-out; text-decoration: none;   }
     a:hover                               { color: var(--app-color-white); opacity: 1; transition: opacity .22s ease-in-out; }
 
+    iron-label span                       { color: white; opacity: .5; transition: opacity .22s ease-in-out; font-size: 14px; }
     iron-label a                          { color: white; opacity: .5; transition: opacity .22s ease-in-out; font-size: 14px; }
     iron-label iron-icon                  { color: white; opacity: 1; transition: opacity .22s ease-in-out; width: 20px; }
-    iron-label:hover iron-icon            { color: var(--app-accent-color); opacity: 1; transition: all .22s ease-in-out; width: 20px; }
+    iron-label:hover iron-icon            { color: var(--app-accent-color); opacity: 1; transition: all .22s ease-in-out; }
     iron-label:hover *                    { opacity: 1; transition: opacity .22s ease-in-out; }
 
     social-media-icons                    { line-height: 0; opacity: .5; margin: 0 1rem 0 0; transition: opacity .22s ease-in-out; padding: 4px; border-radius: 5px;
@@ -49,9 +50,13 @@
     .footer-bottom .footer-logo           { opacity: .12; transition: opacity .22s ease-in-out; }
     .footer-bottom:hover .footer-logo     { opacity: .22; transition: opacity .22s ease-in-out; }
 
-    .footer-bottom iron-icon              { opacity: 1; width: 64px; height: 64px; }
+    .payment-methods iron-label                            { line-height: 1.2 }
+    .payment-methods iron-label:hover *                    { opacity: 1; transition: opacity .22s ease-in-out; }
+    .payment-methods iron-label iron-icon                  { color: var(--app-color-white); opacity: .42; width: 36px; height: 36px; }
+    .payment-methods iron-label:hover iron-icon            { color: var(--app-color-white); opacity: 1; transition: all .22s ease-in-out; }
 
     main                                  { margin: 0 auto; }
+
 
 </style>
 
@@ -69,7 +74,7 @@
     <footer class="flex-vertical nowrap">
 
         <!-- Footer Top -->
-        <section class="wrapper flex-horizontal mobile-flex-vertical between-between mobile-center-start width-100 mobile-width-90 tablet-width-90 padding-b-3 text-normal">
+        <section class="wrapper flex-horizontal mobile-flex-vertical between-between mobile-center-start width-100 mobile-width-90 tablet-width-90 text-normal">
 
 
             <div class="flex-vertical start-stretch flex-1 mobile-margin-b-2">
@@ -240,7 +245,38 @@
                 </paper-dialog>
             </div>
 
-            <div class="flex-vertical start-stretch flex-1 tablet-flex-2 mobile-margin-b-2">
+
+            <!-- Payment Methods -->
+            <div class="flex-vertical start-stretch flex-1 mobile-margin-b-2 payment-methods">
+                <h4>Payment Methods</h4>
+                <!-- Visa -->
+                <iron-label>
+                    <iron-icon id="visa" class="margin-r-5" icon="icons:cc-visa" tabindex="0"></iron-icon>
+                    <span>Visa</span>
+                </iron-label>
+
+                <!-- Mastercard -->
+                <iron-label>
+                    <iron-icon id="mastercard" class="margin-r-5" icon="icons:cc-mastercard" tabindex="0"></iron-icon>
+                    <span>Mastercard</span>
+                </iron-label>
+
+                <!-- American Express -->
+                <iron-label>
+                    <iron-icon id="amex" class="margin-r-5" icon="icons:cc-amex" tabindex="0"></iron-icon>
+                    <span>American Express</span>
+                </iron-label>
+
+                <!-- Discover -->
+                <iron-label>
+                    <iron-icon id="discover" class="margin-r-5" icon="icons:cc-discover" tabindex="0"></iron-icon>
+                    <span>Discover</span>
+                </iron-label>
+            </div>
+
+
+            <!-- Connect -->
+            <div class="flex-vertical start-stretch flex-2 tablet-flex-2 mobile-margin-b-2">
                 <h4>Connect</h4>
 
                 <div class="flex-vertical start-start margin-b-1">
@@ -279,7 +315,6 @@
                         <iron-icon icon="icons:home" class="margin-r-5"></iron-icon>
                         <a href="/company" aria-label="Learn more about our company">Learn more</a>
                     </iron-label>
-
                 </div>
 
                 <!-- Social Media -->
@@ -312,7 +347,7 @@
             </div>
 
             <!-- Payment Methods -->
-            <!-- <div class="flex-1 text-right">
+            <!-- <div class="flex-3 text-right">
                 <iron-icon id="visa" icon="icons:cc-mastercard" tabindex="0"></iron-icon>
                 <iron-icon id="mastercard" icon="icons:cc-mastercard" tabindex="0"></iron-icon>
                 <iron-icon id="amex" icon="icons:cc-mastercard" tabindex="0"></iron-icon>
@@ -323,7 +358,9 @@
                 <paper-tooltip for="amex" position="top" animation-delay="0">American Express</paper-tooltip>
                 <paper-tooltip for="discover" position="top" animation-delay="0">Discover</paper-tooltip>
             </div> -->
+
         </section>
+
 
 
     </footer>

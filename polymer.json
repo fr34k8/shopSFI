@@ -7,6 +7,7 @@
     "src/shop-cart.html",
     "src/shop-checkout.html",
     "src/shop-company.html",
+    "src/shop-location.html",
     "src/app-resources.html"
   ],
   "sourceGlobs": [

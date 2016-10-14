@@ -1,0 +1,250 @@
+<!--
+
+
+SHOP LOCATION (page)
+-------------------------------------------------------------------------------------------------------------------------->
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../bower_components/app-route/app-route.html">
+<link rel="import" href="styles-main.html">
+<link rel="import" href="styles-fonts.html">
+<link rel="import" href="components/component-button.html">
+<link rel="import" href="components/component-image.html">
+<link rel="import" href="components/component-page.html">
+<link rel="import" href="components/component-pulse.html">
+
+<dom-module id="shop-location">
+<template>
+
+<style is="custom-style" include="styles-main styles-fonts component-button component-page">
+
+    :host {
+        display: block;
+        position: relative;
+        min-height: 100%;
+        height: 100%;
+    }
+
+
+/*  Mobile
+****************************************************************/
+@media (min-width: 0) and (max-width: 768px) {
+
+/*
+    component-page {
+        --component-page-bg: {
+            background-image: url(../images/location.jpg);
+        };
+    }*/
+
+}
+
+
+
+/*  Tablet
+****************************************************************/
+@media (min-width: 769px) and (max-width: 1024px) {
+
+/*
+    component-page {
+        --component-page-bg: {
+            background-image: url(../images/location.jpg);
+        };
+    }*/
+
+}
+
+
+
+/*  Desktop
+****************************************************************/
+@media (min-width: 1025px) {
+
+/*
+    component-page {
+        --component-page-bg: {
+            background-image: url(../images/location.jpg);
+        };
+    }*/
+
+}
+
+
+
+
+
+
+/*  APP BOX
+****************************************************************/
+
+    /*component-page  {
+      --component-page-bg: {
+
+        background-position: bottom;
+        padding-bottom: 100px;
+        margin-top: -400px;
+        height: 800px;
+        width: 100%;
+      };
+    }*/
+
+
+    .map-location                   { height: 25vh; width: 290px; position: relative; border-bottom: 4px solid silver; }
+    .map-location
+    .map-location img               { display: inline-block; max-width: 100%; position: absolute; left: calc(50% - 40px); top: calc(100% - 24px); z-index: 1; }
+
+    /*google-map        { -webkit-filter: grayscale(1); filter: grayscale(1); }*/
+    /*component-pulse   { position: absolute; left: calc(50% - 10px); top: calc(50% - 10px); z-index: 1; }*/
+
+    .map-location:after             { content: ""; display: block; position: absolute; top: 0; right: 0; bottom: 0; left: 0; background: black; opacity: .5; z-index: 0; }
+
+</style>
+
+
+
+
+<!-- APP ROUTE
+------------------------------------------------------------------------->
+    <!--
+    <app-route
+        route="[[route]]"
+        pattern="/:category"
+        data="{{routeData}}">
+    </app-route> -->
+
+
+
+
+
+<!--
+    MAIN CONTENT
+-------------------------------------------------------------------------------------------------------------->
+<component-page>
+
+
+    <!-- TOP
+    ---------------------------------------------->
+
+    <!-- Parallax BG -->
+    <!-- <component-image
+        alt="Our Company"
+        src="../images/bg_location.jpg"
+        placeholder-img="../images/bg_location_placeholder.jpg" class="hero-image" background>
+    </component-image> -->
+
+    <!-- Hero Image -->
+    <!-- <google-map-directions map="{{map}}"
+      start-address="San Francisco"
+      end-address="Mountain View"
+      travel-mode="BICYCLING"
+      waypoints='[{"location": "Palo Alto"}, {"location": "San Mateo"}]'></google-map-directions> -->
+    <google-map disable-default-ui fit-to-markers latitude="30.236045" longitude="-93.314282" zoom="18" api-key="AIzaSyA5SYKRx5yogz5_NUsMvQtCy1plDAamKYE" class="hero-image">
+        <!-- <google-map-marker latitude="30.236045" longitude="-93.314282" title="SFI">
+            <component-pulse></component-pulse>
+        </google-map-marker> -->
+
+        <google-map-marker latitude="30.236045" longitude="-93.314282">
+          <img src="http://www.iconsdb.com/icons/preview/orange/map-marker-2-xxl.png">
+        </google-map-marker>
+    </google-map>
+
+
+
+    <!-- Top Content -->
+    <h1>Our Location</h1>
+    <h2>Monday - Friday | 7:30am to 4:00pm</h2>
+    <div class="top-content">
+        <!-- <component-pulse></component-pulse> -->
+    </div>
+
+
+
+
+
+
+    <!-- BOTTOM
+    ---------------------------------------------->
+    <!-- <h4>{{someOldBull}}</h4> -->
+    <p>
+        Business hours are Monday through Friday, 7:30am to 4:00pm Central Standard Time. All internet orders, emails, and faxes are processed during our normal business hours.
+    </p>
+
+    <template id="goto-url" is="dom-if" if="{{!_showContent(someOldBull)}}" restamp="true">
+        <component-button>
+            <a href="/location" aria-label="Learn More">Learn More</a>
+        </component-button>
+    </template>
+
+
+    <template id="extra-content" is="dom-if" if="{{_showContent(someOldBull)}}" restamp="true">
+        <h3>Services</h3>
+        <ul>
+            <li>Complete rebuild of Diesel Fuel Injection Components</li>
+            <li>Rebuild today's popular Diesel Fuel Injection Pumps and Injectors</li>
+            <li>Rebuild 12 valve and 24 valve Cummins Fuel Injection Pumps in house</li>
+            <li>Test and rebuild Duramax and Dodge Common Rail Injectors</li>
+            <li>Test and rebuild Injectors</li>
+            <li>Carry FPPF and Stanadyne Diesel Fuel Treatment</li>
+            <li>Rebuild Diesel Fuel Injection Pumps and Injectors for most ALL types of Diesel Engines</li>
+        </ul>
+    </template>
+
+
+
+</component-page>
+</template>
+
+ <script>
+
+   Polymer({
+
+     is: 'shop-location',
+
+     properties: {
+
+       fullContent: {
+         type: Boolean,
+         value: false,
+         notify: true
+       },
+
+       someOldBull: {
+         type: String
+       },
+
+       myDate: {
+         value: function() { return Date()}
+       }
+     },
+
+     ready: function() {
+       console.log("created: ", this.myDate);
+       console.log("someOldBull", this.someOldBull);
+       console.log("fullContent: ", this.fullContent);
+     },
+
+      attached: function() {
+        console.log("attached: ", this.fullContent);
+        console.log("someOldBull", this.someOldBull);
+      },
+
+      _showContent: function(myBull) {
+        if (myBull === "yes") {
+          return true;
+        } else {
+          console.log("wrong content value (use: yes)");
+          return false;
+        }
+      }
+
+    //  _show: function (myBoolean) {
+    //    console.log(myBoolean);
+    //    return myBoolean;
+    //  }
+
+   });
+
+ </script>
+
+</dom-module>

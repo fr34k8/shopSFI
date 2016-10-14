@@ -21,6 +21,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="components/component-image.html">
 <link rel="import" href="components/component-bg.html">
 <link rel="import" href="shop-company.html">
+<link rel="import" href="shop-location.html">
 <link rel="import" href="styles-fonts.html">
 <link rel="import" href="styles-main.html">
 
@@ -201,7 +202,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 }
 
-
+/*  Custom
+********************************************************/
+@media (min-width: 769px) and (max-width: 1280px) {
+    .bottom { display: none; }
+    .logo { width: 275px; }
+}
 
 
 
@@ -264,6 +270,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -------------------------------------------------------------------------------------------------------------------------->
 
 <main class="flex-vertical min-height-100 bg-black relative z-2"> <!-- height100 !important! (IE11 Fix) -->
+
     <app-box effects="parallax-background" class="bg-intro">
 
         <!-- Parallax BG -->
@@ -274,7 +281,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         </component-image>
 
         <article class="flex-vertical height-100 min-height-100 text-center">
-
 
             <!-- TOP -->
             <!-- TOP -->
@@ -288,7 +294,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     </a>
                     </template>
 
-                    <div class="">
+                    <div class="blur">
                         <h1>Common Rail</h1>
                         <h2>Fuel Injector Testing</h2>
                     </div>
@@ -403,7 +409,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <!-- Map
 -------------------------------------------------------------------------------------------------------------------------->
-
+    <shop-location name="location"></shop-location>
 
 </template>
 
