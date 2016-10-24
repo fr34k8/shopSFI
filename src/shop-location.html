@@ -157,9 +157,8 @@ SHOP LOCATION (page)
 
     <!-- Top Content -->
     <h1>Our Location</h1>
-    <h2>Monday - Friday | 7:30am to 4:00pm</h2>
+    <h2>121 Industrial Dr, Sulphur, LA 70663</h2>
     <div class="top-content">
-        <!-- <component-pulse></component-pulse> -->
     </div>
 
 
@@ -174,11 +173,9 @@ SHOP LOCATION (page)
         Business hours are Monday through Friday, 7:30am to 4:00pm Central Standard Time. All internet orders, emails, and faxes are processed during our normal business hours.
     </p>
 
-    <template id="goto-url" is="dom-if" if="{{!_showContent(someOldBull)}}" restamp="true">
-        <component-button>
-            <a href="/location" aria-label="Learn More">Learn More</a>
-        </component-button>
-    </template>
+    <component-button>
+        <a href="https://www.google.com/maps/place/Sulphur+Fuel+Injection/@30.2360406,-93.3144457,17z/data=!3m1!4b1!4m15!1m9!4m8!1m0!1m6!1m2!1s0x863b8ee90c5001cd:0x84cdcf8337373941!2sSulphur+Fuel+Injection,+121+Industrial+Dr,+Sulphur,+LA+70663!2m2!1d-93.312257!2d30.236036!3m4!1s0x863b8ee90c5001cd:0x84cdcf8337373941!8m2!3d30.236036!4d-93.312257" aria-label="Get Directions" target="_blank">Get Directions</a>
+    </component-button>
 
 
     <template id="extra-content" is="dom-if" if="{{_showContent(someOldBull)}}" restamp="true">
