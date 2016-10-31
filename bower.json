@@ -36,7 +36,9 @@
     "paper-dialog": "PolymerElements/paper-dialog#^1.1.0",
     "paper-tooltip": "PolymerElements/paper-tooltip#^1.1.2",
     "paper-dialog-scrollable": "PolymerElements/paper-dialog-scrollable#^1.1.5",
-    "neon-animation": "PolymerElements/neon-animation#^1.2.4"
+    "neon-animation": "PolymerElements/neon-animation#^1.2.4",
+    "photo-album": "polymer-upgrade",
+    "super-hover": "^0.0.2"
   },
   "devDependencies": {
     "web-component-tester": "^4.0.0"

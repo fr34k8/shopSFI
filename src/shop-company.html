@@ -7,6 +7,8 @@ SHOP COMPANY (page)
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../bower_components/app-route/app-route.html">
+<link rel="import" href="../bower_components/super-hover/super-hover.html">
+<link rel="import" href="../bower_components/photo-album/photo-album.html">
 <link rel="import" href="styles-main.html">
 <link rel="import" href="styles-fonts.html">
 <link rel="import" href="components/component-button.html">
@@ -141,6 +143,18 @@ SHOP COMPANY (page)
         Our technicians are highly qualified and factory trained in all the latest
         technology to provide you with the reliable service you deserve and expect.
     </p>
+
+    <div class="photos">
+      <super-hover>
+        <photo-album>
+            <photo-album-photo
+                thumbnail="https://lh3.googleusercontent.com/--jB_0lF3bYM/U_lD2q3_g5I/AAAAAAAAAdQ/mgQ0eqiO63o/s104-c/IMG_2950.jpg"
+                src="https://lh3.googleusercontent.com/--jB_0lF3bYM/U_lD2q3_g5I/AAAAAAAAAdQ/mgQ0eqiO63o/s1600/IMG_2950.jpg"
+                caption="First image">
+            </photo-album-photo>
+        </photo-album>
+      </super-hover>
+    </div>
 
     <template id="goto-url" is="dom-if" if="{{!_showContent(someOldBull)}}" restamp="true">
         <component-button>
