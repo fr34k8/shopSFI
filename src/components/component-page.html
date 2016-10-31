@@ -16,7 +16,7 @@ COMPONENT PAGE (template)
 <link rel="import" href="component-bg.html">
 
 <dom-module id="component-page">
-<template>
+    <template>
 <style is="custom-style" include="styles-main styles-fonts component-button component-bg">
 
     :host {
@@ -157,12 +157,12 @@ COMPONENT PAGE (template)
         <fx-skew>
             <article class="wrapper">
                 <content select="h4"></content>
-
+                <content select=".photo-wrapper"></content>
+                
                 <p class="text-20 mobile-text-16">
                     <content select="p"></content>
                 </p>
 
-                <content select=".photos"></content>
                 <content select=".grid"></content>
 
                 <content select="component-button"></content>
@@ -191,14 +191,12 @@ COMPONENT PAGE (template)
 
 </template>
 
- <script>
+    <script>
+        Polymer({
 
-   Polymer({
+            is: 'component-page'
 
-     is: 'component-page'
-
-   });
-
- </script>
+        });
+    </script>
 
 </dom-module>

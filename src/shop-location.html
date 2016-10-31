@@ -15,7 +15,7 @@ SHOP LOCATION (page)
 <link rel="import" href="components/component-pulse.html">
 
 <dom-module id="shop-location">
-<template>
+    <template>
 
 <style is="custom-style" include="styles-main styles-fonts component-button component-page">
 
@@ -26,6 +26,18 @@ SHOP LOCATION (page)
         height: 100%;
     }
 
+    .photo-wrapper {
+        @apply(--layout-horizontal);
+        @apply(--layout-center-center);
+    }
+
+    .photos {
+        @apply(--layout-vertical);
+        @apply(--layout-center-center);
+        margin: 0 2rem;
+    }
+
+    .photos h3 {  }
 
 /*  Mobile
 ****************************************************************/
@@ -169,6 +181,46 @@ SHOP LOCATION (page)
     <!-- BOTTOM
     ---------------------------------------------->
     <!-- <h4>{{someOldBull}}</h4> -->
+
+    <section class="photo-wrapper">
+        <div class="photos">
+            <photo-album>
+                <photo-album-photo
+                    thumbnail="../images/photos/outside/outside-01.jpg"
+                    src="../images/photos/outside/outside-01.jpg"
+                    caption="First image">
+                </photo-album-photo>
+            </photo-album>
+
+            <h3>Our Shop</h3>
+        </div>
+        
+
+        <div class="photos">
+            <photo-album>
+                <photo-album-photo
+                    thumbnail="../images/photos/outside/outside-02.jpg"
+                    src="../images/photos/outside/outside-02.jpg"
+                    caption="First image">
+                </photo-album-photo>
+            </photo-album>
+
+            <h3>Get Directions</h3>
+        </div>
+
+        <div class="photos">
+            <photo-album>
+                <photo-album-photo
+                    thumbnail="../images/photos/products/product-04.jpg"
+                    src="../images/photos/products/product-04.jpg"
+                    caption="First image">
+                </photo-album-photo>
+            </photo-album>
+
+            <h3>Before & After</h3>
+        </div>
+    </section>
+
     <p>
         Business hours are Monday through Friday, 7:30am to 4:00pm Central Standard Time. All internet orders, emails, and faxes are processed during our normal business hours.
     </p>
@@ -193,66 +245,70 @@ SHOP LOCATION (page)
 
 
 
-</component-page>
-</template>
+    </component-page>
+    </template>
 
- <script>
+    <script>
+        Polymer({
 
-   Polymer({
+            is: 'shop-location',
 
-     is: 'shop-location',
+            listeners: {
+                'map.google-map-ready': '_disableMarkerOptimization'
+            },
+            _disableMarkerOptimization: function _disableMarkerOptimization() {
+                this.$.map.markers.forEach(function(m) {
+                    m.marker.setOptions({
+                        optimized: false
+                    });
+                });
+            },
 
-    listeners: { 'map.google-map-ready': '_disableMarkerOptimization' },
-    _disableMarkerOptimization: function _disableMarkerOptimization() {
-        this.$.map.markers.forEach(function (m) {
-            m.marker.setOptions({ optimized: false });
+            properties: {
+
+                fullContent: {
+                    type: Boolean,
+                    value: false,
+                    notify: true
+                },
+
+                someOldBull: {
+                    type: String
+                },
+
+                myDate: {
+                    value: function() {
+                        return Date()
+                    }
+                }
+            },
+
+            ready: function() {
+                console.log("created: ", this.myDate);
+                console.log("someOldBull", this.someOldBull);
+                console.log("fullContent: ", this.fullContent);
+            },
+
+            attached: function() {
+                console.log("attached: ", this.fullContent);
+                console.log("someOldBull", this.someOldBull);
+            },
+
+            _showContent: function(myBull) {
+                if (myBull === "yes") {
+                    return true;
+                } else {
+                    console.log("wrong content value (use: yes)");
+                    return false;
+                }
+            }
+
+            //  _show: function (myBoolean) {
+            //    console.log(myBoolean);
+            //    return myBoolean;
+            //  }
+
         });
-    },
-
-     properties: {
-
-       fullContent: {
-         type: Boolean,
-         value: false,
-         notify: true
-       },
-
-       someOldBull: {
-         type: String
-       },
-
-       myDate: {
-         value: function() { return Date()}
-       }
-     },
-
-     ready: function() {
-       console.log("created: ", this.myDate);
-       console.log("someOldBull", this.someOldBull);
-       console.log("fullContent: ", this.fullContent);
-     },
-
-      attached: function() {
-        console.log("attached: ", this.fullContent);
-        console.log("someOldBull", this.someOldBull);
-      },
-
-      _showContent: function(myBull) {
-        if (myBull === "yes") {
-          return true;
-        } else {
-          console.log("wrong content value (use: yes)");
-          return false;
-        }
-      }
-
-    //  _show: function (myBoolean) {
-    //    console.log(myBoolean);
-    //    return myBoolean;
-    //  }
-
-   });
-
- </script>
+    </script>
 
 </dom-module>

@@ -16,7 +16,7 @@ SHOP COMPANY (page)
 <link rel="import" href="components/component-page.html">
 
 <dom-module id="shop-company">
-<template>
+    <template>
 
 <style is="custom-style" include="styles-main styles-fonts component-button component-page">
 
@@ -26,6 +26,27 @@ SHOP COMPANY (page)
         min-height: 100%;
         height: 100%;
     }
+
+    .photo-wrapper {
+        @apply(--layout-horizontal);
+        @apply(--layout-center-center);
+    }
+
+    .photos {
+        @apply(--layout-vertical);
+        @apply(--layout-center-center);
+        margin: 0 2rem;
+    }
+
+    .photos h3 {  }
+
+
+.photos photo-album {
+  display: none;
+}
+.photos photo-album:first-of-type {
+  display: block;
+}
 
 
 /*  Mobile
@@ -144,17 +165,69 @@ SHOP COMPANY (page)
         technology to provide you with the reliable service you deserve and expect.
     </p>
 
-    <div class="photos">
-      <super-hover>
-        <photo-album>
-            <photo-album-photo
-                thumbnail="https://lh3.googleusercontent.com/--jB_0lF3bYM/U_lD2q3_g5I/AAAAAAAAAdQ/mgQ0eqiO63o/s104-c/IMG_2950.jpg"
-                src="https://lh3.googleusercontent.com/--jB_0lF3bYM/U_lD2q3_g5I/AAAAAAAAAdQ/mgQ0eqiO63o/s1600/IMG_2950.jpg"
-                caption="First image">
-            </photo-album-photo>
-        </photo-album>
-      </super-hover>
-    </div>
+    <section class="photo-wrapper">
+        <div class="photos">
+            <photo-album>
+                <photo-album-photo
+                    thumbnail="../images/photos/inside/inside-01.jpg"
+                    src="../images/photos/inside/inside-01.jpg"
+                    caption="First image">
+                </photo-album-photo>
+            </photo-album>
+
+            <h3>Rebuild Process</h3>
+
+            <!-- hidden -->
+            <photo-album>
+                <photo-album-photo
+                    thumbnail="../images/photos/outside/outside-01.jpg"
+                    src="../images/photos/outside/outside-01.jpg"
+                    caption="First image">
+                </photo-album-photo>
+            </photo-album>
+
+            <photo-album>
+                <photo-album-photo
+                    thumbnail="../images/photos/outside/outside-01.jpg"
+                    src="../images/photos/outside/outside-01.jpg"
+                    caption="First image">
+                </photo-album-photo>
+            </photo-album>
+
+            <photo-album>
+                <photo-album-photo
+                    thumbnail="../images/photos/outside/outside-01.jpg"
+                    src="../images/photos/outside/outside-01.jpg"
+                    caption="First image">
+                </photo-album-photo>
+            </photo-album>
+        </div>
+        
+
+        <div class="photos">
+            <photo-album>
+                <photo-album-photo
+                    thumbnail="../images/photos/products/product-01.jpg"
+                    src="../images/photos/products/product-01.jpg"
+                    caption="First image">
+                </photo-album-photo>
+            </photo-album>
+
+            <h3>Finished Products</h3>
+        </div>
+
+        <div class="photos">
+            <photo-album>
+                <photo-album-photo
+                    thumbnail="../images/photos/products/product-03.jpg"
+                    src="../images/photos/products/product-03.jpg"
+                    caption="First image">
+                </photo-album-photo>
+            </photo-album>
+
+            <h3>Before & After</h3>
+        </div>
+    </section>
 
     <template id="goto-url" is="dom-if" if="{{!_showContent(someOldBull)}}" restamp="true">
         <component-button>
@@ -178,59 +251,59 @@ SHOP COMPANY (page)
 
 
 
-</component-page>
-</template>
+    </component-page>
+    </template>
 
- <script>
+    <script>
+        Polymer({
 
-   Polymer({
+            is: 'shop-company',
 
-     is: 'shop-company',
+            properties: {
 
-     properties: {
+                fullContent: {
+                    type: Boolean,
+                    value: false,
+                    notify: true
+                },
 
-       fullContent: {
-         type: Boolean,
-         value: false,
-         notify: true
-       },
+                someOldBull: {
+                    type: String
+                },
 
-       someOldBull: {
-         type: String
-       },
+                myDate: {
+                    value: function() {
+                        return Date()
+                    }
+                }
+            },
 
-       myDate: {
-         value: function() { return Date()}
-       }
-     },
+            ready: function() {
+                console.log("created: ", this.myDate);
+                console.log("someOldBull", this.someOldBull);
+                console.log("fullContent: ", this.fullContent);
+            },
 
-     ready: function() {
-       console.log("created: ", this.myDate);
-       console.log("someOldBull", this.someOldBull);
-       console.log("fullContent: ", this.fullContent);
-     },
+            attached: function() {
+                console.log("attached: ", this.fullContent);
+                console.log("someOldBull", this.someOldBull);
+            },
 
-      attached: function() {
-        console.log("attached: ", this.fullContent);
-        console.log("someOldBull", this.someOldBull);
-      },
+            _showContent: function(myBull) {
+                if (myBull === "yes") {
+                    return true;
+                } else {
+                    console.log("wrong content value (use: yes)");
+                    return false;
+                }
+            }
 
-      _showContent: function(myBull) {
-        if (myBull === "yes") {
-          return true;
-        } else {
-          console.log("wrong content value (use: yes)");
-          return false;
-        }
-      }
+            //  _show: function (myBoolean) {
+            //    console.log(myBoolean);
+            //    return myBoolean;
+            //  }
 
-    //  _show: function (myBoolean) {
-    //    console.log(myBoolean);
-    //    return myBoolean;
-    //  }
-
-   });
-
- </script>
+        });
+    </script>
 
 </dom-module>
