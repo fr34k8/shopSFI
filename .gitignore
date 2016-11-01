@@ -1,8 +1,9 @@
 
 bower_components
+node_modules
 build
+test
 _resources
-desktop.ini
 npm-debug.log
 firebase-debug.log
 .vscode
