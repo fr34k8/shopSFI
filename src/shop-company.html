@@ -8,7 +8,7 @@ SHOP COMPANY (page)
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../bower_components/app-route/app-route.html">
 <link rel="import" href="../bower_components/super-hover/super-hover.html">
-<link rel="import" href="../bower_components/photo-album/photo-album.html">
+<link rel="import" href="../bower_components/super-album/super-album.html">
 <link rel="import" href="styles-main.html">
 <link rel="import" href="styles-fonts.html">
 <link rel="import" href="components/component-button.html">
@@ -40,13 +40,6 @@ SHOP COMPANY (page)
 
     .photos h3 {  }
 
-
-.photos photo-album-photo {
-  display: none;
-}
-.photos photo-album-photo:first-of-type {
-  display: block;
-}
 
 
 /*  Mobile
@@ -158,76 +151,63 @@ SHOP COMPANY (page)
     <!-- BOTTOM
     ---------------------------------------------->
     <!-- <h4>{{someOldBull}}</h4> -->
+    
+    <section class="photo-wrapper">
+        <div class="photos">
+                <!-- Super Album 1 -->
+                <super-album title="Our Shop">
+                    <super-album-photo 
+                        thumbnail="../images/photos/inside/inside-01.jpg" 
+                        src="../images/photos/inside/inside-01.jpg" 
+                        caption="Product">
+                    </super-album-photo>
+
+                    <super-album-photo 
+                        thumbnail="../images/photos/inside/inside-02.jpg" 
+                        src="../images/photos/inside/inside-02.jpg" 
+                        caption="Product">
+                    </super-album-photo>
+                </super-album>
+
+                <!-- Super Album 2 -->
+                <super-album title="Directions">
+                    <super-album-photo 
+                        thumbnail="../images/photos/outside/outside-01.jpg" 
+                        src="../images/photos/outside/outside-01.jpg" 
+                        caption="Product">
+                    </super-album-photo>
+
+                    <super-album-photo 
+                        thumbnail="../images/photos/outside/outside-02.jpg" 
+                        src="../images/photos/outside/outside-02.jpg" 
+                        caption="Product">
+                    </super-album-photo>
+                </super-album>
+
+                <!-- Super Album 3 -->
+                <super-album title="Products">
+                    <super-album-photo 
+                        thumbnail="../images/photos/products/product-01.jpg" 
+                        src="../images/photos/products/product-01.jpg" 
+                        caption="Product">
+                    </super-album-photo>
+
+                    <super-album-photo 
+                        thumbnail="../images/photos/products/product-02.jpg" 
+                        src="../images/photos/products/product-02.jpg" 
+                        caption="Product">
+                    </super-album-photo>
+                </super-album>
+        </div>
+
+    </section>
+
     <p>
         We at Sulphur Fuel & Injection Service, Ltd. provide
         our customers with quality service using the latest and most effective equipment.
         Our technicians are highly qualified and factory trained in all the latest
         technology to provide you with the reliable service you deserve and expect.
     </p>
-
-    <section class="photo-wrapper">
-        <div class="photos">
-            <photo-album>
-                <photo-album-photo
-                    thumbnail="../images/photos/inside/inside-01.jpg"
-                    src="../images/photos/inside/inside-01.jpg"
-                    caption="First image">
-                </photo-album-photo>
-
-                <!-- hidden -->
-                <!-- hidden -->
-                <!-- hidden -->
-                <photo-album-photo
-                    thumbnail="../images/photos/outside/outside-01.jpg"
-                    src="../images/photos/outside/outside-01.jpg"
-                    caption="First image">
-                </photo-album-photo>
-
-                <photo-album-photo
-                    thumbnail="../images/photos/outside/outside-01.jpg"
-                    src="../images/photos/outside/outside-01.jpg"
-                    caption="First image">
-                </photo-album-photo>
-
-                <photo-album-photo
-                    thumbnail="../images/photos/outside/outside-01.jpg"
-                    src="../images/photos/outside/outside-01.jpg"
-                    caption="First image">
-                </photo-album-photo>
-                <!-- hidden -->
-                <!-- hidden -->
-                <!-- hidden -->
-            
-            </photo-album>
-
-            <h3>Rebuild Process</h3>
-        </div>
-        
-
-        <div class="photos">
-            <photo-album>
-                <photo-album-photo
-                    thumbnail="../images/photos/products/product-01.jpg"
-                    src="../images/photos/products/product-01.jpg"
-                    caption="First image">
-                </photo-album-photo>
-            </photo-album>
-
-            <h3>Finished Products</h3>
-        </div>
-
-        <div class="photos">
-            <photo-album>
-                <photo-album-photo
-                    thumbnail="../images/photos/products/product-03.jpg"
-                    src="../images/photos/products/product-03.jpg"
-                    caption="First image">
-                </photo-album-photo>
-            </photo-album>
-
-            <h3>Before & After</h3>
-        </div>
-    </section>
 
     <template id="goto-url" is="dom-if" if="{{!_showContent(someOldBull)}}" restamp="true">
         <component-button>

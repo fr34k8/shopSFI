@@ -26,9 +26,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="shop-home.html">
 
 <dom-module id="shop-app">
-<template>
+    <template>
 
 <style is="custom-style">
+
+
 
     :host {
 
@@ -42,6 +44,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         --app-accent-color: #b71c1c;
         --app-accent-secondary-color: #ffffff;
         --app-color-white: #ffffff;
+        --primary-color: red;
 
         --paper-button-ink-color: var(--app-accent-secondary-color);
         --paper-icon-button-ink-color: var(--app-accent-secondary-color);
@@ -260,26 +263,26 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                   <a href="/list/[[category.name]]" class="flex-vertical center-center">[[category.headline]]</a>
                 </component-tab>
               </template>
-            </component-tabs>
+    </component-tabs>
 
-          </template>
-        </div>
+    </template>
+    </div>
 
-        <!-- Cart
+    <!-- Cart
         --------------------------------------------------->
-        <div class="cart-btn-container">
-          <!-- cart button -->
-          <a href="/cart" tabindex="-1">
+    <div class="cart-btn-container">
+        <!-- cart button -->
+        <a href="/cart" tabindex="-1">
             <paper-icon-button icon="shopping-cart" aria-label$="Shopping cart: [[_computePluralizedQuantity(numItems)]]"></paper-icon-button>
-          </a>
+        </a>
 
-          <!-- cart badge -->
-          <div class="cart-badge" aria-hidden="true" hidden$="[[!numItems]]">[[numItems]]</div>
-        </div>
-      </app-toolbar>
-      <!-- TOOLBAR -->
-      <!-- TOOLBAR -->
-      <!-- TOOLBAR -->
+        <!-- cart badge -->
+        <div class="cart-badge" aria-hidden="true" hidden$="[[!numItems]]">[[numItems]]</div>
+    </div>
+    </app-toolbar>
+    <!-- TOOLBAR -->
+    <!-- TOOLBAR -->
+    <!-- TOOLBAR -->
 
 
     </app-header>
@@ -318,68 +321,69 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <template is="dom-repeat" items="[[categories]]" as="category" initial-count="4">
             <a name="[[category.name]]" href="/list/[[category.name]]">[[category.headline]]</a>
           </template>
-        </iron-selector>
+    </iron-selector>
 
-        <section class="info-links">
+    <section class="info-links">
 
-            <!-- Call -->
-            <a href="tel:3376260004" aria-label="Phone Number">
-                <iron-icon icon="icons:phone"></iron-icon>
-                tel: (337) 626-0004
-            </a>
+        <!-- Call -->
+        <a href="tel:3376260004" aria-label="Phone Number">
+            <iron-icon icon="icons:phone"></iron-icon>
+            tel: (337) 626-0004
+        </a>
 
-            <!-- Fax -->
-            <a href="tel:3376260005" aria-label="Fax Number">
-                <iron-icon icon="icons:print"></iron-icon>
-                fax: (337) 626-0005
-            </a>
+        <!-- Fax -->
+        <a href="tel:3376260005" aria-label="Fax Number">
+            <iron-icon icon="icons:print"></iron-icon>
+            fax: (337) 626-0005
+        </a>
 
-            <!-- Email -->
-            <a href="mailo:questions@sulphurfuelinjection.com" aria-label="Email Address">
-                <iron-icon icon="icons:email"></iron-icon>
-                questions@sulphurfuelinjection.com
-            </a>
+        <!-- Email -->
+        <a href="mailo:questions@sulphurfuelinjection.com" aria-label="Email Address">
+            <iron-icon icon="icons:email"></iron-icon>
+            questions@sulphurfuelinjection.com
+        </a>
 
-            <!-- Location -->
-            <a href="https://www.google.com/maps/place/Sulphur+Fuel+Injection/@30.2360406,-93.3144457,17z/data=!3m1!4b1!4m15!1m9!4m8!1m0!1m6!1m2!1s0x863b8ee90c5001cd:0x84cdcf8337373941!2sSulphur+Fuel+Injection,+121+Industrial+Dr,+Sulphur,+LA+70663!2m2!1d-93.312257!2d30.236036!3m4!1s0x863b8ee90c5001cd:0x84cdcf8337373941!8m2!3d30.236036!4d-93.312257" aria-label="Location" target="_blank">
-                <iron-icon icon="icons:map"></iron-icon>
-                121 Industrial Dr, Sulphur, LA 70663
-            </a>
+        <!-- Location -->
+        <a href="https://www.google.com/maps/place/Sulphur+Fuel+Injection/@30.2360406,-93.3144457,17z/data=!3m1!4b1!4m15!1m9!4m8!1m0!1m6!1m2!1s0x863b8ee90c5001cd:0x84cdcf8337373941!2sSulphur+Fuel+Injection,+121+Industrial+Dr,+Sulphur,+LA+70663!2m2!1d-93.312257!2d30.236036!3m4!1s0x863b8ee90c5001cd:0x84cdcf8337373941!8m2!3d30.236036!4d-93.312257"
+            aria-label="Location" target="_blank">
+            <iron-icon icon="icons:map"></iron-icon>
+            121 Industrial Dr, Sulphur, LA 70663
+        </a>
 
-            <!-- Business Hours -->
-            <a href="tel:3376260004" aria-label="Business Hours">
-                <iron-icon icon="icons:time"></iron-icon>
-                Monday - Friday | 7:30am to 4:00pm
-            </a>
+        <!-- Business Hours -->
+        <a href="tel:3376260004" aria-label="Business Hours">
+            <iron-icon icon="icons:time"></iron-icon>
+            Monday - Friday | 7:30am to 4:00pm
+        </a>
 
-            <a href="/company" aria-label="Our Company">
-                <iron-icon icon="icons:home"></iron-icon>
-                Learn about us
-            </a>
+        <a href="/company" aria-label="Our Company">
+            <iron-icon icon="icons:home"></iron-icon>
+            Learn about us
+        </a>
 
-        </section>
+    </section>
 
-      </app-drawer>
+    </app-drawer>
     </template>
     <!-- DRAWER -->
     <!-- DRAWER -->
     <!-- DRAWER -->
 
     <iron-pages role="main" selected="[[page]]" attr-for-selected="name" selected-attribute="visible">
-      <!-- home view -->
-      <shop-home name="home" categories="[[categories]]"></shop-home>
-      <!-- list view of items in a category -->
-      <shop-list name="list" route="[[subroute]]" offline="[[offline]]"></shop-list>
-      <!-- detail view of one item -->
-      <shop-detail name="detail" route="[[subroute]]" offline="[[offline]]"></shop-detail>
-      <!-- cart view -->
-      <shop-cart name="cart" cart="[[cart]]" total="[[total]]" num-items="[[numItems]]"></shop-cart>
-      <!-- checkout view -->
-      <shop-checkout name="checkout" cart="[[cart]]" total="[[total]]" route="{{subroute}}" num-items="[[numItems]]"></shop-checkout>
-      <!-- about us -->
-      <shop-company name="company" some-old-bull="yes"></shop-company>
-      <!-- location -->
-      <shop-location name="location" some-old-bull="yes"></shop-location>
+        <!-- home view -->
+        <shop-home name="home" categories="[[categories]]"></shop-home>
+        <!-- list view of items in a category -->
+        <shop-list name="list" route="[[subroute]]" offline="[[offline]]"></shop-list>
+        <!-- detail view of one item -->
+        <shop-detail name="detail" route="[[subroute]]" offline="[[offline]]"></shop-detail>
+        <!-- cart view -->
+        <shop-cart name="cart" cart="[[cart]]" total="[[total]]" num-items="[[numItems]]"></shop-cart>
+        <!-- checkout view -->
+        <shop-checkout name="checkout" cart="[[cart]]" total="[[total]]" route="{{subroute}}" num-items="[[numItems]]"></shop-checkout>
+        <!-- about us -->
+        <shop-company name="company" some-old-bull="yes"></shop-company>
+        <!-- location -->
+        <shop-location name="location" some-old-bull="yes"></shop-location>
     </iron-pages>
 
     <!-- Business Footer
@@ -389,221 +393,222 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <!-- a11y announcer -->
     <div class="announcer" aria-live="assertive">[[_a11yLabel]]</div>
 
-  </template>
+    </template>
 
-  <script>
+    <script>
+        // performance logging
+        window.performance && performance.mark && performance.mark('shop-app - before register');
 
-    // performance logging
-    window.performance && performance.mark && performance.mark('shop-app - before register');
+        Polymer({
 
-    Polymer({
+            is: 'shop-app',
 
-      is: 'shop-app',
+            properties: {
 
-      properties: {
+                page: {
+                    type: String,
+                    reflectToAttribute: true,
+                    observer: '_pageChanged'
+                },
 
-        page: {
-          type: String,
-          reflectToAttribute: true,
-          observer: '_pageChanged'
-        },
+                numItems: {
+                    type: Number,
+                    value: 0
+                },
 
-        numItems: {
-          type: Number,
-          value: 0
-        },
+                _shouldShowTabs: {
+                    computed: '_computeShouldShowTabs(page, smallScreen)'
+                },
 
-        _shouldShowTabs: {
-          computed: '_computeShouldShowTabs(page, smallScreen)'
-        },
+                _shouldRenderTabs: {
+                    computed: '_computeShouldRenderTabs(_shouldShowTabs, loadComplete)'
+                },
 
-        _shouldRenderTabs: {
-          computed: '_computeShouldRenderTabs(_shouldShowTabs, loadComplete)'
-        },
+                _shouldRenderDrawer: {
+                    computed: '_computeShouldRenderDrawer(smallScreen, loadComplete)'
+                }
+            },
 
-        _shouldRenderDrawer: {
-          computed: '_computeShouldRenderDrawer(smallScreen, loadComplete)'
-        }
-      },
+            observers: [
+                '_routePageChanged(routeData.page)'
+            ],
 
-      observers: [
-        '_routePageChanged(routeData.page)'
-      ],
+            listeners: {
+                'add-cart-item': '_onAddCartItem',
+                'set-cart-item': '_onSetCartItem',
+                'clear-cart': '_onClearCart',
+                'change-section': '_onChangeSection',
+                'announce': '_onAnnounce',
+                'dom-change': '_domChange'
+            },
 
-      listeners: {
-        'add-cart-item': '_onAddCartItem',
-        'set-cart-item': '_onSetCartItem',
-        'clear-cart': '_onClearCart',
-        'change-section': '_onChangeSection',
-        'announce': '_onAnnounce',
-        'dom-change': '_domChange'
-      },
+            created: function() {
+                window.performance && performance.mark && performance.mark('shop-app.created');
+                // Custom elements polyfill safe way to indicate an element has been upgraded.
+                this.removeAttribute('unresolved');
+            },
 
-      created: function() {
-        window.performance && performance.mark && performance.mark('shop-app.created');
-        // Custom elements polyfill safe way to indicate an element has been upgraded.
-        this.removeAttribute('unresolved');
-      },
+            ready: function() {
+                // listen for online/offline
+                Polymer.RenderStatus.afterNextRender(this, function() {
+                    this.listen(window, 'online', '_notifyNetworkStatus');
+                    this.listen(window, 'offline', '_notifyNetworkStatus');
+                });
+            },
 
-      ready: function() {
-        // listen for online/offline
-        Polymer.RenderStatus.afterNextRender(this, function() {
-          this.listen(window, 'online', '_notifyNetworkStatus');
-          this.listen(window, 'offline', '_notifyNetworkStatus');
+            _routePageChanged: function(page) {
+                this.page = page || 'home';
+                // Scroll to the top of the page on every *route* change. Use `Polymer.AppLayout.scroll`
+                // with `behavior: 'silent'` to disable header scroll effects during the scroll.
+                Polymer.AppLayout.scroll({
+                    top: 0,
+                    behavior: 'silent'
+                });
+                // Close the drawer - in case the *route* change came from a link in the drawer.
+                this.drawerOpened = false;
+            },
+
+            _pageChanged: function(page, oldPage) {
+                if (page != null) {
+                    // home route is eagerly loaded
+                    if (page == 'home') {
+                        this._pageLoaded(Boolean(oldPage));
+                        // other routes are lazy loaded
+                    } else {
+                        this.importHref(
+                            this.resolveUrl('shop-' + page + '.html'),
+                            function() {
+                                this._pageLoaded(Boolean(oldPage));
+                            }, null, true);
+                    }
+                }
+            },
+
+            // (SEO)
+            _pageLoaded: function(shouldResetLayout) {
+                this._ensureLazyLoaded();
+                if (shouldResetLayout) {
+                    // The size of the header depends on the page (e.g. on some pages the tabs
+                    // do not appear), so reset the header's layout only when switching pages.
+                    this.async(function() {
+                        this.$.header.resetLayout();
+                    }, 1);
+                }
+            },
+
+            _ensureLazyLoaded: function() {
+                // load lazy resources after render and set `loadComplete` when done.
+                if (!this.loadComplete) {
+                    Polymer.RenderStatus.afterNextRender(this, function() {
+                        this.importHref(this.resolveUrl('app-resources.html'), function() {
+                            // Register service worker if supported.
+                            if ('serviceWorker' in navigator) {
+                                navigator.serviceWorker.register('/service-worker.js');
+                            }
+                            this._notifyNetworkStatus();
+                            this.loadComplete = true;
+                        });
+                    });
+                }
+            },
+
+            _notifyNetworkStatus: function() {
+                var oldOffline = this.offline;
+                this.offline = !navigator.onLine;
+                // Show the snackbar if the user is offline when starting a new session
+                // or if the network status changed.
+                if (this.offline || (!this.offline && oldOffline === true)) {
+                    if (!this._networkSnackbar) {
+                        this._networkSnackbar = document.createElement('component-snackbar');
+                        Polymer.dom(this.root).appendChild(this._networkSnackbar);
+                    }
+                    Polymer.dom(this._networkSnackbar).innerHTML = this.offline ?
+                        'You are offline' : 'You are online';
+                    this._networkSnackbar.open();
+                }
+            },
+
+            _toggleDrawer: function() {
+                this.drawerOpened = !this.drawerOpened;
+            },
+
+            // Elements in the app can notify section changes.
+            // Response by a11y announcing the section and syncronizing the category.
+            _onChangeSection: function(event) {
+                var detail = event.detail;
+                this.categoryName = detail.category || '';
+                // Announce the page's title
+                if (detail.title) {
+                    this._announce(detail.title);
+                }
+            },
+
+            _onAddCartItem: function(event) {
+                if (!this._cartModal) {
+                    this._cartModal = document.createElement('cart-modal');
+                    Polymer.dom(this.root).appendChild(this._cartModal);
+                }
+                this.$.cart.addItem(event.detail);
+                this._cartModal.open();
+                this._announce('Item added to the service quote');
+            },
+
+            _onSetCartItem: function(event) {
+                var detail = event.detail;
+                this.$.cart.setItem(detail);
+                if (detail.quantity === 0) {
+                    this._announce('Item deleted');
+                } else {
+                    this._announce('Quantity changed to ' + detail.quantity);
+                }
+            },
+
+            _onClearCart: function() {
+                this.$.cart.clearCart();
+                this._announce('Cart cleared');
+            },
+
+            // Elements in the app can notify a change to be a11y announced.
+            _onAnnounce: function(e) {
+                this._announce(e.detail);
+            },
+
+            // A11y announce the given message.
+            _announce: function(message) {
+                this._a11yLabel = '';
+                this.debounce('_a11yAnnouncer', function() {
+                    this._a11yLabel = message;
+                }, 100);
+            },
+
+            // This is for performance logging only.
+            _domChange: function(e) {
+                if (window.performance && performance.mark && !this.__loggedDomChange) {
+                    var target = Polymer.dom(e).rootTarget;
+                    if (target.domHost.is.match(this.page)) {
+                        this.__loggedDomChange = true;
+                        performance.mark(target.domHost.is + '.domChange');
+                    }
+                }
+            },
+
+            _computeShouldShowTabs: function(page, smallScreen) {
+                return (page === 'home' || page === 'list' || page === 'detail') && !smallScreen;
+            },
+
+            _computeShouldRenderTabs: function(_shouldShowTabs, loadComplete) {
+                return _shouldShowTabs && loadComplete;
+            },
+
+            _computeShouldRenderDrawer: function(smallScreen, loadComplete) {
+                return smallScreen && loadComplete;
+            },
+
+            _computePluralizedQuantity: function(quantity) {
+                return quantity + ' ' + (quantity === 1 ? 'item' : 'items');
+            }
+
         });
-      },
-
-      _routePageChanged: function(page) {
-        this.page = page || 'home';
-        // Scroll to the top of the page on every *route* change. Use `Polymer.AppLayout.scroll`
-        // with `behavior: 'silent'` to disable header scroll effects during the scroll.
-        Polymer.AppLayout.scroll({ top: 0, behavior: 'silent' });
-        // Close the drawer - in case the *route* change came from a link in the drawer.
-        this.drawerOpened = false;
-      },
-
-      _pageChanged: function(page, oldPage) {
-        if (page != null) {
-          // home route is eagerly loaded
-          if (page == 'home') {
-            this._pageLoaded(Boolean(oldPage));
-          // other routes are lazy loaded
-          } else {
-            this.importHref(
-              this.resolveUrl('shop-' + page + '.html'),
-              function() {
-                this._pageLoaded(Boolean(oldPage));
-              }, null, true);
-          }
-        }
-      },
-
-      // (SEO)
-      _pageLoaded: function(shouldResetLayout) {
-        this._ensureLazyLoaded();
-        if (shouldResetLayout) {
-          // The size of the header depends on the page (e.g. on some pages the tabs
-          // do not appear), so reset the header's layout only when switching pages.
-          this.async(function() {
-            this.$.header.resetLayout();
-          }, 1);
-        }
-      },
-
-      _ensureLazyLoaded: function() {
-        // load lazy resources after render and set `loadComplete` when done.
-        if (!this.loadComplete) {
-          Polymer.RenderStatus.afterNextRender(this, function() {
-            this.importHref(this.resolveUrl('app-resources.html'), function() {
-              // Register service worker if supported.
-              if ('serviceWorker' in navigator) {
-                navigator.serviceWorker.register('/service-worker.js');
-              }
-              this._notifyNetworkStatus();
-              this.loadComplete = true;
-            });
-          });
-        }
-      },
-
-      _notifyNetworkStatus: function() {
-        var oldOffline = this.offline;
-        this.offline =  !navigator.onLine;
-        // Show the snackbar if the user is offline when starting a new session
-        // or if the network status changed.
-        if (this.offline || (!this.offline && oldOffline === true)) {
-          if (!this._networkSnackbar) {
-            this._networkSnackbar = document.createElement('component-snackbar');
-            Polymer.dom(this.root).appendChild(this._networkSnackbar);
-          }
-          Polymer.dom(this._networkSnackbar).innerHTML = this.offline ?
-              'You are offline' : 'You are online';
-          this._networkSnackbar.open();
-        }
-      },
-
-      _toggleDrawer: function() {
-        this.drawerOpened = !this.drawerOpened;
-      },
-
-      // Elements in the app can notify section changes.
-      // Response by a11y announcing the section and syncronizing the category.
-      _onChangeSection: function(event) {
-        var detail = event.detail;
-        this.categoryName = detail.category || '';
-        // Announce the page's title
-        if (detail.title) {
-          this._announce(detail.title);
-        }
-      },
-
-      _onAddCartItem: function(event) {
-        if (!this._cartModal) {
-          this._cartModal = document.createElement('cart-modal');
-          Polymer.dom(this.root).appendChild(this._cartModal);
-        }
-        this.$.cart.addItem(event.detail);
-        this._cartModal.open();
-        this._announce('Item added to the service quote');
-      },
-
-      _onSetCartItem: function(event) {
-        var detail = event.detail;
-        this.$.cart.setItem(detail);
-        if (detail.quantity === 0) {
-          this._announce('Item deleted');
-        } else {
-          this._announce('Quantity changed to ' + detail.quantity);
-        }
-      },
-
-      _onClearCart: function() {
-        this.$.cart.clearCart();
-        this._announce('Cart cleared');
-      },
-
-      // Elements in the app can notify a change to be a11y announced.
-      _onAnnounce: function(e) {
-        this._announce(e.detail);
-      },
-
-      // A11y announce the given message.
-      _announce: function(message) {
-        this._a11yLabel = '';
-        this.debounce('_a11yAnnouncer', function() {
-          this._a11yLabel = message;
-        }, 100);
-      },
-
-      // This is for performance logging only.
-      _domChange: function(e) {
-        if (window.performance && performance.mark && !this.__loggedDomChange) {
-          var target = Polymer.dom(e).rootTarget;
-          if (target.domHost.is.match(this.page)) {
-            this.__loggedDomChange = true;
-            performance.mark(target.domHost.is + '.domChange');
-          }
-        }
-      },
-
-      _computeShouldShowTabs: function(page, smallScreen) {
-        return (page === 'home' || page === 'list' || page === 'detail') && !smallScreen;
-      },
-
-      _computeShouldRenderTabs: function(_shouldShowTabs, loadComplete) {
-        return _shouldShowTabs && loadComplete;
-      },
-
-      _computeShouldRenderDrawer: function(smallScreen, loadComplete) {
-        return smallScreen && loadComplete;
-      },
-
-      _computePluralizedQuantity: function(quantity) {
-        return quantity + ' ' + (quantity === 1 ? 'item' : 'items');
-      }
-
-    });
-
-  </script>
+    </script>
 
 </dom-module>
