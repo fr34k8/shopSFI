@@ -30,7 +30,25 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <style is="custom-style">
 
+    :root {
 
+        /* Theme 
+        ******************************************************************/
+        --primary-color:              rgba(70,70,70, 1);    /* gray */
+        --accent-color:               rgba(183,28,28, 1);   /* red */
+
+        /* Dark */
+        --dark-primary:               rgba(0,0,0, .87);
+        --dark-secondary:             rgba(0,0,0, .54);
+        --dark-disabled:              rgba(0,0,0, .38);
+        --dark-divider:               rgba(0,0,0, .12);
+
+        /* Lite */
+        --lite-primary:               rgba(256,256,256, 1);
+        --lite-secondary:             rgba(256,256,256, .7);
+        --lite-disabled:              rgba(256,256,256, .5);
+        --lite-divider:               rgba(256,256,256, .12);
+    }
 
     :host {
 
@@ -44,7 +62,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         --app-accent-color: #b71c1c;
         --app-accent-secondary-color: #ffffff;
         --app-color-white: #ffffff;
-        --primary-color: red;
 
         --paper-button-ink-color: var(--app-accent-secondary-color);
         --paper-icon-button-ink-color: var(--app-accent-secondary-color);

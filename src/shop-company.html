@@ -20,25 +20,96 @@ SHOP COMPANY (page)
 
 <style is="custom-style" include="styles-main styles-fonts component-button component-page">
 
+    :root {
+
+        /* Super Album (Theme)
+        ******************************************************************/
+        --primary-color: #464646; /* Gray */
+        --accent-color: #921616;  /* Red */
+
+        /* Dark */
+        --dark-primary: rgba(0, 0, 0, .87);
+        --dark-secondary: rgba(0, 0, 0, .54);
+        --dark-disabled: rgba(0, 0, 0, .38);
+        --dark-divider: rgba(0, 0, 0, .12);
+
+        /* Lite */
+        --lite-primary: rgba(256, 256, 256, 1);
+        --lite-secondary: rgba(256, 256, 256, .7);
+        --lite-disabled: rgba(256, 256, 256, .5);
+        --lite-divider: rgba(256, 256, 256, .12);
+    }
+
+
     :host {
         display: block;
         position: relative;
         min-height: 100%;
         height: 100%;
+
+        /* Super Hover (Mixins) 
+        ***************************************/
+        --super-gallery {
+            background: lime;
+        };
+        --super-hover {
+            
+        };
+        --super-title {
+            text-transform: uppercase;
+        };
+        --super-description {
+            
+        };
+        --super-header {
+            
+        };
+        --super-footer {
+            
+        };
+        --super-icons {
+            
+        };
+        --open-icon {
+            
+        };
+        --close-icon {
+            
+        };
+        --prev-icon {
+            
+        };
+        --next-icon {
+            
+        };
+        --super-hover {
+            
+        };
+
+        --super-hover-hover {
+            
+        };
     }
+
 
     .photo-wrapper {
         @apply(--layout-horizontal);
-        @apply(--layout-center-center);
+        @apply(--layout-around-justified);
     }
 
-    .photos {
-        @apply(--layout-vertical);
-        @apply(--layout-center-center);
-        margin: 0 2rem;
+    /* Super Album  
+    *****************************************************************/
+    super-album {
+        
+        /* Components */
+        --super-gallery-width:       260px;
+        --super-title-size:          18px;
+        --super-description-size:    auto;
+        --icon-size:                 auto;
+        --super-hover-size:          200px;
+
     }
 
-    .photos h3 {  }
 
 
 
@@ -46,12 +117,11 @@ SHOP COMPANY (page)
 ****************************************************************/
 @media (min-width: 0) and (max-width: 768px) {
 
-/*
-    component-page {
-        --component-page-bg: {
-            background-image: url(../images/location.jpg);
-        };
-    }*/
+    .photo-wrapper {
+        @apply(--layout-vertical);
+        @apply(--layout-center-center);
+    }
+
 
 }
 
@@ -61,12 +131,7 @@ SHOP COMPANY (page)
 ****************************************************************/
 @media (min-width: 769px) and (max-width: 1024px) {
 
-/*
-    component-page {
-        --component-page-bg: {
-            background-image: url(../images/location.jpg);
-        };
-    }*/
+
 
 }
 
@@ -76,47 +141,14 @@ SHOP COMPANY (page)
 ****************************************************************/
 @media (min-width: 1025px) {
 
-/*
-    component-page {
-        --component-page-bg: {
-            background-image: url(../images/location.jpg);
-        };
-    }*/
+
 
 }
-
-
-
-
-
-
-/*  APP BOX
-****************************************************************/
-
-    /*component-page  {
-      --component-page-bg: {
-
-        background-position: bottom;
-        padding-bottom: 100px;
-        margin-top: -400px;
-        height: 800px;
-        width: 100%;
-      };
-    }*/
 
 </style>
 
 
 
-
-<!-- APP ROUTE
-------------------------------------------------------------------------->
-    <!--
-    <app-route
-        route="[[route]]"
-        pattern="/:category"
-        data="{{routeData}}">
-    </app-route> -->
 
 
 
@@ -153,52 +185,57 @@ SHOP COMPANY (page)
     <!-- <h4>{{someOldBull}}</h4> -->
     
     <section class="photo-wrapper">
-        <div class="photos">
-                <!-- Super Album 1 -->
-                <super-album title="Our Shop">
-                    <super-album-photo 
-                        thumbnail="../images/photos/inside/inside-01.jpg" 
-                        src="../images/photos/inside/inside-01.jpg" 
-                        caption="Product">
-                    </super-album-photo>
 
-                    <super-album-photo 
-                        thumbnail="../images/photos/inside/inside-02.jpg" 
-                        src="../images/photos/inside/inside-02.jpg" 
-                        caption="Product">
-                    </super-album-photo>
-                </super-album>
+        <!-- Super Album 1 -->
+        <super-album 
+            title="Process"
+            description="We provide our customers with quality service using the latest and most effective equipment.">
+            <super-album-photo 
+                thumbnail="../images/photos/inside/inside-01.jpg" 
+                src="../images/photos/inside/inside-01.jpg" 
+                caption="Product">
+            </super-album-photo>
 
-                <!-- Super Album 2 -->
-                <super-album title="Directions">
-                    <super-album-photo 
-                        thumbnail="../images/photos/outside/outside-01.jpg" 
-                        src="../images/photos/outside/outside-01.jpg" 
-                        caption="Product">
-                    </super-album-photo>
+            <super-album-photo 
+                thumbnail="../images/photos/inside/inside-02.jpg" 
+                src="../images/photos/inside/inside-02.jpg" 
+                caption="Product">
+            </super-album-photo>
+        </super-album>
 
-                    <super-album-photo 
-                        thumbnail="../images/photos/outside/outside-02.jpg" 
-                        src="../images/photos/outside/outside-02.jpg" 
-                        caption="Product">
-                    </super-album-photo>
-                </super-album>
+        <!-- Super Album 2 -->
+        <super-album 
+            title="Certified"
+            description="Our technicians are highly qualified and factory trained in all the latest technology to provide you with the reliable service..">
+            <super-album-photo 
+                thumbnail="../images/photos/outside/outside-01.jpg" 
+                src="../images/photos/outside/outside-01.jpg" 
+                caption="Product">
+            </super-album-photo>
 
-                <!-- Super Album 3 -->
-                <super-album title="Products">
-                    <super-album-photo 
-                        thumbnail="../images/photos/products/product-01.jpg" 
-                        src="../images/photos/products/product-01.jpg" 
-                        caption="Product">
-                    </super-album-photo>
+            <super-album-photo 
+                thumbnail="../images/photos/outside/outside-02.jpg" 
+                src="../images/photos/outside/outside-02.jpg" 
+                caption="Product">
+            </super-album-photo>
+        </super-album>
 
-                    <super-album-photo 
-                        thumbnail="../images/photos/products/product-02.jpg" 
-                        src="../images/photos/products/product-02.jpg" 
-                        caption="Product">
-                    </super-album-photo>
-                </super-album>
-        </div>
+        <!-- Super Album 3 -->
+        <super-album 
+            title="Rebuilds"
+            description="Our remanufactured injectors meet or exceed Bosch OEM performance and emission requirements and have a one year warranty.">
+            <super-album-photo 
+                thumbnail="../images/photos/products/product-01.jpg" 
+                src="../images/photos/products/product-01.jpg" 
+                caption="Product">
+            </super-album-photo>
+
+            <super-album-photo 
+                thumbnail="../images/photos/products/product-02.jpg" 
+                src="../images/photos/products/product-02.jpg" 
+                caption="Product">
+            </super-album-photo>
+        </super-album>
 
     </section>
 
