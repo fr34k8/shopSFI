@@ -48,10 +48,12 @@ COMPONENT PAGE (template)
     main section fx-skew article.wrapper .bullet-points div ul li iron-icon    {  }
 
 
+    a         { text-decoration: none; }
+    h3        { color: var(--app-primary-color); position: relative; display: inline-block; text-align: center; text-transform: uppercase; font-size: 18px; }
 
-    h3        { color: var(--app-primary-color); position: relative; display: inline-block; text-align: center; }
-    h3:before { content: ""; display: block; position: absolute; top: 50%; right: calc(100% + 10px); height: 1px; width: 40px; background: var(--app-primary-color); }
-    h3:after  { content: ""; display: block; position: absolute; top: 50%; left: calc(100% + 10px); height: 1px; width: 40px; background: var(--app-primary-color); }
+    h4        { color: var(--app-primary-color); position: relative; display: inline-block; text-align: center; text-transform: uppercase; font-size: 18px; }
+    h4:before { content: ""; display: block; position: absolute; top: 50%; right: calc(100% + 10px); height: 1px; width: 40px; background: var(--app-primary-color); }
+    h4:after  { content: ""; display: block; position: absolute; top: 50%; left: calc(100% + 10px); height: 1px; width: 40px; background: var(--app-primary-color); }
 
 
 /*  Mobile
@@ -135,7 +137,6 @@ COMPONENT PAGE (template)
             effects-config='{"parallax-background": {"startsAt": 0, "endsAt": 1}}'>
 
             <content select=".hero-image"></content>
-            <content select=".map-location"></content>
 
             <article class="wrapper text-center flex-vertical center-center mobile-min-height-30 tablet-min-height-40 desktop-min-height-50">
                 <div class="flex-1 blur">
@@ -149,6 +150,10 @@ COMPONENT PAGE (template)
 
                 <figure class="self-end">
                     <content select=".icon-owner"></content>
+                </figure>
+                
+                <figure class="self-center bottom">
+                    <content select=".bottom"></content>
                 </figure>
             </article>
         </app-box>

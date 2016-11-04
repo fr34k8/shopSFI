@@ -37,7 +37,8 @@
     "paper-tooltip": "PolymerElements/paper-tooltip#^1.1.2",
     "paper-dialog-scrollable": "PolymerElements/paper-dialog-scrollable#^1.1.5",
     "neon-animation": "PolymerElements/neon-animation#^1.2.4",
-    "super-album": "oneezy/super-album#^0.8.4"
+    "super-album": "oneezy/super-album#^0.8.5",
+    "super-hover": "oneezy/super-hover#^0.0.3"
   },
   "devDependencies": {
     "web-component-tester": "^4.0.0"

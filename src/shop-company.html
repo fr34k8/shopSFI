@@ -24,14 +24,20 @@ SHOP COMPANY (page)
 
         /* Super Album (Theme)
         ******************************************************************/
-        --primary-color: #464646; /* Gray */
-        --accent-color: #921616;  /* Red */
+        --primary-color: rgba(70,70,70, 1);   /* Gray */
+        --accent-color:  rgba(183,28,28, 1);  /* Red */
 
         /* Dark */
         --dark-primary: rgba(0, 0, 0, .87);
         --dark-secondary: rgba(0, 0, 0, .54);
         --dark-disabled: rgba(0, 0, 0, .38);
         --dark-divider: rgba(0, 0, 0, .12);
+
+        /* Dark Accent*/
+        --dark-accent-primary: rgba(0, 0, 0, .87);
+        --dark-accent-secondary: rgba(0, 0, 0, .54);
+        --dark-accent-disabled: rgba(0, 0, 0, .38);
+        --dark-accent-divider: rgba(0, 0, 0, .12);
 
         /* Lite */
         --lite-primary: rgba(256, 256, 256, 1);
@@ -46,68 +52,58 @@ SHOP COMPANY (page)
         position: relative;
         min-height: 100%;
         height: 100%;
-
-        /* Super Hover (Mixins) 
-        ***************************************/
-        --super-gallery {
-            background: lime;
-        };
-        --super-hover {
-            
-        };
-        --super-title {
-            text-transform: uppercase;
-        };
-        --super-description {
-            
-        };
-        --super-header {
-            
-        };
-        --super-footer {
-            
-        };
-        --super-icons {
-            
-        };
-        --open-icon {
-            
-        };
-        --close-icon {
-            
-        };
-        --prev-icon {
-            
-        };
-        --next-icon {
-            
-        };
-        --super-hover {
-            
-        };
-
-        --super-hover-hover {
-            
-        };
     }
 
 
     .photo-wrapper {
         @apply(--layout-horizontal);
-        @apply(--layout-around-justified);
+        @apply(--layout-center-justified);
+        width: 100%;
     }
 
     /* Super Album  
     *****************************************************************/
-    super-album {
+    super-album { 
+        width: 100%;
         
-        /* Components */
-        --super-gallery-width:       260px;
-        --super-title-size:          18px;
-        --super-description-size:    auto;
-        --icon-size:                 auto;
-        --super-hover-size:          200px;
+        --super-gallery: { 
+            width: 100%;
+            max-width: 100%;
+        };
 
+        --super-hover: {
+            background: var(--lite-primary);
+        };
+
+        --super-hover-hover: {
+            background: var(--accent-color);
+        };
+
+        --super-title: {
+            color: var(--dark-primary);
+            font-size: 18px;
+            text-transform: uppercase;
+            margin: 1rem 0 0;
+        };
+
+        --super-description: {
+            color: var(--dark-secondary);
+        };
+        
+        --super-header: {
+            top: 66px;
+        };
+
+        --super-footer: {
+            display: none;
+        };
+
+        --super-icons: {
+            width: 80px;
+            height: 80px;
+            background: transparent;
+            color: var(--lite-primary);
+        };
     }
 
 
@@ -122,6 +118,16 @@ SHOP COMPANY (page)
         @apply(--layout-center-center);
     }
 
+    /* Super Album  
+    ****************************/
+    super-album {
+        margin: 0 0 2rem;
+        
+        --super-hover: {
+            width: 200px; 
+            height: 200px;
+        };
+    }
 
 }
 
@@ -131,7 +137,21 @@ SHOP COMPANY (page)
 ****************************************************************/
 @media (min-width: 769px) and (max-width: 1024px) {
 
+    .photo-wrapper {
+        @apply(--layout-horizontal);
+        @apply(--layout-center-justified);
+    }
 
+    /* Super Album  
+    ****************************/
+    super-album { 
+        margin: 0 1rem;
+
+        --super-hover: {
+            width: 160px; 
+            height: 160px;
+        };
+    }
 
 }
 
@@ -142,6 +162,21 @@ SHOP COMPANY (page)
 @media (min-width: 1025px) {
 
 
+    .photo-wrapper {
+        @apply(--layout-horizontal);
+        @apply(--layout-center-justified);
+    }
+
+    /* Super Album  
+    ****************************/
+    super-album { 
+        margin: 0 1rem;
+        
+        --super-hover: {
+            width: 200px; 
+            height: 200px;
+        };
+    }
 
 }
 
@@ -239,20 +274,24 @@ SHOP COMPANY (page)
 
     </section>
 
+    <!--
     <p>
         We at Sulphur Fuel & Injection Service, Ltd. provide
         our customers with quality service using the latest and most effective equipment.
         Our technicians are highly qualified and factory trained in all the latest
         technology to provide you with the reliable service you deserve and expect.
     </p>
+    -->
 
+    <!--
     <template id="goto-url" is="dom-if" if="{{!_showContent(someOldBull)}}" restamp="true">
         <component-button>
             <a href="/company" aria-label="Learn More">Learn More</a>
         </component-button>
     </template>
+    -->
 
-
+    <!--
     <template id="extra-content" is="dom-if" if="{{_showContent(someOldBull)}}" restamp="true">
         <h3>Services</h3>
         <ul>
@@ -265,7 +304,7 @@ SHOP COMPANY (page)
             <li>Rebuild Diesel Fuel Injection Pumps and Injectors for most ALL types of Diesel Engines</li>
         </ul>
     </template>
-
+    -->
 
 
     </component-page>

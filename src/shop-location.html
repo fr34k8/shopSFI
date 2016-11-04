@@ -22,19 +22,13 @@ SHOP LOCATION (page)
     :host {
         display: block;
         position: relative;
-        min-height: 100%;
         height: 100%;
+        min-height: 100%;
     }
-
+    
     .photo-wrapper {
-        @apply(--layout-horizontal);
-        @apply(--layout-center-center);
-    }
-
-    .photos {
         @apply(--layout-vertical);
         @apply(--layout-center-center);
-        margin: 0 2rem;
     }
 
     .photos h3 {  }
@@ -101,9 +95,8 @@ SHOP LOCATION (page)
       };
     }*/
 
-
-    .map-location                   { height: 25vh; width: 290px; position: relative; border-bottom: 4px solid silver; }
-    .map-location
+    .hero-image                     { height: 25vh; }
+    .super-hover-map                { height: 450px; padding: 0 0 25px; }
     .map-location img               { display: inline-block; max-width: 100%; position: absolute; left: calc(50% - 40px); top: calc(100% - 24px); z-index: 1; }
 
     /*google-map        { -webkit-filter: grayscale(1); filter: grayscale(1); }*/
@@ -154,7 +147,7 @@ SHOP LOCATION (page)
       <google-map id="map"
                   class="hero-image"
                   disable-default-ui
-                  latitude="30.236345"
+                  latitude="30.235745"
                   longitude="-93.314282"
                   zoom="18"
                   api-key="AIzaSyA5SYKRx5yogz5_NUsMvQtCy1plDAamKYE">
@@ -170,79 +163,35 @@ SHOP LOCATION (page)
     <!-- Top Content -->
     <h1>Our Location</h1>
     <h2>121 Industrial Dr, Sulphur, LA 70663</h2>
-    <div class="top-content">
-    </div>
 
-
-
-
+    <section class="photo-wrapper bottom super-hover-map">
+        
+        <a class="bottom" href="https://www.google.com/maps/place/Sulphur+Fuel+Injection/@30.2360406,-93.3144457,17z/data=!3m1!4b1!4m15!1m9!4m8!1m0!1m6!1m2!1s0x863b8ee90c5001cd:0x84cdcf8337373941!2sSulphur+Fuel+Injection,+121+Industrial+Dr,+Sulphur,+LA+70663!2m2!1d-93.312257!2d30.236036!3m4!1s0x863b8ee90c5001cd:0x84cdcf8337373941!8m2!3d30.236036!4d-93.312257" aria-label="Get Directions" target="_blank">
+            <section class="photo-wrapper">
+                    <super-hover>
+                        <iron-image src="../images/photos/outside/outside-01.jpg" preload sizing="cover"></iron-image>
+                    </super-hover>
+                    <h3>Get Directions</h3>
+            </section>
+        </a>
+        
+    </section>
 
 
     <!-- BOTTOM
     ---------------------------------------------->
     <!-- <h4>{{someOldBull}}</h4> -->
 
-    <section class="photo-wrapper">
-        <div class="photos">
-            <photo-album>
-                <photo-album-photo
-                    thumbnail="../images/photos/outside/outside-01.jpg"
-                    src="../images/photos/outside/outside-01.jpg"
-                    caption="First image">
-                </photo-album-photo>
-            </photo-album>
 
-            <h3>Our Shop</h3>
-        </div>
-        
-
-        <div class="photos">
-            <photo-album>
-                <photo-album-photo
-                    thumbnail="../images/photos/outside/outside-02.jpg"
-                    src="../images/photos/outside/outside-02.jpg"
-                    caption="First image">
-                </photo-album-photo>
-            </photo-album>
-
-            <h3>Get Directions</h3>
-        </div>
-
-        <div class="photos">
-            <photo-album>
-                <photo-album-photo
-                    thumbnail="../images/photos/products/product-04.jpg"
-                    src="../images/photos/products/product-04.jpg"
-                    caption="First image">
-                </photo-album-photo>
-            </photo-album>
-
-            <h3>Before & After</h3>
-        </div>
-    </section>
 
     <p>
         Business hours are Monday through Friday, 7:30am to 4:00pm Central Standard Time. All internet orders, emails, and faxes are processed during our normal business hours.
     </p>
-
+<!--
     <component-button>
         <a href="https://www.google.com/maps/place/Sulphur+Fuel+Injection/@30.2360406,-93.3144457,17z/data=!3m1!4b1!4m15!1m9!4m8!1m0!1m6!1m2!1s0x863b8ee90c5001cd:0x84cdcf8337373941!2sSulphur+Fuel+Injection,+121+Industrial+Dr,+Sulphur,+LA+70663!2m2!1d-93.312257!2d30.236036!3m4!1s0x863b8ee90c5001cd:0x84cdcf8337373941!8m2!3d30.236036!4d-93.312257" aria-label="Get Directions" target="_blank">Get Directions</a>
     </component-button>
-
-
-    <template id="extra-content" is="dom-if" if="{{_showContent(someOldBull)}}" restamp="true">
-        <h3>Services</h3>
-        <ul>
-            <li>Complete rebuild of Diesel Fuel Injection Components</li>
-            <li>Rebuild today's popular Diesel Fuel Injection Pumps and Injectors</li>
-            <li>Rebuild 12 valve and 24 valve Cummins Fuel Injection Pumps in house</li>
-            <li>Test and rebuild Duramax and Dodge Common Rail Injectors</li>
-            <li>Test and rebuild Injectors</li>
-            <li>Carry FPPF and Stanadyne Diesel Fuel Treatment</li>
-            <li>Rebuild Diesel Fuel Injection Pumps and Injectors for most ALL types of Diesel Engines</li>
-        </ul>
-    </template>
-
+-->
 
 
     </component-page>
